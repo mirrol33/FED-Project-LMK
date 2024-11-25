@@ -1,4 +1,7 @@
-window.scrollTo(0, 0); // 새로고침시 스크롤 위치를 맨 위로 이동
+window.addEventListener("DOMContentLoaded", loadFn);
+function loadFn() {
+    window.scrollTo(0, 0); // 새로고침시 스크롤 위치를 맨 위로 이동
+}
 
 // Lenis 초기화 start
 const lenis = new Lenis({
@@ -20,10 +23,10 @@ lenis.stop(); // 로드시 lenis 스크롤 애니메이션 멈춤
 this.setTimeout(() => {
     mainVideo(); // mainVideo 함수 실행
     document.body.style.overflowY = "auto"; // 스크롤바 보이기
-    checkScrollPosition(); // 스크롤시 메뉴바 배경색변경 함수 실행    
+    lenis.start(); // lenis 스크롤 애니메이션 실행
 }, 3000); //// 로드 3초후 실행 ////
 
-lenis.start(); // lenis 스크롤 애니메이션 실행
+checkScrollPosition(); // 스크롤시 메뉴바 배경색변경 함수 실행
 
 // 동영상 자동재생 start
 function mainVideo() {
@@ -73,7 +76,9 @@ console.log("가로스크롤영역 타이틀 왼쪽위치",horizontalBoxTitle.of
 
 horizontalSection.style.transform = `translateX(${horizontalBoxTitle.offsetLeft}px)`; // 초기화
 
+// 로드 3초후 실행 start
 this.setTimeout(() => {
+    // 가로스크롤 영역 start
     const vBox2 = document.querySelector('.section-02');
     const horizontalBox = document.querySelector('.horizontal-box');
     const horizontalBoxTop = window.innerHeight + vBox2.offsetHeight; //horizontalBox.offsetTop 대체 (가로스크롤영역 위치)
@@ -108,7 +113,9 @@ this.setTimeout(() => {
       // if (scrollProgress > 1.4) {
       //   horizontalSection.style.transform = `translateX(${-1.6 * scrollMax}px)`;
       // }
+      
+      /// end 가로스크롤 영역 ///
 
     });
-  }, 3000);
+  }, 3000); //// 로드 3초후 실행 ////
   

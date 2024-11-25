@@ -26,6 +26,10 @@ main section .inner {
   padding-bottom: 180px;
 }
 
+.section-03 {
+  height: 200svw;
+}
+
 .section-04 {
   padding-bottom: 180px;
 }
@@ -270,9 +274,9 @@ video {
   transform: translateX(0); /* 초기 위치 */
   transition: 0.3s linear; /* 부드러운 이동 효과 */
 }
-.horizontal-section-stop {
+/* .horizontal-section-stop {
   height:100svw
-}
+} */
 
 /* 스크롤 상품이미지 */
 .product-img {
@@ -599,8 +603,8 @@ video {
 
   /* mo 스크롤 상품이미지 */
   .product-img {
-    width: 70svw;
-    height: 70svw;
+    width: min(max(70svw), 40svw);
+    height: min(max(70svw), 40svw);
   }
 
   /* mo 스크롤 상품명 */
