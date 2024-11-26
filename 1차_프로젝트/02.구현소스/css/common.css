@@ -101,6 +101,7 @@ body {
     display: none;
   }
 }
+/* 상담하기 퀵메뉴 영역 */
 .quick-btn {
   position: fixed;
   right: 100px;
