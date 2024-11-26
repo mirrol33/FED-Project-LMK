@@ -633,6 +633,9 @@ video {
         gap: 0 6svw;
     }
     /* mo 가로스크롤 상품설명 */
+    .product-info span {
+        margin-bottom: 1.75rem;
+    }
     .product-info h4 {
         font-size: max(2vw, 0.8rem);
         font-weight: 400;
@@ -644,7 +647,7 @@ video {
         margin-bottom: 4svw;
     }
     .product-info p {
-        font-size: max(2.8vw, 1vw);
+        font-size: max(2.8vw, 1rem);
         line-height: normal;
     }
 
