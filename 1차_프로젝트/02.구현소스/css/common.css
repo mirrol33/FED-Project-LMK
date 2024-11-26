@@ -153,10 +153,10 @@ body::-webkit-scrollbar-track {
   /* mo 상담하기 퀵메뉴 영역 */
   .quick-btn {
     right: 10px;
-    bottom: 40px;
+    bottom: 50px;
     width: 40px;
   }
   .quick-btn a {
-    width: 50px;
+    width: 40px;
   }
 }
