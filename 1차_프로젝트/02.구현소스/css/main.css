@@ -1,4 +1,4 @@
-/* 메인 영역 */
+/*************************** 메인 컨텐츠 영역 ***************************/
 main section {
   position: relative;
 }
@@ -7,7 +7,7 @@ main section:first-child {
   min-height: 100svh;
 }
 
-main section+section {
+main section + section {
   background-color: #fff;
 }
 
@@ -34,6 +34,7 @@ main section .inner {
   padding-bottom: 180px;
 }
 
+/* 메인 동영상 영역 */
 .visual {
   position: fixed;
   left: 0;
@@ -43,7 +44,6 @@ main section .inner {
   z-index: -1;
 }
 
-/* 동영상 영역 */
 .video-area {
   position: relative;
   width: 100svw;
@@ -59,7 +59,7 @@ video {
   height: 100%;
 }
 
-/* 흐르는 텍스트 영역 */
+/* 흐르는 LOOP 텍스트 */
 .loop-text {
   overflow: hidden;
   white-space: nowrap;
@@ -123,7 +123,7 @@ video {
   }
 }
 
-/* 컨텐츠 영역 */
+/* 메인 ABOUT, CONTACT 컨텐츠 영역 */
 .about-boxs,
 .contact-boxs {
   position: relative;
@@ -131,7 +131,7 @@ video {
   display: flex;
 }
 
-/* 이미지 영역 */
+/* 이미지 박스 */
 .imgbox-area {
   position: relative;
   width: 100%;
@@ -186,7 +186,7 @@ video {
   margin-top: 200px;
 }
 
-/* 텍스트 영역 */
+/* 텍스트 박스 */
 .textbox {
   position: absolute;
   bottom: 0;
@@ -223,7 +223,7 @@ video {
   letter-spacing: -0.1rem;
 }
 
-/* 버튼 영역 */
+/* 더보기 버튼 */
 .more-btn {
   position: relative;
   margin-top: 40px;
@@ -242,7 +242,7 @@ video {
   padding-left: 60px;
 }
 
-/* 스크롤 상품 영역 */
+/* 메인 가로스크롤 영역 */
 .product-boxs {
   position: relative;
   width: 100svw;
@@ -278,7 +278,7 @@ video {
   height:100svw
 } */
 
-/* 스크롤 상품이미지 */
+/* 메인 가로스크롤 영역 상품이미지 */
 .product-img {
   position: relative;
   width: 400px;
@@ -293,7 +293,7 @@ video {
   background: url(../images/scroll_product_img01.png) no-repeat center/122%;
 }
 
-/* 스크롤 상품명 */
+/* 가로스크롤 영역 상품명 */
 .product-name {
   width: auto;
   overflow: hidden;
@@ -318,7 +318,7 @@ video {
   display: none;
 }
 
-/* 라운드 순번 */
+/* 가로스크롤 영역 순번 */
 .circle-number {
   position: relative;
   width: 184px;
@@ -353,7 +353,7 @@ video {
   justify-content: center;
 }
 
-/* 스크롤 상품설명 */
+/* 가로스크롤 영역 상품설명 */
 .product-info-area {
   display: flex;
   gap: 0 10svw;
@@ -396,7 +396,7 @@ video {
   line-height: 2rem;
 }
 
-/* 인스타그램 영역 */
+/* 메인 인스타그램 컨텐츠 영역 */
 .insta-boxs {
   padding-top: 250px;
   padding-bottom: 180px;
@@ -450,25 +450,25 @@ video {
   height: auto;
 }
 
-/************************ 미디어쿼리 ************************/
+/******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
-
-  /* mo 메인영역 */
+  /* mo 메인 컨텐츠 영역 */
   main section .inner {
     width: 96%;
     padding-bottom: 10svh;
   }
-  .section-02, .section-04 {
+  .section-02,
+  .section-04 {
     padding-bottom: 40svw;
   }
 
-  /* mo 컨텐츠 영역 */
+  /* mo 메인 ABOUT, CONTACT 컨텐츠 영역 */
   .about-boxs,
   .contact-boxs {
     display: block;
   }
 
-  /* mo 흐르는 텍스트 영역 */
+  /* mo 흐르는 LOOP 텍스트 */
   .loop-text {
     top: 1.5%;
   }
@@ -477,7 +477,7 @@ video {
     font-size: 12vw;
   }
 
-  /* mo 이미지 영역 */
+  /* mo 이미지 박스 */
   .about-imgbox {
     flex-direction: column;
   }
@@ -533,9 +533,7 @@ video {
     background-position: center;
   }
 
- 
-
-  /* mo 텍스트 영역 */
+  /* mo 텍스트 박스 */
   .textbox {
     position: relative;
     text-align: center;
@@ -564,7 +562,7 @@ video {
     margin-top: 4%;
   }
 
-  /* mo 버튼 영역 */
+  /* mo 더보기 버튼 */
   .more-btn {
     margin-top: 6vw;
   }
@@ -574,12 +572,12 @@ video {
     padding: max(4vw, 2vw);
   }
 
-   .more-btn a img {
+  .more-btn a img {
     padding-left: max(6vw, 4vw);
     height: 1.4vh;
   }
 
-  /* mo 스크롤 상품 영역 */
+  /* mo 가로스크롤 상품 영역 */
   .product-boxs {
     /* padding-top: 14%; */
   }
@@ -587,7 +585,7 @@ video {
   .product-title-box {
     width: 80%;
     margin: 0 auto;
-    /* margin-top: -60%; */  
+    /* margin-top: -60%; */
     align-items: flex-start;
     flex-direction: column-reverse;
   }
@@ -598,16 +596,16 @@ video {
     width: 600svw;
   }
   .horizontal-section-stop {
-    height: 200svw
+    height: 200svw;
   }
 
-  /* mo 스크롤 상품이미지 */
+  /* mo 가로스크롤 상품이미지 */
   .product-img {
     width: min(max(70svw), 40svw);
     height: min(max(70svw), 40svw);
   }
 
-  /* mo 스크롤 상품명 */
+  /* mo 가로스크롤 상품명 */
   .product-name span {
     font-size: max(2vw, 0.8rem);
     letter-spacing: 0.3rem;
@@ -617,14 +615,14 @@ video {
   .product-name h3 {
     font-size: max(8vw, 2.5rem);
     letter-spacing: -0.02rem;
-    margin-top: 2svh;  
+    margin-top: 2svh;
   }
 
   .product-name h3 br {
     display: block;
   }
 
-  /* mo 라운드 순번 */
+  /* mo 가로스크롤 영역 순번 */
   .circle-number {
     margin-left: 0;
     position: absolute;
@@ -636,23 +634,23 @@ video {
   .product-info-area {
     gap: 0 6svw;
   }
-  /* mo 스크롤 상품설명 */
-.product-info h4 {
-  font-size: max(2vw, 0.8rem);
-  font-weight: 400;
-  letter-spacing: 0.2rem;
-  margin-bottom: 2svw;
-}
-.product-info h5 {
-  font-size: max(4vw, 2rem);
-  margin-bottom: 4svw;
-}
-.product-info p {
-  font-size: max(2vw, 1.25rem);
-  line-height: normal;
-}
+  /* mo 가로스크롤 상품설명 */
+  .product-info h4 {
+    font-size: max(2vw, 0.8rem);
+    font-weight: 400;
+    letter-spacing: 0.2rem;
+    margin-bottom: 2svw;
+  }
+  .product-info h5 {
+    font-size: max(4vw, 2rem);
+    margin-bottom: 4svw;
+  }
+  .product-info p {
+    font-size: max(2vw, 1.25rem);
+    line-height: normal;
+  }
 
-  /* mo 인스타그램 영역 */
+  /* mo 메인 인스타그램 영역 */
   .insta-boxs {
     padding-bottom: 10svh;
     padding-top: 10%;
@@ -673,7 +671,7 @@ video {
     padding: 0 15%;
   }
 
-  .insta-imgboxs ul li+li {
+  .insta-imgboxs ul li + li {
     display: none;
   }
 
@@ -687,5 +685,6 @@ video {
     margin: 0 auto;
   }
 }
-@media all and (max-width:768px){
-} 
+/******************************* 미디어쿼리(768px이하) *******************************/
+@media all and (max-width: 768px) {
+}
