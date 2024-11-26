@@ -13,7 +13,6 @@
   --color-bg-loading: #ddd;
   --color-primary: #AB0004;
   --color-secondary: #840012;
-  --font-style-basic: "Pretendard Variable", Pretendard, sans-serif;
   --font-color-normal: #1c1c1c;
   --font-color-primary: #AB0004;
   --font-color-secondary: #777;
@@ -24,7 +23,7 @@ html,
 body {
   font-size: 16px;
   color: var(--font-color-normal);
-  font-family: var(--font-basic);
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
 }
 
 body {
