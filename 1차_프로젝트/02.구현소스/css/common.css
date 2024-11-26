@@ -23,15 +23,17 @@
 html,
 body {
   font-size: 16px;
-  color:var(--font-color-normal);
+  color: var(--font-color-normal);
   font-family: var(--font-basic);
 }
+
 body {
   width: 100%;
   height: auto;
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 * {
   transition: .3s ease-out;
 }
@@ -53,16 +55,19 @@ body {
   opacity: 1;
   animation: loading-off 1s 2.8s forwards;
 }
+
 .loading-title {
   position: relative;
   width: 380px;
   height: auto;
   z-index: 2;
 }
+
 .loading-title img {
   width: 100%;
   height: auto;
 }
+
 .process {
   position: relative;
   margin-top: 20px;
@@ -70,12 +75,14 @@ body {
   height: 5px;
   background-color: var(--color-bg-basic);
 }
+
 .processing {
   width: 0;
   height: 100%;
   background-color: var(--color-primary);
   animation: processing 1s forwards;
 }
+
 .loading-on {
   position: absolute;
   top: 100%;
@@ -85,45 +92,60 @@ body {
   background-color: var(--color-primary);
   animation: loading-on 1s 1s forwards;
 }
+
 @keyframes processing {
   to {
     width: 100%;
   }
 }
+
 @keyframes loading-on {
   to {
     top: 0;
   }
 }
+
 @keyframes loading-off {
   to {
     opacity: 0;
     display: none;
   }
 }
+
 /* 상담하기 퀵메뉴 영역 */
 .quick-btn {
   position: fixed;
   right: 100px;
   bottom: 100px;
 }
+
 /* 스크롤바 스타일변경 */
 body::-webkit-scrollbar {
   width: 8px;
 }
+
 body::-webkit-scrollbar-thumb {
   background-color: var(--color-primary);
   border-radius: 10px;
   background-clip: padding-box;
   border: 2px solid transparent;
 }
+
 body::-webkit-scrollbar-track {
   background-color: #fff;
 }
-/************************ 미디어쿼리 ************************/
-/* 테블릿 */
-@media all and (max-width:1200px){
+
+/******************************* 미디어쿼리(1200px이하) *******************************/
+@media all and (max-width:1200px) {
+  /* mo 로딩 화면 */
   .loading-title {
     width: 60%;
+  }
+
+  /* mo 상담하기 퀵메뉴 영역 */
+  .quick-btn {
+    position: fixed;
+    right: 10px;
+    bottom: 50px;
   }
 }
