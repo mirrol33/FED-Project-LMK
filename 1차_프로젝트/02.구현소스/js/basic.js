@@ -15,7 +15,6 @@ document.body.style.overflow = "hidden"; // 로드시 스크롤바 숨김
 lenis.stop(); // 로드시 lenis 스크롤 애니메이션 멈춤
 
 window.addEventListener("load", scrollTop); // 새로고침시 스크롤 위치를 맨 위로 이동
-window.addEventListener("resize", scrollTop); // 리사이징시 스크롤 위치를 맨 위로 이동
 
 function scrollTop() {
     window.scrollTo(0, 0);
