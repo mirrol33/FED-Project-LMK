@@ -101,6 +101,11 @@ body {
     display: none;
   }
 }
+.quick-btn {
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+}
 /* 스크롤바 스타일변경 */
 body::-webkit-scrollbar {
   width: 8px;

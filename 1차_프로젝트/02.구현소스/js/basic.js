@@ -1,8 +1,3 @@
-window.addEventListener("DOMContentLoaded", loadFn);
-function loadFn() {
-    window.scrollTo(0, 0); // 새로고침시 스크롤 위치를 맨 위로 이동
-}
-
 // Lenis 초기화 start
 const lenis = new Lenis({
     duration: 1.8, // 부드러운 스크롤 지속 시간
@@ -18,6 +13,13 @@ requestAnimationFrame(raf); // Lenis 루프 실행
 
 document.body.style.overflow = "hidden"; // 로드시 스크롤바 숨김
 lenis.stop(); // 로드시 lenis 스크롤 애니메이션 멈춤
+
+window.addEventListener("load", scrollTop); // 새로고침시 스크롤 위치를 맨 위로 이동
+window.addEventListener("resize", scrollTop); // 리사이징시 스크롤 위치를 맨 위로 이동
+
+function scrollTop() {
+    window.scrollTo(0, 0);
+}
 
 // 로드 3초후 실행 start
 this.setTimeout(() => {
@@ -104,7 +106,7 @@ this.setTimeout(() => {
         console.log("가로스크롤 Progress:", scrollProgress);
 
         // 가로 스크롤 진행
-        if (scrollProgress >= 0) {
+        if (scrollProgress >= 0 && scrollProgress <= 1.6) {
             let transformValue = -scrollProgress * scrollMax;
             console.log("가로스크롤 진행값:", transformValue);
             horizontalSection.style.transform = `translateX(${transformValue}px)`;
@@ -112,10 +114,10 @@ this.setTimeout(() => {
             horizontalSection.style.transform = `translateX(${horizontalBoxTitle.offsetLeft}px)`; // 초기화
         }
 
-        // scrollProgress가 1.4를 초과하면 transform 유지
-        // if (scrollProgress > 1.4) {
-        //   horizontalSection.style.transform = `translateX(${-1.6 * scrollMax}px)`;
-        // }
+        // scrollProgress가 1.6를 초과하면 transform 유지
+        if (scrollProgress > 1.6) {
+          horizontalSection.style.transform = `translateX(${-1.6 * scrollMax}px)`;
+        }
 
         /// end 가로스크롤 영역 ///
     });
