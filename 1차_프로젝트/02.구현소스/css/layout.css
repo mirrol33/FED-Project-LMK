@@ -145,7 +145,7 @@ nav ul > li:last-child:hover a::before {
 }
 .sub-menu > ul {
     flex-direction: column;
-    gap: 2.5svh;
+    gap: 4svh;
     padding: 4svh 0;
 }
 .sub-menu > ul li a {
