@@ -94,7 +94,7 @@ main section .inner {
     padding-right: 50px;
     font-size: 7vw;
     line-height: 1;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     color: #ccc;
 }
 
@@ -194,7 +194,7 @@ main section .inner {
 
 .textbox span {
     font-size: 16px;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     letter-spacing: 0.6rem;
     color: var(--font-color-primary);
 }
@@ -203,7 +203,7 @@ main section .inner {
     margin-top: 4px;
     margin-left: -4px;
     font-size: 60px;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     line-height: 1;
     letter-spacing: -0.1rem;
     color: #1c1c1c;
@@ -213,7 +213,7 @@ main section .inner {
     margin-top: 24px;
     color: #777;
     font-size: 24px;
-    font-weight: 200;
+    font-weight: var(--font-weight-light);
     line-height: 1.4;
     letter-spacing: -0.1rem;
 }
@@ -229,7 +229,7 @@ main section .inner {
     border: 1px solid #777;
     display: inline-block;
     font-size: 16px;
-    font-weight: 200;
+    font-weight: var(--font-weight-light);
     color: #777;
 }
 
@@ -297,13 +297,13 @@ main section .inner {
 .product-name span {
     color: var(--color-primary);
     font-size: 1.5em;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     letter-spacing: 0.6em;
 }
 
 .product-name h3 {
     font-size: 5em;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     letter-spacing: -0.06em;
 }
 .product-name h3 br {
@@ -336,7 +336,7 @@ main section .inner {
 
 .circle-number-inner li {
     font-size: 5em;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     color: var(--color-primary);
     width: 184px;
     height: 184px;
@@ -362,7 +362,7 @@ main section .inner {
     width: 40px;
     height: 4px;
     display: block;
-    font-weight: 200;
+    font-weight: var(--font-weight-light);
     margin-bottom: 3.75rem;
 }
 
@@ -376,7 +376,7 @@ main section .inner {
 
 .product-info h5 {
     font-size: 3em;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     margin-bottom: 1.5rem;
     letter-spacing: -0.1rem;
 }
@@ -384,7 +384,7 @@ main section .inner {
 .product-info p {
     font-size: 1.25rem;
     letter-spacing: -0.04rem;
-    font-weight: 200;
+    font-weight: var(--font-weight-light);
     line-height: 2rem;
 }
 
@@ -402,7 +402,7 @@ main section .inner {
 
 .insta-title {
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: var(--font-weight-bold);
     letter-spacing: -0.1rem;
     position: absolute;
     top: 0;
@@ -603,7 +603,7 @@ main section .inner {
     .product-name span {
         font-size: max(2vw, 0.8rem);
         letter-spacing: 0.3rem;
-        font-weight: 400;
+        font-weight: var(--font-weight-normal);
     }
 
     .product-name h3 {
@@ -634,7 +634,7 @@ main section .inner {
     }
     .product-info h4 {
         font-size: max(2vw, 0.8rem);
-        font-weight: 400;
+        font-weight: var(--font-weight-normal);
         letter-spacing: 0.2rem;
         margin-bottom: 2svw;
     }
