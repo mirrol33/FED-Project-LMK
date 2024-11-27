@@ -214,7 +214,7 @@ video {
     margin-top: 24px;
     color: #777;
     font-size: 24px;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 1.4;
     letter-spacing: -0.1rem;
 }
@@ -230,7 +230,7 @@ video {
     border: 1px solid #777;
     display: inline-block;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 200;
     color: #777;
 }
 
@@ -301,7 +301,7 @@ video {
 .product-name span {
     color: var(--color-primary);
     font-size: 1.5em;
-    font-weight: 300;
+    font-weight: 200;
     letter-spacing: 0.6em;
 }
 
@@ -366,7 +366,7 @@ video {
     width: 40px;
     height: 4px;
     display: block;
-    font-weight: 300;
+    font-weight: 200;
     margin-bottom: 3.75rem;
 }
 
@@ -388,7 +388,7 @@ video {
 .product-info p {
     font-size: 1.25rem;
     letter-spacing: -0.04rem;
-    font-weight: 300;
+    font-weight: 200;
     line-height: 2rem;
 }
 
