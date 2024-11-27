@@ -543,7 +543,7 @@ main section .inner {
 
     .textbox h2 {
         font-size: max(8vw, 2.5rem);
-        letter-spacing: -0.02rem;
+        letter-spacing: -0.05rem;
         margin-left: 0;
         margin-top: 2%;
     }
@@ -583,8 +583,8 @@ main section .inner {
     }
 
     .horizontal-box {
-      margin-top: -60%;
-      padding-top: 20%;
+      margin-top: -60svw;
+      padding-top: 10svw;
     }
 
     .horizontal-section {
@@ -594,8 +594,8 @@ main section .inner {
     }
     /* mo 가로스크롤 상품이미지 */
     .product-img {
-        width: min(max(60svw), 80svw);
-        height: min(max(60svw), 80svw);
+        width: min(max(60svw), 50svw);
+        height: min(max(60svw), 50svw);
         margin: 0 auto;
     }
 
