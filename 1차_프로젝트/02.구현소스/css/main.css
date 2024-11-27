@@ -12,7 +12,7 @@ main section + section {
 }
 
 main .bgc-01 {
-    background-color: #f8e5e3;
+    background-color: var(--color-bg-pink);
 }
 
 main .bgc-02 {
@@ -36,7 +36,6 @@ main section .inner {
     left: 0;
     top: 0;
     width: 100svw;
-    min-height: 100svh;
     z-index: -1;
 }
 
@@ -46,13 +45,13 @@ main section .inner {
     height: 100svh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
     background-color: var(--color-primary);
     overflow: hidden;
 }
 
-video {
-    height: 100%;
+#main-video {
+    object-fit: cover;
 }
 
 /* 흐르는 LOOP 텍스트 */

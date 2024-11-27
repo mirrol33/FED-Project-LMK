@@ -20,12 +20,12 @@ function scrollTop() {
     window.scrollTo(0, 0);
 }
 
-// 로드 3초후 실행 start
+// 3초후 실행 start
 this.setTimeout(() => {
     mainVideo(); // mainVideo 함수 실행
     document.body.style.overflowY = "auto"; // 스크롤바 보이기
     lenis.start(); // lenis 스크롤 애니메이션 실행
-}, 3000); //// 로드 3초후 실행 ////
+}, 3000); //// 3초후 실행 ////
 
 checkScrollPosition(); // 스크롤시 메뉴바 배경색변경 함수 실행
 
@@ -64,7 +64,7 @@ function checkScrollPosition() {
 window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
 window.addEventListener("resize", checkScrollPosition); // 리사이징시 메뉴바 위치확인
 
-// 로드 3초후 실행 start
+// 3초후 실행 start
 this.setTimeout(() => {
     // 가로스크롤 영역 start
     const vBox2 = document.querySelector(".section-02");
@@ -107,4 +107,12 @@ this.setTimeout(() => {
 
         /// end 가로스크롤 영역 ///
     });
-}, 3000); //// 로드 3초후 실행 ////
+}, 3000); //// 3초후 실행 ////
+
+// 햄버거 메뉴 start
+var burger = document.querySelector('.menu-trigger');
+var submenu = document.querySelector('.sub-menu')
+burger.addEventListener('click', ()=>{
+    burger.classList.toggle('on');
+    submenu.classList.toggle('on');
+})
