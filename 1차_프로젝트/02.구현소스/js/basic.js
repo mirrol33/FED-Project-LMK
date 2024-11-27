@@ -64,19 +64,6 @@ function checkScrollPosition() {
 window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
 window.addEventListener("resize", checkScrollPosition); // 리사이징시 메뉴바 위치확인
 
-const vBox2 = document.querySelector(".section-02");
-const horizontalBox = document.querySelector(".horizontal-box");
-const horizontalBoxTop = window.innerHeight + vBox2.offsetHeight; //horizontalBox.offsetTop 대체 (가로스크롤영역 위치)
-
-let horizontalSection = document.querySelector(".horizontal-section");
-let scrollMax = horizontalSection.scrollWidth - window.innerWidth; // 가로스크롤 가능넓이
-console.log("가로스크롤 가능넓이:", scrollMax);
-
-const horizontalBoxTitle = document.querySelector(".product-title-box");
-console.log("가로스크롤영역 타이틀 왼쪽위치", horizontalBoxTitle.offsetLeft);
-
-horizontalSection.style.transform = `translateX(${horizontalBoxTitle.offsetLeft}px)`; // 초기화
-
 // 로드 3초후 실행 start
 this.setTimeout(() => {
     // 가로스크롤 영역 start
@@ -85,7 +72,7 @@ this.setTimeout(() => {
     const horizontalBoxTop = window.innerHeight + vBox2.offsetHeight; //horizontalBox.offsetTop 대체 (가로스크롤영역 위치)
 
     let horizontalSection = document.querySelector(".horizontal-section");
-    let scrollMax = horizontalSection.scrollWidth - window.innerWidth; // 가로스크롤 가능넓이
+    let scrollMax = (horizontalSection.scrollWidth - window.innerWidth) * 0.8; // 가로스크롤 가능넓이
     console.log("가로스크롤 가능넓이:", scrollMax);
 
     const horizontalBoxTitle = document.querySelector(".product-title-box");
@@ -105,7 +92,7 @@ this.setTimeout(() => {
         console.log("가로스크롤 Progress:", scrollProgress);
 
         // 가로 스크롤 진행
-        if (scrollProgress >= 0 && scrollProgress <= 1.6) {
+        if (scrollProgress >= 0 && scrollProgress <= 1.5) {
             let transformValue = -scrollProgress * scrollMax;
             console.log("가로스크롤 진행값:", transformValue);
             horizontalSection.style.transform = `translateX(${transformValue}px)`;
@@ -113,9 +100,9 @@ this.setTimeout(() => {
             horizontalSection.style.transform = `translateX(${horizontalBoxTitle.offsetLeft}px)`; // 초기화
         }
 
-        // scrollProgress가 1.6를 초과하면 transform 유지
-        if (scrollProgress > 1.6) {
-          horizontalSection.style.transform = `translateX(${-1.6 * scrollMax}px)`;
+        // scrollProgress가 1.5를 초과하면 transform 유지
+        if (scrollProgress > 1.5) {
+          horizontalSection.style.transform = `translateX(${-1.5 * scrollMax}px)`;
         }
 
         /// end 가로스크롤 영역 ///
