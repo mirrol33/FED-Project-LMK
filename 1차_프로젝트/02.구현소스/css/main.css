@@ -244,6 +244,13 @@ main section .inner {
     height: 160svw;
     padding-top: 140px;
 }
+.product-boxs hr {
+    border: 0;
+    width: 100%;
+    height: 1px;
+    background: #fff;
+    margin: 0 auto;
+}
 
 .product-title-box {
     position: relative;
@@ -318,10 +325,21 @@ main section .inner {
     overflow: hidden;
     margin-left: -60px;
     margin-top: 55px;
+    z-index: -1;
 }
 
 .circle-number span {
     position: absolute;
+}
+
+.circle-number span img {
+    animation: circle-rotate-ani 8s linear infinite;
+    
+}
+@keyframes circle-rotate-ani {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .circle-number-inner {
@@ -572,7 +590,7 @@ main section .inner {
     /* mo 가로스크롤 상품 영역 */
     .product-boxs {
       height: 360svw;
-      padding-top: 10%;
+      padding-top: 10svw;
     }
 
     .product-title-box {
