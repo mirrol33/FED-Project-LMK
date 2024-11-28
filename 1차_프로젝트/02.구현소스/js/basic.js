@@ -20,12 +20,12 @@ function scrollTop() {
     window.scrollTo(0, 0);
 }
 
-// 3초후 실행 start
+// 2초후 실행 start
 this.setTimeout(() => {
     mainVideo(); // mainVideo 함수 실행
     document.body.style.overflowY = "auto"; // 스크롤바 보이기
     lenis.start(); // lenis 스크롤 애니메이션 실행
-}, 3000); //// 3초후 실행 ////
+}, 2000); //// 2초후 실행 ////
 
 checkScrollPosition(); // 스크롤시 메뉴바 배경색변경 함수 실행
 
@@ -105,8 +105,8 @@ this.setTimeout(() => {
           horizontalSection.style.transform = `translateX(${-1.5 * scrollMax}px)`;
         }
 
-        /// end 가로스크롤 영역 ///
-    });
+        
+    }); /// end 가로스크롤 영역 ///
 }, 3000); //// 3초후 실행 ////
 
 // 햄버거 메뉴 start
@@ -115,4 +115,4 @@ var submenu = document.querySelector('.sub-menu')
 burger.addEventListener('click', ()=>{
     burger.classList.toggle('on');
     submenu.classList.toggle('on');
-})
+}) //// 햄버거 메뉴 end ////

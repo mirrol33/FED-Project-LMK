@@ -661,7 +661,7 @@ main section .inner {
         margin-bottom: 4svw;
     }
     .product-info p {
-        font-size: max(2.8vw, 0.8rem);
+        font-size: max(2vw, 0.8rem);
         line-height: normal;
     }
 
