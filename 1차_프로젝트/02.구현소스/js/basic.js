@@ -66,53 +66,76 @@ window.addEventListener("resize", checkScrollPosition); // 리사이징시 메�
 
 // 3초후 실행 start
 this.setTimeout(() => {
-    // 가로스크롤 영역 start
-    const vBox2 = document.querySelector(".section-02");
-    const horizontalBox = document.querySelector(".horizontal-box");
-    const horizontalBoxTop = window.innerHeight + vBox2.offsetHeight; //horizontalBox.offsetTop 대체 (가로스크롤영역 위치)
+    // 가로스크롤 영역 start  
+    let horizontalBox = document.querySelector(".horizontal-box"); // 가로스크롤 영역
+    let horizontalBoxTop = document.querySelector(".section-03").offsetTop; // .section-03 높이값
+    let horizontalBoxTitle = document.querySelector(".product-title-box").offsetLeft; // 타이틀 영역 왼쪽 위치
 
-    let horizontalSection = document.querySelector(".horizontal-section");
-    let scrollMax = (horizontalSection.scrollWidth - window.innerWidth) * 0.8; // 가로스크롤 가능넓이
-    console.log("가로스크롤 가능넓이:", scrollMax);
+    let horizontalSection = document.querySelector(".horizontal-section"); // 가로스크롤 가능영역
+    let scrollMax = (horizontalSection.offsetWidth - window.innerWidth); // 가로스크롤 가능 MAX넓이
 
-    const horizontalBoxTitle = document.querySelector(".product-title-box");
-    console.log(
-        "가로스크롤영역 타이틀 왼쪽위치",
-        horizontalBoxTitle.offsetLeft
-    );
-
-    horizontalSection.style.transform = `translateX(${horizontalBoxTitle.offsetLeft}px)`; // 초기화
+    horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`; // 가로위치 초기화
 
     window.addEventListener("scroll", function () {
         let verticalScrollPos = window.scrollY; // 세로 스크롤 위치
-        console.log("세로 스크롤 위치:", verticalScrollPos);
+        let scrollProgress = (verticalScrollPos - horizontalBoxTop) / horizontalBox.offsetHeight; // 가로 스크롤 진행수치 (0~2)
+        
+        // console.log("세로 스크롤 위치:", verticalScrollPos);
+        // console.log("가로 스크롤 진행수치:", scrollProgress);
 
-        let scrollProgress =
-            (verticalScrollPos - horizontalBoxTop) / horizontalBox.offsetHeight;
-        console.log("가로스크롤 Progress:", scrollProgress);
-
-        // 가로 스크롤 진행
-        if (scrollProgress >= 0 && scrollProgress <= 1.5) {
-            let transformValue = -scrollProgress * scrollMax;
-            console.log("가로스크롤 진행값:", transformValue);
+        // 가로 스크롤 transform 진행
+        let transformValue = -scrollProgress * scrollMax;
+        if (scrollProgress > 0 && scrollProgress <= 2) {
+            console.log("translateX:", transformValue);
             horizontalSection.style.transform = `translateX(${transformValue}px)`;
         } else {
-            horizontalSection.style.transform = `translateX(${horizontalBoxTitle.offsetLeft}px)`; // 초기화
+            horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`; // 가로위치 초기화
         }
 
-        // scrollProgress가 1.5를 초과하면 transform 유지
-        if (scrollProgress > 1.5) {
-          horizontalSection.style.transform = `translateX(${-1.5 * scrollMax}px)`;
+        // 가로 스크롤 transform 정지
+        if (scrollProgress > 2) {
+          horizontalSection.style.transform = `translateX(${-2 * scrollMax}px)`;
         }
-
         
     }); /// end 가로스크롤 영역 ///
 }, 3000); //// 3초후 실행 ////
 
 // 햄버거 메뉴 start
 var burger = document.querySelector('.menu-trigger');
-var submenu = document.querySelector('.sub-menu')
+var submenu = document.querySelector('.sub-menu');
 burger.addEventListener('click', ()=>{
     burger.classList.toggle('on');
     submenu.classList.toggle('on');
 }) //// 햄버거 메뉴 end ////
+
+// 퀵메뉴 상담하기 팝업창 start
+var qMenu = document.querySelector('.quick-btn');
+var contactBg = document.querySelector('.contact-bg');
+var contactBox = document.querySelector('.contact-area');
+var closeBtn = document.querySelector('.close-btn');
+
+qMenu.addEventListener('click', ()=>{
+    contactBg.style.display = 'block';
+    contactBg.classList.add('on');
+    setTimeout(()=>{
+        contactBox.style.top = 'calc(50% - 80vh / 2)';
+    }, 100);
+});
+closeBtn.addEventListener('click', ()=>{
+    contactBg.classList.remove('on');
+    setTimeout(()=>{
+        contactBox.style.top = '100vh';
+        contactBg.style.display = 'none';
+    }, 100);
+});
+
+// .contact-area 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
+contactBg.addEventListener('click', (e)=>{
+    if(e.target === contactBg){
+        contactBg.classList.remove('on');
+        setTimeout(()=>{
+            contactBox.style.top = '100vh';
+            contactBg.style.display = 'none';
+        }, 100);
+    }
+}); //// 퀵메뉴 상담하기 팝업창 end ////

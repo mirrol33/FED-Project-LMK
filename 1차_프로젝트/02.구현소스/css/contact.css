@@ -1,0 +1,65 @@
+@charset "utf-8";
+
+/* 상담하기 퀵메뉴 영역 */
+.quick-btn {
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    z-index: 98;
+  }
+  .quick-btn a {
+    position: relative;
+    width: 60px;
+  }
+  .quick-btn a img {
+    width: 100%;
+  }
+/* 상담하기 팝업창 영역 */
+.contact-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #1c1c1c80;
+    z-index: 99;
+    display: none;
+    transition: opacity .3s ease-out;
+    opacity: 0;
+}
+.contact-bg.on {
+    opacity: 1;
+}
+.contact-bg .contact-area {
+    position: fixed;
+    top: 100vh;
+    left: calc(50% - 60svw / 2);
+    width: 100%;
+    max-width: 60svw;
+    min-height: 80svh;
+    background: var(--color-bg-basic);
+    border-radius: 20px;
+    transition: top .3s;
+}
+.close-btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+/******************************* 미디어쿼리(1200px이하) *******************************/
+@media all and (max-width:1200px) {
+    /* mo 상담하기 퀵메뉴 영역 */
+  .quick-btn {
+    right: 20px;
+    bottom: 80px;
+    width: 40px;
+  }
+  .quick-btn a {
+    width: 60px;
+  }
+  /* mo 상담하기 팝업창 영역 */
+  .contact-area {
+    left: calc(50% - 96svw / 2);
+    max-width: 96svw;
+  }
+}

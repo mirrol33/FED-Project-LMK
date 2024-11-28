@@ -1,3 +1,4 @@
+@charset "utf-8";
 /*************************** 메인 컨텐츠 영역 ***************************/
 main section {
     position: relative;
@@ -607,7 +608,7 @@ main section .inner {
 
     .horizontal-section {
         /* width: 400svw; */
-        padding-left: 10svw;
+        /* padding-left: 10svw; */
         padding-bottom: 20svw;
     }
     /* mo 가로스크롤 상품이미지 */
