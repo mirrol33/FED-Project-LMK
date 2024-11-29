@@ -8,6 +8,7 @@
 /* root */
 :root {
   --color-bg-basic: #fff;
+  --color-bg-secondary: #f1f1f1;
   --color-bg-dark: #1c1c1c;
   --color-bg-dark-ov: #1c1c1c40;
   --color-bg-red: #AB0004;

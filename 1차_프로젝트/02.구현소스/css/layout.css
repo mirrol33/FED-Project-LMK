@@ -121,7 +121,7 @@ nav ul > li:last-child:hover a::before {
 }
 /* 햄버거 서브메뉴 */
 .sub-menu {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100svw;
@@ -144,6 +144,21 @@ nav ul > li:last-child:hover a::before {
 }
 .sub-menu > ul li a {
     padding-left: 4%;
+}
+/* 검색창 영역 */
+.search-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    min-height: 300px;
+    background: var(--color-bg-dark);
+    z-index: -1;
+    display: none;
+}
+.search-area.on {
+    display: inline;
 }
 /* 하단 영역 */
 footer {

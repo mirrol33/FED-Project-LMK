@@ -108,6 +108,15 @@ burger.addEventListener('click', ()=>{
     submenu.classList.toggle('on');
 }) //// 햄버거 메뉴 end ////
 
+// 검색 메뉴 start
+var searchIcon = document.querySelector('.search-icon');
+var searchArea = document.querySelector('.search-area');
+searchIcon.addEventListener('click',()=>{
+    searchArea.classList.toggle('on');
+    searchIcon.classList.toggle('on');
+})
+//// 검색 메뉴 end ////
+
 // 퀵메뉴 상담하기 팝업창 start
 var qMenu = document.querySelector('.quick-btn');
 var contactBg = document.querySelector('.contact-bg');
@@ -126,7 +135,7 @@ closeBtn.addEventListener('click', ()=>{
     contactBox.style.top = '100vh';
     setTimeout(()=>{
         contactBg.style.display = 'none';
-    }, 100);
+    }, 1000);
 });
 
 // .contact-area 요소 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
@@ -136,6 +145,6 @@ contactBg.addEventListener('click', (e)=>{
         contactBox.style.top = '100vh';
         setTimeout(()=>{
             contactBg.style.display = 'none';
-        }, 100);
+        }, 1000);
     }
 }); //// 퀵메뉴 상담하기 팝업창 end ////

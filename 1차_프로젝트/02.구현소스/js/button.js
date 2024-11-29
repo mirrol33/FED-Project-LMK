@@ -1,6 +1,6 @@
 // 버튼 마우스 오버시 함수
 $( ".button_su_inner" ).mouseenter(function(e) {
-    var parentOffset = $(this).offset(); 
+    var parentOffset = $(this).offset();
    
     var relX = e.pageX - parentOffset.left;
     var relY = e.pageY - parentOffset.top;
@@ -12,7 +12,7 @@ $( ".button_su_inner" ).mouseenter(function(e) {
  });
  // 버튼 마우스 아웃시 함수
  $( ".button_su_inner" ).mouseleave(function(e) { 
-      var parentOffset = $(this).offset(); 
+      var parentOffset = $(this).offset();
  
       var relX = e.pageX - parentOffset.left;
       var relY = e.pageY - parentOffset.top;

@@ -443,9 +443,9 @@ main section .inner {
 }
 
 .product-info {
-    flex: 1;
     position: relative;
     font-size: 14px;
+    width: max-content;
 }
 
 .product-info span {
