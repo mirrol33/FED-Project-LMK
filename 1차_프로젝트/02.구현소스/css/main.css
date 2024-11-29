@@ -234,8 +234,8 @@ main section .inner {
     color: #777;
 }
 
-.more-btn a img {
-    padding-left: 60px;
+.more-btn a svg {
+    padding-left: 50px;
 }
 .su_button {
     overflow: hidden;
@@ -259,15 +259,11 @@ main section .inner {
   .button_su_inner{
     position: relative;
       display: inline-block;
-      color: #F4F4F4;
-      font-size: 16px;
-      font-weight: normal;
-      text-align: center;
-      border-radius: 3px;
       transition: 400ms;
-      text-decoration: none;
-      padding: 22px;
       z-index: 1;
+  }
+  .button_su_inner svg {
+    fill: #777;
   }
 
 .explode-circle {
