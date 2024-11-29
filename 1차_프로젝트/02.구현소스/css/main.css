@@ -202,7 +202,7 @@ main section .inner {
 
 .textbox h2 {
     margin-top: 4px;
-    margin-left: -4px;
+    margin-left: -2px;
     font-size: 60px;
     font-weight: var(--font-weight-bold);
     line-height: 1;
@@ -313,6 +313,7 @@ main section .inner {
     font-size: 5em;
     font-weight: var(--font-weight-bold);
     letter-spacing: -0.06em;
+    margin-left: -2px;
 }
 .product-name h3 br {
     display: none;

@@ -123,18 +123,18 @@ qMenu.addEventListener('click', ()=>{
 });
 closeBtn.addEventListener('click', ()=>{
     contactBg.classList.remove('on');
+    contactBox.style.top = '100vh';
     setTimeout(()=>{
-        contactBox.style.top = '100vh';
         contactBg.style.display = 'none';
     }, 100);
 });
 
-// .contact-area 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
+// .contact-area 요소 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
 contactBg.addEventListener('click', (e)=>{
     if(e.target === contactBg){
         contactBg.classList.remove('on');
+        contactBox.style.top = '100vh';
         setTimeout(()=>{
-            contactBox.style.top = '100vh';
             contactBg.style.display = 'none';
         }, 100);
     }
