@@ -8,12 +8,15 @@
     <!-- CSS Style -->
     <link rel="stylesheet" href="./css/common.css" />
     <!-- webfont css -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <!-- jquery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jquery button js -->
+    <script src="./js/button.js" defer></script>
+    <!-- gsap CDN -->
     <!-- lenis js -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <!-- basic js -->
     <script src="./js/basic.js" defer></script>
 </head>
@@ -108,7 +111,10 @@
                             흔들리지 않는 아름다움
                         </p>
                         <div class="more-btn">
-                            <a href="#none">자세히보기<img src="./images/more_icon.svg" /></a>
+                            <div class="su_button">
+                                <span class="su_button_circle"></span>
+                                <a class="button_su_inner" href="#none">자세히보기<img src="./images/more_icon.svg" /></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -267,7 +273,10 @@
                             윤기 있게,<br>더 밝고 더 탄력 있게
                         </p>
                         <div class="more-btn">
-                            <a href="#none">상담신청하기<img src="./images/more_icon.svg" /></a>
+                            <div class="su_button">
+                                <span class="su_button_circle"></span>
+                                <a class="button_su_inner" href="#none">상담신청하기<img src="./images/more_icon.svg" /></a>
+                            </div>
                         </div>
                     </div>
                 </div>
