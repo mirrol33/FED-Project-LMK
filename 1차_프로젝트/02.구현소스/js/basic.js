@@ -11,7 +11,7 @@ function loadFn() {
     checkScrollPosition(); // 스크롤 메뉴바 실행
     burgerBtn(); // 햄버거 버튼 실행
     quickBtn(); // 상담하기 퀵버튼 실행
-    document.querySelector('.loading-area').style.display = "flex";
+    document.querySelector('.loading-area').style.display = "flex"; // 로드화면
       
 
     // setTimeout start
