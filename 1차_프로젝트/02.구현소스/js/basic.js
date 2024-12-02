@@ -1,5 +1,5 @@
-window.addEventListener("DOMContentLoaded", loadFn); // 로드후 실행
-window.addEventListener("resize", loadFn); // 리사이즈시 실행
+window.addEventListener('DOMContentLoaded', loadFn); // 로드후 실행
+window.addEventListener('resize', loadFn); // 리사이즈시 실행
 
 function loadFn() {
     window.scrollTo(0, 0); // 스크롤 맨위로 이동
@@ -113,19 +113,18 @@ function initHorizontalScroll() {
     }
 }
 
-
-function burgerBtn(){
-    // 햄버거 메뉴 start
+// 햄버거 메뉴 함수 start
+function burgerBtn(){    
     var burger = document.querySelector('.menu-trigger');
     var submenu = document.querySelector('.sub-menu');
     burger.addEventListener('click', ()=>{
         burger.classList.toggle('on');
         submenu.classList.toggle('on');
-    }) /// 햄버거 메뉴 end ///
-}
-
+    }) 
+} //// 햄버거 메뉴 함수 end ////
+// 퀵메뉴 상담하기 팝업창 start
 function quickBtn(){
-    // 퀵메뉴 상담하기 팝업창 start
+    
     var qMenu = document.querySelector('.quick-btn');
     var contactBg = document.querySelector('.contact-bg');
     var contactBox = document.querySelector('.contact-area');
@@ -155,5 +154,5 @@ function quickBtn(){
                 contactBg.style.display = 'none';
             }, 1000);
         }
-    }); //// 퀵메뉴 상담하기 팝업창 end ////
-}
+    }); 
+} //// 퀵메뉴 상담하기 팝업창 end ////
