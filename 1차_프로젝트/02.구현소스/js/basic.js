@@ -50,7 +50,7 @@ function mainVideo() {
     const mainVideo = document.getElementById("main-video");
 
     if (mainVideo) {
-        mainVideo.currentTime = 0; // 동영상 0초부터 시작
+        mainVideo.currentTime = 1; // 동영상 0초부터 시작
         mainVideo.play().catch((error) => {
             // play() 실패시 에러처리
             console.error("Video autoplay failed:", error);
