@@ -113,7 +113,7 @@ function horizontalScroll() {
     // 초기화 함수 반환
     return () => {
         window.removeEventListener("scroll", scrollHandler); // 스크롤 이벤트 제거
-        horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`; // 초기화
+        horizontalSection.style.transform = `translateX(0px)`; // 초기화
     };
 } //// horizontalScroll ////
 
