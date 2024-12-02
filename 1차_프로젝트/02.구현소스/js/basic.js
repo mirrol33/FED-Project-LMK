@@ -134,21 +134,14 @@ function initHorizontalScroll() {
 
 
 // 햄버거 메뉴 함수
-function burgerBtn() {    
+function burgerBtn(){
     var burger = document.querySelector('.menu-trigger');
     var submenu = document.querySelector('.sub-menu');
-
-    const toggleMenu = (event) => {
-        event.preventDefault();
+    burger.addEventListener('click', ()=>{
         burger.classList.toggle('on');
         submenu.classList.toggle('on');
-    };
-
-    ['click', 'touchstart', 'mousedown', 'mouseup'].forEach(eventType => {
-        burger.addEventListener(eventType, toggleMenu);
-    });
-}
- //// burgerBtn ////
+    }) 
+} //// burgerBtn ////
 
 // 퀵버튼 상담하기 팝업 함수
 function quickBtn(){
