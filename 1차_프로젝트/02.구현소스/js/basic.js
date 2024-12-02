@@ -10,18 +10,14 @@ function loadFn() {
     mainVideo(); // 동영상 자동재생 실행
     checkScrollPosition(); // 스크롤 메뉴바 실행
     burgerBtn(); // 햄버거 버튼 실행
-    quickBtn(); // 상담하기 퀵버튼 실행
-    document.querySelector('.loading-area').style.display = "flex"; // 로드화면
-      
+    quickBtn(); // 상담하기 퀵버튼 실행      
 
     // setTimeout start
     this.setTimeout(() => {
         lenis.start(); // lenis 스크롤 애니메이션 실행
         document.body.style.overflowY = "auto"; // 스크롤바 보이기
         initHorizontalScroll(); // 가로스크롤실행 여부 확인
-
-        document.querySelector('.loading-area').classList.add('off'); // 로드화면 opacity
-        document.querySelector('.loading-area').style.display = "none"; // 로드화면 숨기기
+        document.querySelector('.loading-area').classList.add('off'); // 로드화면 opacity        
     }, 2000); //// end setTimeout ////
 }
 
