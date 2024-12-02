@@ -1,6 +1,7 @@
-window.addEventListener('DOMContentLoaded', loadFn); // 로드후 실행
-window.addEventListener('resize', loadFn); // 리사이즈시 실행
+window.addEventListener('DOMContentLoaded', loadFn); // 로드시 실행
+window.addEventListener('resize', resizeFn); // 리사이즈시 실행
 
+// 로드완료후 실행 함수
 function loadFn() {
     window.scrollTo(0, 0); // 스크롤 맨위로 이동
     document.body.style.overflow = "hidden"; // 로드시 스크롤바 숨김
@@ -22,17 +23,24 @@ function loadFn() {
     }, 2000); //// end setTimeout ////
 }
 
-// Lenis 초기화 start
+// 리사이즈시 실행 함수
+function resizeFn() {
+    checkScrollPosition(); // 스크롤 메뉴바 실행
+    lenis.start(); // lenis 스크롤 애니메이션 실행
+    initHorizontalScroll(); // 가로스크롤실행 여부 확인
+}
+
+// Lenis 스크롤 애니메이션 초기화 start
 const lenis = new Lenis({
     duration: 1.8, // 부드러운 스크롤 지속 시간
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // 커스텀 이징 함수
-}); //// end Lenis 초기화 ////
+}); //// Lenis ////
 
-// Lenis 루프 start
+// Lenis 스크롤 애니메이션 루프 start
 function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf); // 재귀 호출
-} //// end Lenis 루프 ////
+} //// Lenis raf ////
 requestAnimationFrame(raf); // Lenis 루프 실행
 
 
@@ -48,9 +56,9 @@ function mainVideo() {
             console.error("Video autoplay failed:", error);
         });
     }
-} //// end 동영상 자동재생 ////
+} //// mainVideo ////
 
-// 스크롤시 메뉴바 특정 위치에서 배경색변경 start
+// 스크롤시 메뉴바 특정 위치에서 배경색 변경 함수
 function checkScrollPosition() {
     // 메뉴바 요소 선택
     const headerWrap = document.querySelector(".header-wrap");
@@ -66,11 +74,11 @@ function checkScrollPosition() {
         headerWrap.style.backgroundColor = "var(--color-bg-dark-ov)"; // 검은 색상
         // headerWrap.classList.remove("scrolled"); // 클래스 제거
     }
-} //// end 스크롤시 메뉴바 특정 위치에서 배경색변경 ////
+} //// checkScrollPosition ////
 
 window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
 
-// 모바일 기기 여부와 뷰포트 크기 확인 함수
+// 모바일 기기 여부와 뷰포트 크기 확인
 const shouldRunHorizontalScroll = () => 
     !/iphone|ipad|ipod|android|blackberry|webos|windows phone/i.test(navigator.userAgent.toLowerCase()) && 
     window.innerWidth > 1200;
@@ -86,7 +94,7 @@ function horizontalScroll() {
 
     horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`;
 
-    window.addEventListener("scroll", () => {
+    const scrollHandler = () => {
         const verticalScrollPos = window.scrollY;
         const scrollProgress = (verticalScrollPos - horizontalBoxTop) / horizontalBox.offsetHeight;
         const transformValue = -scrollProgress * scrollMax;
@@ -98,22 +106,34 @@ function horizontalScroll() {
         } else {
             horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`;
         }
-    }); 
-}
+    };
 
-// 가로스크롤 실행 조건에 따라 함수 실행
-// 모바일기기 여부 확인
-if (shouldRunHorizontalScroll()) {
-    horizontalScroll();
-}
-// 가로스크롤 실행여부 확인 함수
+    window.addEventListener("scroll", scrollHandler);
+
+    // 초기화 함수 반환
+    return () => {
+        window.removeEventListener("scroll", scrollHandler); // 스크롤 이벤트 제거
+        horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`; // 초기화
+    };
+} //// horizontalScroll ////
+
+// 가로스크롤 영역 초기화 및 리사이즈 관리
+let cleanupHorizontalScroll = null;
+
 function initHorizontalScroll() {
-    if (shouldRunHorizontalScroll()) {
-        horizontalScroll();
+    if (cleanupHorizontalScroll) {
+        cleanupHorizontalScroll(); // 기존 가로 스크롤 이벤트 제거 및 초기화
     }
-}
 
-// 햄버거 메뉴 함수 start
+    if (shouldRunHorizontalScroll()) {
+        cleanupHorizontalScroll = horizontalScroll(); // 새 가로 스크롤 함수 실행
+    } else {
+        cleanupHorizontalScroll = null; // 필요 없을 경우 초기화
+    }
+} //// initHorizontalScroll ////
+
+
+// 햄버거 메뉴 함수
 function burgerBtn(){    
     var burger = document.querySelector('.menu-trigger');
     var submenu = document.querySelector('.sub-menu');
@@ -121,8 +141,9 @@ function burgerBtn(){
         burger.classList.toggle('on');
         submenu.classList.toggle('on');
     }) 
-} //// 햄버거 메뉴 함수 end ////
-// 퀵메뉴 상담하기 팝업창 start
+} //// burgerBtn ////
+
+// 퀵버튼 상담하기 팝업 함수
 function quickBtn(){
     
     var qMenu = document.querySelector('.quick-btn');
@@ -130,6 +151,7 @@ function quickBtn(){
     var contactBox = document.querySelector('.contact-area');
     var closeBtn = document.querySelector('.close-btn');
     
+    // 상담하기 퀵버튼 클릭시 이벤트
     qMenu.addEventListener('click', ()=>{
         contactBg.style.display = 'block';
         contactBg.classList.add('on');
@@ -137,6 +159,7 @@ function quickBtn(){
             contactBox.style.top = 'calc(50% - 80vh / 2)';
         }, 100);
     });
+    // 닫기 버튼 클릭시 이벤트
     closeBtn.addEventListener('click', ()=>{
         contactBg.classList.remove('on');
         contactBox.style.top = '100vh';
@@ -155,4 +178,4 @@ function quickBtn(){
             }, 1000);
         }
     }); 
-} //// 퀵메뉴 상담하기 팝업창 end ////
+} //// quickBtn ////
