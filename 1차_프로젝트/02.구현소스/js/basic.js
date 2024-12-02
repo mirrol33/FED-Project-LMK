@@ -134,19 +134,14 @@ function initHorizontalScroll() {
 
 
 // 햄버거 메뉴 함수
-function burgerBtn() {    
+function burgerBtn(){    
     var burger = document.querySelector('.menu-trigger');
     var submenu = document.querySelector('.sub-menu');
-    
-    const toggleMenu = () => {
+    burger.addEventListener('click', ()=>{
         burger.classList.toggle('on');
         submenu.classList.toggle('on');
-    };
-    
-    // 클릭 및 터치 이벤트 추가
-    burger.addEventListener('click', toggleMenu); 
-    burger.addEventListener('touchstart', toggleMenu); 
-}
+    }) 
+} //// burgerBtn ////
 
 // 퀵버튼 상담하기 팝업 함수
 function quickBtn(){
