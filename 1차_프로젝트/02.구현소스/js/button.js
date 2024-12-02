@@ -24,3 +24,8 @@ $( ".button_su_inner" ).mouseenter(function(e) {
       $(this).children('svg').css({fill:"#777"});
       $(".more-btn a").css({borderColor:"#777"});
  });
+
+// 검색버튼 클릭이벤트
+$(".search-icon").on('click',()=>{
+     $(".search-area").toggleClass("on")
+});

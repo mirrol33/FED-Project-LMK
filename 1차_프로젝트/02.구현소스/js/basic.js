@@ -1,3 +1,27 @@
+window.addEventListener("DOMContentLoaded", loadFn); // 로드후 실행
+window.addEventListener("resize", loadFn); // 리사이즈시 실행
+
+function loadFn() {
+    window.scrollTo(0, 0); // 스크롤 맨위로 이동
+    document.body.style.overflow = "hidden"; // 로드시 스크롤바 숨김
+
+    lenis.stop(); // lenis 스크롤 애니메이션 일시멈춤
+    mainVideo(); // 동영상 자동재생 실행
+    checkScrollPosition(); // 스크롤 메뉴바 실행
+    burgerBtn(); // 햄버거 버튼 실행
+    quickBtn(); // 상담하기 퀵버튼 실행
+      
+
+    // setTimeout start
+    this.setTimeout(() => {
+        lenis.start(); // lenis 스크롤 애니메이션 실행
+        document.body.style.overflowY = "auto"; // 스크롤바 보이기
+        initHorizontalScroll(); // 가로스크롤실행 여부 확인
+
+        document.querySelector('.loading-area').classList.add('off'); // 로드화면 종료
+    }, 2000); //// end setTimeout ////
+}
+
 // Lenis 초기화 start
 const lenis = new Lenis({
     duration: 1.8, // 부드러운 스크롤 지속 시간
@@ -11,23 +35,6 @@ function raf(time) {
 } //// end Lenis 루프 ////
 requestAnimationFrame(raf); // Lenis 루프 실행
 
-document.body.style.overflow = "hidden"; // 로드시 스크롤바 숨김
-lenis.stop(); // 로드시 lenis 스크롤 애니메이션 멈춤
-
-window.addEventListener("load", scrollTop); // 새로고침시 스크롤 위치를 맨 위로 이동
-
-function scrollTop() {
-    window.scrollTo(0, 0);
-}
-
-// 2초후 실행 start
-this.setTimeout(() => {
-    mainVideo(); // mainVideo 함수 실행
-    document.body.style.overflowY = "auto"; // 스크롤바 보이기
-    lenis.start(); // lenis 스크롤 애니메이션 실행
-}, 2000); //// 2초후 실행 ////
-
-checkScrollPosition(); // 스크롤시 메뉴바 배경색변경 함수 실행
 
 // 동영상 자동재생 start
 function mainVideo() {
@@ -62,89 +69,91 @@ function checkScrollPosition() {
 } //// end 스크롤시 메뉴바 특정 위치에서 배경색변경 ////
 
 window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
-window.addEventListener("resize", checkScrollPosition); // 리사이징시 메뉴바 위치확인
 
-// 3초후 실행 start
-this.setTimeout(() => {
-    // 가로스크롤 영역 start  
-    let horizontalBox = document.querySelector(".horizontal-box"); // 가로스크롤 영역
-    let horizontalBoxTop = document.querySelector(".section-03").offsetTop; // .section-03 높이값
-    let horizontalBoxTitle = document.querySelector(".product-title-box").offsetLeft; // 타이틀 영역 왼쪽 위치
+// 모바일 기기 여부와 뷰포트 크기 확인 함수
+const shouldRunHorizontalScroll = () => 
+    !/iphone|ipad|ipod|android|blackberry|webos|windows phone/i.test(navigator.userAgent.toLowerCase()) && 
+    window.innerWidth > 1200;
 
-    let horizontalSection = document.querySelector(".horizontal-section"); // 가로스크롤 가능영역
-    let scrollMax = (horizontalSection.offsetWidth - window.innerWidth); // 가로스크롤 가능 MAX넓이
+// 가로스크롤 영역 함수
+function horizontalScroll() {    
+    const horizontalBox = document.querySelector(".horizontal-box");
+    const horizontalBoxTop = document.querySelector(".section-03").offsetTop;
+    const horizontalBoxTitle = document.querySelector(".product-title-box").offsetLeft;
 
-    horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`; // 가로위치 초기화
+    const horizontalSection = document.querySelector(".horizontal-section");
+    const scrollMax = horizontalSection.offsetWidth - window.innerWidth;
 
-    window.addEventListener("scroll", function () {
-        let verticalScrollPos = window.scrollY; // 세로 스크롤 위치
-        let scrollProgress = (verticalScrollPos - horizontalBoxTop) / horizontalBox.offsetHeight; // 가로 스크롤 진행수치 (0~2)
-        
-        // console.log("세로 스크롤 위치:", verticalScrollPos);
-        // console.log("가로 스크롤 진행수치:", scrollProgress);
+    horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`;
 
-        // 가로 스크롤 transform 진행
-        let transformValue = -scrollProgress * scrollMax;
+    window.addEventListener("scroll", () => {
+        const verticalScrollPos = window.scrollY;
+        const scrollProgress = (verticalScrollPos - horizontalBoxTop) / horizontalBox.offsetHeight;
+        const transformValue = -scrollProgress * scrollMax;
+
         if (scrollProgress > 0 && scrollProgress <= 2) {
-            console.log("translateX:", transformValue);
             horizontalSection.style.transform = `translateX(${transformValue}px)`;
+        } else if (scrollProgress > 2) {
+            horizontalSection.style.transform = `translateX(${-2 * scrollMax}px)`;
         } else {
-            horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`; // 가로위치 초기화
+            horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`;
         }
+    }); 
+}
 
-        // 가로 스크롤 transform 정지
-        if (scrollProgress > 2) {
-          horizontalSection.style.transform = `translateX(${-2 * scrollMax}px)`;
-        }
-        
-    }); /// end 가로스크롤 영역 ///
-}, 3000); //// 3초후 실행 ////
+// 가로스크롤 실행 조건에 따라 함수 실행
+// 모바일기기 여부 확인
+if (shouldRunHorizontalScroll()) {
+    horizontalScroll();
+}
+// 가로스크롤 실행여부 확인 함수
+function initHorizontalScroll() {
+    if (shouldRunHorizontalScroll()) {
+        horizontalScroll();
+    }
+}
 
-// 햄버거 메뉴 start
-var burger = document.querySelector('.menu-trigger');
-var submenu = document.querySelector('.sub-menu');
-burger.addEventListener('click', ()=>{
-    burger.classList.toggle('on');
-    submenu.classList.toggle('on');
-}) //// 햄버거 메뉴 end ////
 
-// 검색 메뉴 start
-var searchIcon = document.querySelector('.search-icon');
-var searchArea = document.querySelector('.search-area');
-searchIcon.addEventListener('click',()=>{
-    searchArea.classList.toggle('on');
-    searchIcon.classList.toggle('on');
-})
-//// 검색 메뉴 end ////
+function burgerBtn(){
+    // 햄버거 메뉴 start
+    var burger = document.querySelector('.menu-trigger');
+    var submenu = document.querySelector('.sub-menu');
+    burger.addEventListener('click', ()=>{
+        burger.classList.toggle('on');
+        submenu.classList.toggle('on');
+    }) /// 햄버거 메뉴 end ///
+}
 
-// 퀵메뉴 상담하기 팝업창 start
-var qMenu = document.querySelector('.quick-btn');
-var contactBg = document.querySelector('.contact-bg');
-var contactBox = document.querySelector('.contact-area');
-var closeBtn = document.querySelector('.close-btn');
-
-qMenu.addEventListener('click', ()=>{
-    contactBg.style.display = 'block';
-    contactBg.classList.add('on');
-    setTimeout(()=>{
-        contactBox.style.top = 'calc(50% - 80vh / 2)';
-    }, 100);
-});
-closeBtn.addEventListener('click', ()=>{
-    contactBg.classList.remove('on');
-    contactBox.style.top = '100vh';
-    setTimeout(()=>{
-        contactBg.style.display = 'none';
-    }, 1000);
-});
-
-// .contact-area 요소 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
-contactBg.addEventListener('click', (e)=>{
-    if(e.target === contactBg){
+function quickBtn(){
+    // 퀵메뉴 상담하기 팝업창 start
+    var qMenu = document.querySelector('.quick-btn');
+    var contactBg = document.querySelector('.contact-bg');
+    var contactBox = document.querySelector('.contact-area');
+    var closeBtn = document.querySelector('.close-btn');
+    
+    qMenu.addEventListener('click', ()=>{
+        contactBg.style.display = 'block';
+        contactBg.classList.add('on');
+        setTimeout(()=>{
+            contactBox.style.top = 'calc(50% - 80vh / 2)';
+        }, 100);
+    });
+    closeBtn.addEventListener('click', ()=>{
         contactBg.classList.remove('on');
         contactBox.style.top = '100vh';
         setTimeout(()=>{
             contactBg.style.display = 'none';
         }, 1000);
-    }
-}); //// 퀵메뉴 상담하기 팝업창 end ////
+    });
+    
+    // .contact-area 요소 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
+    contactBg.addEventListener('click', (e)=>{
+        if(e.target === contactBg){
+            contactBg.classList.remove('on');
+            contactBox.style.top = '100vh';
+            setTimeout(()=>{
+                contactBg.style.display = 'none';
+            }, 1000);
+        }
+    }); //// 퀵메뉴 상담하기 팝업창 end ////
+}

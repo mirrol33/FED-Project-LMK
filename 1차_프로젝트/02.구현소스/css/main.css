@@ -662,8 +662,11 @@ main section .inner {
 
     /* mo 가로스크롤 상품 영역 */
     .product-boxs {
-      height: 360svw;
+      height: auto;
       padding-top: 10svw;
+    }
+    .product-boxs hr {
+        display: none;
     }
 
     .product-title-box {
@@ -679,8 +682,8 @@ main section .inner {
     }
 
     .horizontal-section {
-        /* width: 400svw; */
-        /* padding-left: 10svw; */
+        width: auto;
+        margin: 0 10%;
         padding-bottom: 20svw;
     }
     /* mo 가로스크롤 상품이미지 */
@@ -717,11 +720,17 @@ main section .inner {
     }
 
     .product-info-area {
-        gap: 0 6svw;
+        flex-direction: column;
+        gap: 6svw 0;
     }
     /* mo 가로스크롤 상품설명 */
+    .product-info {
+        width: auto;
+    }
     .product-info span {
-        margin-bottom: 1.75rem;
+        margin-bottom: 1rem;
+        width: 24px;
+        height: 2px;
     }
     .product-info h4 {
         font-size: max(2vw, 0.8rem);
@@ -736,6 +745,9 @@ main section .inner {
     .product-info p {
         font-size: max(2vw, 0.8rem);
         line-height: normal;
+    }
+    .product-info p br {
+        display: none;
     }
 
     /* mo 메인 인스타그램 영역 */

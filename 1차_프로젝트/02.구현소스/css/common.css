@@ -58,8 +58,16 @@ body {
   z-index: 99;
   background-color: var(--color-bg-loading);
   overflow: hidden;
-  opacity: 1;
-  animation: loading-off 1s 2.8s forwards;
+}
+.loading-area.off {
+  animation: loading-off 1s forwards;
+}
+
+@keyframes loading-off {
+  to {
+    opacity: 0;
+    display: none;
+  }
 }
 
 .loading-title {
@@ -108,13 +116,6 @@ body {
 @keyframes loading-on {
   to {
     top: 0;
-  }
-}
-
-@keyframes loading-off {
-  to {
-    opacity: 0;
-    display: none;
   }
 }
 
