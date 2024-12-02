@@ -11,6 +11,7 @@ function loadFn() {
     checkScrollPosition(); // 스크롤 메뉴바 실행
     burgerBtn(); // 햄버거 버튼 실행
     quickBtn(); // 상담하기 퀵버튼 실행
+    document.querySelector('.loading-area').style.display = "flex";
       
 
     // setTimeout start
@@ -19,7 +20,8 @@ function loadFn() {
         document.body.style.overflowY = "auto"; // 스크롤바 보이기
         initHorizontalScroll(); // 가로스크롤실행 여부 확인
 
-        document.querySelector('.loading-area').classList.add('off'); // 로드화면 종료
+        document.querySelector('.loading-area').classList.add('off'); // 로드화면 opacity
+        document.querySelector('.loading-area').style.display = "none"; // 로드화면 숨기기
     }, 2000); //// end setTimeout ////
 }
 
