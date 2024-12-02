@@ -134,7 +134,7 @@ function initHorizontalScroll() {
 
 
 // 햄버거 메뉴 함수
-function burgerBtn(){    
+function burgerBtn(){
     var burger = document.querySelector('.menu-trigger');
     var submenu = document.querySelector('.sub-menu');
     burger.addEventListener('click', ()=>{
