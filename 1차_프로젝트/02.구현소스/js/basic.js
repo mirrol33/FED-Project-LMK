@@ -10,7 +10,7 @@ function loadFn() {
     mainVideo(); // 동영상 자동재생 실행
     checkScrollPosition(); // 스크롤 메뉴바 실행
     burgerBtn(); // 햄버거 버튼 실행
-    quickBtn(); // 상담하기 퀵버튼 실행      
+    quickBtn(); // 상담하기 퀵버튼 실행
 
     // setTimeout start
     this.setTimeout(() => {
@@ -129,51 +129,3 @@ function initHorizontalScroll() {
         cleanupHorizontalScroll = null; // 필요 없을 경우 초기화
     }
 } //// initHorizontalScroll ////
-
-
-// 햄버거 메뉴 함수
-function burgerBtn(){
-    var burger = document.querySelector('.menu-trigger');
-    var submenu = document.querySelector('.sub-menu');
-    burger.addEventListener('click', ()=>{
-        burger.classList.toggle('on');
-        submenu.classList.toggle('on');
-    }) 
-} //// burgerBtn ////
-
-// 퀵버튼 상담하기 팝업 함수
-function quickBtn(){
-    
-    var qMenu = document.querySelector('.quick-btn');
-    var contactBg = document.querySelector('.contact-bg');
-    var contactBox = document.querySelector('.contact-area');
-    var closeBtn = document.querySelector('.close-btn');
-
-    // 상담하기 퀵버튼 클릭시 이벤트
-    qMenu.addEventListener('click', ()=>{
-        contactBg.style.display = 'block';
-        contactBg.classList.add('on');
-        setTimeout(()=>{
-            contactBox.style.top = '50%';
-        }, 100);
-    });
-    // 닫기 버튼 클릭시 이벤트
-    closeBtn.addEventListener('click', ()=>{
-        contactBg.classList.remove('on');
-        contactBox.style.top = '100%';
-        setTimeout(()=>{
-            contactBg.style.display = 'none';
-        }, 1000);
-    });
-    
-    // .contact-area 요소 바깥쪽 .contact-bg 부모요소만 클릭했을 때 이벤트 발생
-    contactBg.addEventListener('click', (e)=>{
-        if(e.target === contactBg){
-            contactBg.classList.remove('on');
-            contactBox.style.top = '100%';
-            setTimeout(()=>{
-                contactBg.style.display = 'none';
-            }, 1000);
-        }
-    }); 
-} //// quickBtn ////
