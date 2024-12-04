@@ -148,19 +148,19 @@ function quickBtn(){
     var contactBg = document.querySelector('.contact-bg');
     var contactBox = document.querySelector('.contact-area');
     var closeBtn = document.querySelector('.close-btn');
-    
+
     // 상담하기 퀵버튼 클릭시 이벤트
     qMenu.addEventListener('click', ()=>{
         contactBg.style.display = 'block';
         contactBg.classList.add('on');
         setTimeout(()=>{
-            contactBox.style.top = 'calc(50% - 80vh / 2)';
+            contactBox.style.top = '50%';
         }, 100);
     });
     // 닫기 버튼 클릭시 이벤트
     closeBtn.addEventListener('click', ()=>{
         contactBg.classList.remove('on');
-        contactBox.style.top = '100vh';
+        contactBox.style.top = '100%';
         setTimeout(()=>{
             contactBg.style.display = 'none';
         }, 1000);
@@ -170,7 +170,7 @@ function quickBtn(){
     contactBg.addEventListener('click', (e)=>{
         if(e.target === contactBg){
             contactBg.classList.remove('on');
-            contactBox.style.top = '100vh';
+            contactBox.style.top = '100%';
             setTimeout(()=>{
                 contactBg.style.display = 'none';
             }, 1000);

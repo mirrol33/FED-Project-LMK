@@ -160,6 +160,35 @@ nav ul > li:last-child:hover a::before {
 .search-area.on {
     display: inline;
 }
+.search-box {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background: #fff;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
+    padding: 15px 10px;
+    border-radius: 50px;
+    margin: 100px auto 0 auto;
+}
+.search-box input {
+    width: 90%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--font-color-secondary);
+    font-size: 1rem;
+}
+.search-box button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+.search-box button svg {
+    stroke: var(--font-color-secondary);
+}
 /* 하단 영역 */
 footer {
     width: 100%;

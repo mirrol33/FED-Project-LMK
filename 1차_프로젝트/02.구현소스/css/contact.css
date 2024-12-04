@@ -32,13 +32,15 @@
 }
 .contact-bg .contact-area {
     position: fixed;
-    top: 100vh;
-    left: calc(50% - 60svw / 2);
+    top: 50%;
+    left: 50%;
     width: 100%;
-    max-width: 60svw;
+    max-width: 1200px;
+    width: 90%;
     min-height: 80svh;
     background: var(--color-bg-basic);
     border-radius: 20px;
+    translate: -50% -50%;
     transition: top .3s;
 }
 .close-btn {
@@ -56,10 +58,5 @@
   }
   .quick-btn a {
     width: 60px;
-  }
-  /* mo 상담하기 팝업창 영역 */
-  .contact-area {
-    left: calc(50% - 96svw / 2);
-    max-width: 96svw;
-  }
+  }  
 }
