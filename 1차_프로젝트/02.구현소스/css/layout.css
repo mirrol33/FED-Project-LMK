@@ -127,7 +127,7 @@ nav ul > li:last-child:hover a::before {
     width: 100svw;
     background: var(--color-bg-red);
     z-index: -1;
-    padding-top: 5svh;
+    padding-top: max(50px, 5svh);
     /* 햄버거 서브메뉴 숨김 */
     transition: .3s ease-out;
     opacity: 0;
@@ -152,7 +152,6 @@ nav ul > li:last-child:hover a::before {
     left: 0;
     width: 100%;
     height: auto;
-    min-height: 300px;
     background: var(--color-bg-dark);
     z-index: -1;
     display: none;
@@ -167,11 +166,11 @@ nav ul > li:last-child:hover a::before {
     text-align: center;
     background: #fff;
     max-width: 800px;
-    width: 90%;
+    width: 80%;
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
     padding: 15px 10px;
     border-radius: 50px;
-    margin: 100px auto 0 auto;
+    margin: 100px auto 50px auto;
 }
 .search-box input {
     width: 90%;

@@ -40,7 +40,7 @@
 }
 .contact-area {
     position: fixed;
-    top: 150vh;
+    top: 200%;
     left: 50%;
     width: 100%;
     max-width: 1200px;
