@@ -1,4 +1,9 @@
-// 버튼 마우스 오버시 함수
+$(()=>{
+     burgerBtn(); // 햄버거 버튼 실행
+     quickBtn(); // 상담하기 퀵버튼 실행
+})
+
+// 더보기 버튼 마우스 오버시 함수
 $( ".button_su_inner" ).mouseenter(function(e) {
     var parentOffset = $(this).offset();
    
@@ -12,7 +17,7 @@ $( ".button_su_inner" ).mouseenter(function(e) {
     $(".more-btn a").css({borderColor:"#fff"});
  });
 
- // 버튼 마우스 아웃시 함수
+ // 더보기 버튼 마우스 아웃시 함수
  $( ".button_su_inner" ).mouseleave(function(e) { 
       var parentOffset = $(this).offset();
  
@@ -61,6 +66,4 @@ function burgerBtn() {
           $contactBg.toggleClass('on');
           $contactBox.toggleClass('on');
       });
-
  }
-

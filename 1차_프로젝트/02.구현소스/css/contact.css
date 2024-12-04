@@ -61,13 +61,51 @@
     top: 24px;
     right: 24px;
 }
+.contact-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.contact-title h3 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-top: 100px;
+  padding-bottom: 8px;
+}
+.contact-title p {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-light);
+  color: var(--font-color-secondary);
+}
+.contact-process ul {
+  display: flex;
+  justify-content: center;
+  gap: 0 24px;
+}
+.contact-process ul li {
+  background: var(--color-bg-secondary);
+  color: var(--font-color-secondary);
+  font-size: 10px;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 24px;
+  border-radius: 50%;
+}
+.contact-process ul li.active {
+  background: var(--color-bg-red);
+  color: #fff;
+}
+.contact-box {
+  width: 90%;
+  max-width: 500px;
+  margin: 80px auto;
+}
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width:1200px) {
     /* mo 상담하기 퀵메뉴 영역 */
   .quick-btn {
     right: 20px;
     bottom: 80px;
-    width: 40px;
   }
   .quick-btn a {
     width: 60px;

@@ -9,8 +9,6 @@ function loadFn() {
     lenis.stop(); // lenis 스크롤 애니메이션 일시멈춤
     mainVideo(); // 동영상 자동재생 실행
     checkScrollPosition(); // 스크롤 메뉴바 실행
-    burgerBtn(); // 햄버거 버튼 실행
-    quickBtn(); // 상담하기 퀵버튼 실행
 
     // setTimeout start
     this.setTimeout(() => {
