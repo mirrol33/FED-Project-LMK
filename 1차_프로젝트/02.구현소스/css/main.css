@@ -313,7 +313,7 @@ main section .inner {
 .product-boxs {
     position: relative;
     width: 100svw;
-    height: 160svw;
+    height: 150svw;
     padding-top: 140px;
 }
 .product-boxs hr {

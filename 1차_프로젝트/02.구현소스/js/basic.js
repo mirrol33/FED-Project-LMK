@@ -81,18 +81,18 @@ const shouldRunHorizontalScroll = () =>
 
 // 가로스크롤 영역 함수
 function horizontalScroll() {    
-    const horizontalBox = document.querySelector(".horizontal-box");
     const horizontalBoxTop = document.querySelector(".section-03").offsetTop;
-    const horizontalBoxTitle = document.querySelector(".product-title-box").offsetLeft;
+    const horizontalBoxHeight = document.querySelector(".horizontal-box").offsetHeight;
+    const horizontalBoxLeft = document.querySelector(".product-title-box").offsetLeft;
 
     const horizontalSection = document.querySelector(".horizontal-section");
     const scrollMax = horizontalSection.offsetWidth - window.innerWidth;
 
-    horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`;
+    horizontalSection.style.transform = `translateX(${horizontalBoxLeft}px)`;
 
     const scrollHandler = () => {
         const verticalScrollPos = window.scrollY;
-        const scrollProgress = (verticalScrollPos - horizontalBoxTop) / horizontalBox.offsetHeight;
+        const scrollProgress = (verticalScrollPos - horizontalBoxTop) / horizontalBoxHeight; // 0~2 가로스크롤 진행도
         const transformValue = -scrollProgress * scrollMax;
 
         if (scrollProgress > 0 && scrollProgress <= 2) {
@@ -100,7 +100,7 @@ function horizontalScroll() {
         } else if (scrollProgress > 2) {
             horizontalSection.style.transform = `translateX(${-2 * scrollMax}px)`;
         } else {
-            horizontalSection.style.transform = `translateX(${horizontalBoxTitle}px)`;
+            horizontalSection.style.transform = `translateX(${horizontalBoxLeft}px)`;
         }
     };
 
