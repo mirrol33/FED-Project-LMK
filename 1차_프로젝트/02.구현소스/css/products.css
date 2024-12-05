@@ -1,0 +1,30 @@
+.results {
+    margin: 0 auto 24px;
+    width: 100%;
+    min-height: 24px;
+    max-width: 1200px;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+}
+.results > p {
+    color: var(--font-color-secondary);
+    text-align: center;
+}
+.product {
+    flex-basis: 1200px;
+    background: var(--color-bg-basic);
+    color: var(--font-color-normal);
+    margin: 24px 14px;
+    padding: 80px;
+    border-radius: 20px;
+    min-width: 400px;
+}
+.product h3 {
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-bold);
+}
+.product p {
+    font-size: 1rem;
+    font-weight: var(--font-weight-normal);
+}

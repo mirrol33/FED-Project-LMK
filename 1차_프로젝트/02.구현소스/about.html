@@ -19,6 +19,7 @@
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
     <!-- basic js -->
     <script src="./js/basic.js" defer></script>
+    <script src="./js/search.js" defer></script>
 </head>
 
 <body>
@@ -64,10 +65,15 @@
                         </li>
                     </ul>
                     <div class="search-area">
-                        <input type="text" placeholder="Search" />
-                        <button type="button">
-                            <img src="./images/search_icon.svg" alt="search" />
-                        </button>
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="찾으시는 상품명을 입력해주세요" />
+                            <button type="button" id="search-button">
+                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.9148 13.92L17 17M16.0254 8.5C16.0254 10.4891 15.2338 12.3968 13.8249 13.8033C12.416 15.2098 10.5052 16 8.51268 16C6.52019 16 4.60931 15.2098 3.20041 13.8033C1.79151 12.3968 1 10.4891 1 8.5C1 6.51088 1.79151 4.60322 3.20041 3.1967C4.60931 1.79018 6.52019 1 8.51268 1C10.5052 1 12.416 1.79018 13.8249 3.1967C15.2338 4.60322 16.0254 6.51088 16.0254 8.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="results" id="search-results"></div>
                     </div>
                 </nav>
             </div>
@@ -376,11 +382,53 @@
     </div>
     <!--// 퀵메뉴 영역 end -->
     <!-- 상담폼 영역 -->
-     <div class="contact-bg">
-         <div class="contact-area">
-            <div class="close-btn"><a href="#none"><img src="./images/close_btn.svg" alt=""></a></div>
-         </div>
-     </div>
+    <div class="contact-bg"></div>
+    <div class="contact-area">
+       <div class="close-btn"><a href="#none"><img src="./images/close_btn.svg" alt=""></a></div>
+        <div class="contact-title">
+            <h3>CONTACT US</h3>
+            <p>잊고 있었던 젊음을 채워드립니다.</p>
+        </div>
+       <div class="contact-process">
+            <ul>
+                <li class="step1 active">1</li>
+                <li class="step2">2</li>
+                <li class="step3">3</li>
+                <li class="step4">4</li>
+            </ul>
+       </div>
+       <form>
+        <div class="contact-box">
+            <ul>
+                <li>
+                    <span>1 성함을 입력해주세요.</span>
+                    <label for="name">이름</label>
+                    <input type="text" id="name" placeholder="성함" required>
+                </li>
+                <li>
+                    <span>2 나이대를 선택해주세요.</span>
+                    <label for="age">나이</label>
+                    <input type="radio" name="10대이하"> 10대 이하
+                    <input type="radio" name="20~30대"> 20~30대
+                    <input type="radio" name="40~50대"> 40~50대
+                    <input type="radio" name="60대이상"> 60대 이상
+                </li>
+                <li>
+                    <span>3 핸드폰 번호를 입력해주세요.</span>
+                    <label>연락처</label>
+                    <input type="text" id="phone1" placeholder="010" required>
+                    <input type="text" id="phone2" placeholder="1234" required>
+                    <input type="text" id="phone3" placeholder="5678" required>
+                </li>
+                <li>
+                    <span>4 상담 가능한 시간대를 선택해주세요. </span>
+                    <input type="time" id="time1">
+                    <input type="time" id="time2">
+                </li>
+            </ul>
+        </div>
+       </form>
+    </div>
     <!--// 상담폼 영역 end -->
 </body>
 

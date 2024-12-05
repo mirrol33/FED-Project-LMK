@@ -170,7 +170,7 @@ nav ul > li:last-child:hover a::before {
     box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.25);
     padding: 15px 10px;
     border-radius: 50px;
-    margin: 100px auto 50px auto;
+    margin: 100px auto 24px auto;
 }
 .search-box input {
     width: 90%;
