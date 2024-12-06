@@ -1,5 +1,4 @@
 $(()=>{
-     burgerBtn(); // 햄버거 버튼 실행
      quickBtn(); // 상담하기 퀵버튼 실행
 })
 
@@ -31,21 +30,29 @@ $( ".button_su_inner" ).mouseenter(function(e) {
       $(".more-btn a").css({borderColor:"#777"});
  });
 
-// 검색버튼
-$(".search-icon").on('click',()=>{
-     $(".search-area").toggleClass("on")
+// 검색버튼, 햄버거메뉴 선택자 변수
+var searchBtn = $(".search-icon");
+var searchBox = $(".search-area");
+var burger = $('.menu-trigger');
+var submenu = $('.sub-menu');
+
+// "on" 클래스 제거 함수
+function removeOnClasses(...elements) {
+    elements.forEach(element => element.removeClass('on'));
+}
+
+searchBtn.click(() => {
+    searchBtn.toggleClass("on");
+    searchBox.toggleClass("on");
+    removeOnClasses(burger, submenu); // burger와 submenu의 "on" 제거
 });
 
-// 햄버거메뉴
-function burgerBtn() {
-     var $burger = $('.menu-trigger');
-     var $submenu = $('.sub-menu');
- 
-     $burger.on('click', function () {
-         $burger.toggleClass('on');
-         $submenu.toggleClass('on');
-     });
- }
+burger.click(() => {
+    burger.toggleClass("on");
+    submenu.toggleClass("on");
+    removeOnClasses(searchBtn, searchBox); // searchBtn과 searchBox의 "on" 제거
+});
+
 
  // 퀵메뉴 상담하기 팝업창
  function quickBtn(){
