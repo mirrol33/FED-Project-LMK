@@ -55,22 +55,23 @@ burger.click(() => {
 
 
  // 퀵메뉴 상담하기 팝업창
- function quickBtn(){
-      var $qMenu = $('.quick-btn a');
-      var $contactBg = $('.contact-bg');
-      var $contactBox = $('.contact-area');
-      var $closeBtn = $('.close-btn');
+ function quickBtn() {
+    const $contactBg = $('.contact-bg');
+    const $contactBox = $('.contact-area');
 
-      $qMenu.click(()=>{
-          $contactBg.toggleClass('on');
-          $contactBox.toggleClass('on');
-      });
-      $closeBtn.click(()=>{
-          $contactBg.toggleClass('on');
-          $contactBox.toggleClass('on');
-      });
-      $contactBg.click(()=>{
-          $contactBg.toggleClass('on');
-          $contactBox.toggleClass('on');
-      });
- }
+    // 공통 toggleClass 함수
+    const toggleContact = () => {
+        $contactBg.toggleClass('on');
+        $contactBox.toggleClass('on');
+    };
+
+    // 이벤트 바인딩
+    $('.contact-top-menu, .quick-btn a, .close-btn, .contact-bg').click((e) => {
+        // 배경 클릭 시 내부 요소 클릭 방지
+        if ($(e.target).hasClass('contact-bg') && !$contactBox.is(e.target)) {
+            toggleContact();
+        } else if (!$(e.target).hasClass('contact-bg')) {
+            toggleContact();
+        }
+    });
+}
