@@ -56,12 +56,12 @@
     text-align: center;
 }
 .product {
-    flex-basis: 1200px;
     background: var(--color-bg-basic);
     color: var(--font-color-normal);
     margin: 24px 14px;
     padding: 40px;
     border-radius: 20px;
+    width: 50%;
 }
 .product span {
     color: var(--color-primary);
@@ -89,7 +89,6 @@
         flex-direction: column;
     }
     .product {
-        flex-basis: auto;
         padding: 24px 18px;
         margin: 14px;
         border-radius: 10px;
