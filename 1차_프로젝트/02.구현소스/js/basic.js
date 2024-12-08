@@ -40,7 +40,7 @@ function raf(time) {
 requestAnimationFrame(raf); // Lenis 루프 실행
 
 
-// 동영상 자동재생 start
+// 동영상 자동재생 함수
 function mainVideo() {
     // 동영상 요소 선택
     const mainVideo = document.getElementById("main-video");
@@ -52,7 +52,7 @@ function mainVideo() {
             console.error("Video autoplay failed:", error);
         });
     }
-} //// mainVideo ////
+} //// 동영상 자동재생 함수 ////
 
 // 스크롤시 메뉴바 특정 위치에서 배경색 변경 함수
 function checkScrollPosition() {
@@ -70,7 +70,7 @@ function checkScrollPosition() {
         headerWrap.style.backgroundColor = "var(--color-bg-dark-ov)"; // 검은 색상
         // headerWrap.classList.remove("scrolled"); // 클래스 제거
     }
-} //// checkScrollPosition ////
+} //// 스크롤시 메뉴바 특정 위치에서 배경색 변경 함수 ////
 
 window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
 
@@ -111,7 +111,7 @@ function horizontalScroll() {
         window.removeEventListener("scroll", scrollHandler); // 스크롤 이벤트 제거
         horizontalSection.style.transform = `translateX(0px)`; // 초기화
     };
-} //// horizontalScroll ////
+} //// 가로스크롤 영역 함수 ////
 
 // 가로스크롤 영역 초기화 및 리사이즈 관리
 let cleanupHorizontalScroll = null;
@@ -126,4 +126,4 @@ function initHorizontalScroll() {
     } else {
         cleanupHorizontalScroll = null; // 필요 없을 경우 초기화
     }
-} //// initHorizontalScroll ////
+} //// 가로스크롤 영역 초기화 및 리사이즈 관리 ////

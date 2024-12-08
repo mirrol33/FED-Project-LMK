@@ -383,7 +383,7 @@
         <a href="#none"><img src="../02.구현소스/images/quick_btn.svg" alt="상담하기 퀵버튼"></a>
     </div>
     <!--// 퀵메뉴 영역 end -->
-    <!-- 상담폼 영역 -->
+    <!-- 상담 신청폼 영역 -->
     <div class="contact-bg"></div>
     <div class="contact-area">
        <div class="close-btn"><a href="#none"><img src="./images/close_btn.svg" alt=""></a></div>
@@ -393,22 +393,25 @@
         </div>
        <div class="contact-process">
             <ul>
+                <svg width="500" height="1" viewBox="0 0 500 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line y1="0.5" x2="500" y2="0.5" stroke="#777777" stroke-dasharray="1 5"/>
+                </svg>
                 <li class="step1 active">1</li>
                 <li class="step2">2</li>
                 <li class="step3">3</li>
                 <li class="step4">4</li>
             </ul>
        </div>
-       <form>
-        <div class="contact-box">
+       <form class="contact-box">
+        <div>
             <ul>
                 <li>
-                    <span>1 성함을 입력해주세요.</span>
+                    <h4>1 성함을 입력해주세요.</h4>
                     <label for="name">이름</label>
                     <input type="text" id="name" placeholder="성함" required>
                 </li>
                 <li>
-                    <span>2 나이대를 선택해주세요.</span>
+                    <h4>2 나이대를 선택해주세요.</h4>
                     <label for="age">나이</label>
                     <input type="radio" name="10대이하"> 10대 이하
                     <input type="radio" name="20~30대"> 20~30대
@@ -416,22 +419,24 @@
                     <input type="radio" name="60대이상"> 60대 이상
                 </li>
                 <li>
-                    <span>3 핸드폰 번호를 입력해주세요.</span>
+                    <h4>3 핸드폰 번호를 입력해주세요.</h4>
                     <label>연락처</label>
-                    <input type="text" id="phone1" placeholder="010" required>
-                    <input type="text" id="phone2" placeholder="1234" required>
-                    <input type="text" id="phone3" placeholder="5678" required>
+                    <input type="number" id="phone1" placeholder="010" required> -
+                    <input type="number" id="phone2" placeholder="1234" required> -
+                    <input type="number" id="phone3" placeholder="5678" required>
                 </li>
                 <li>
-                    <span>4 상담 가능한 시간대를 선택해주세요. </span>
-                    <input type="time" id="time1">
-                    <input type="time" id="time2">
+                    <h4>4 상담 가능한 시간대를 선택해주세요. </h4>
+                    <label>상담시간</label>
+                    <input type="date" id="date">
+                    <input type="time" id="time-start">
+                    <input type="time" id="time-end">
                 </li>
             </ul>
         </div>
        </form>
     </div>
-    <!--// 상담폼 영역 end -->
+    <!--// 상담 신청폼 영역 end -->
 </body>
 
 </html>

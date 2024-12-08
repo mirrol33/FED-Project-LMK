@@ -68,6 +68,7 @@
 .contact-title h3 {
   font-size: 2.5rem;
   font-weight: 500;
+  letter-spacing: -0.02rem;
   margin-top: 100px;
   padding-bottom: 8px;
 }
@@ -79,7 +80,11 @@
 .contact-process ul {
   display: flex;
   justify-content: center;
-  gap: 0 24px;
+  align-items: center;
+  gap: 0 50px;
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
 }
 .contact-process ul li {
   background: var(--color-bg-secondary);
@@ -95,10 +100,39 @@
   background: var(--color-bg-red);
   color: #fff;
 }
+.contact-process svg {
+  position: absolute;
+  z-index: -1;
+}
 .contact-box {
   width: 90%;
   max-width: 500px;
   margin: 80px auto;
+}
+.contact-box ul li+li {
+  padding-top: 40px;
+}
+.contact-box h4 {
+  padding-bottom: 20px;
+}
+.contact-box label {
+  display: none;
+}
+.contact-box input[type=text] {
+  background-color: #f1f1f1;
+  border: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+}
+.contact-box input[type=number] {
+  background-color: #f1f1f1;
+  border: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  width: 24%;  
 }
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width:1200px) {

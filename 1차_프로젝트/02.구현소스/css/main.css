@@ -64,7 +64,7 @@ main section .inner {
     height: auto;
     position: absolute;
     left: 0;
-    top: 120px;
+    top: 100px;
 }
 
 .loop-text-inner {

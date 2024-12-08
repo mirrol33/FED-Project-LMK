@@ -60,27 +60,27 @@
     background: var(--color-bg-basic);
     color: var(--font-color-normal);
     margin: 24px 14px;
-    padding: 50px;
+    padding: 40px;
     border-radius: 20px;
 }
 .product span {
     color: var(--color-primary);
     font-size: 0.75rem;
     letter-spacing: 0.4rem;
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.4rem;
     margin-left: 2px;
     display: block;
 }
 .product h3 {
     font-size: 1.5rem;
     font-weight: var(--font-weight-semibold);
-    margin-bottom: 1rem;
+    margin-bottom: 0.6rem;
     letter-spacing: -0.1rem;
 }
 .product p {
     font-size: 1rem;
     font-weight: var(--font-weight-normal);
-    line-height: 1.5rem;
+    line-height: 1.5;
 }
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
@@ -90,7 +90,19 @@
     }
     .product {
         flex-basis: auto;
-        padding: 60px 40px;
+        padding: 24px 18px;
         margin: 14px;
+        border-radius: 10px;
+    }
+    .product span {
+        font-size: 0.6rem;
+        margin-bottom: 0.4rem;
+    }
+    .product h3{
+        margin-bottom: 0.4rem;
+    }
+    .product p {
+        font-size: 0.9rem;
+        line-height: 1.5;
     }
 }

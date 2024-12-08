@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <!-- jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js" defer></script>
-    <!-- jquery button js -->
-    <script src="./js/button.js" defer></script>
-    <!-- gsap CDN -->
     <!-- lenis js -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js" defer></script>
     <!-- basic js -->
     <script src="./js/basic.js" defer></script>
+    <!-- jquery search js -->
     <script src="./js/search.js" defer></script>
+    <!-- jquery button js -->
+    <script src="./js/button.js" defer></script>
 </head>
 
 <body>
@@ -35,7 +35,7 @@
                         <li class="active"><a href="./">HOME</a></li>
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="product.html">PRODUCTS</a></li>
-                        <li><a href="#none">CONTACT</a></li>
+                        <li><a class="contact-top-menu" href="#none">CONTACT</a></li>
                         <li>
                             <a class="search-icon" href="#none">
                                 <img src="./images/search_icon.svg" alt="search" />
@@ -64,15 +64,17 @@
                             </div>
                         </li>
                     </ul>
+                    <!-- 상품 검색창 영역 -->
                     <div class="search-area">
                         <div class="search-box">
-                            <input type="text" id="search-input" placeholder="찾으시는 상품명을 입력해주세요" />
+                            <input type="text" id="search-input" placeholder="찾으시는 상품을 입력해주세요." />
                             <button type="button" id="search-button">
                                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.9148 13.92L17 17M16.0254 8.5C16.0254 10.4891 15.2338 12.3968 13.8249 13.8033C12.416 15.2098 10.5052 16 8.51268 16C6.52019 16 4.60931 15.2098 3.20041 13.8033C1.79151 12.3968 1 10.4891 1 8.5C1 6.51088 1.79151 4.60322 3.20041 3.1967C4.60931 1.79018 6.52019 1 8.51268 1C10.5052 1 12.416 1.79018 13.8249 3.1967C15.2338 4.60322 16.0254 6.51088 16.0254 8.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                             </button>
                         </div>
+                        <!-- 상품 검색결과 영역 -->
                         <div class="results" id="search-results"></div>
                     </div>
                 </nav>
@@ -87,7 +89,7 @@
             <div class="visual">
                 <div class="video-area">
                     <video id="main-video" muted autoplay playsinline loop>
-                        <source src="./video/video1.mp4" type="video/mp4" />
+                        <source src="./video/video1.mp4" type="video/mp4" poster="./images/video_fail_img.png" />
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -381,7 +383,7 @@
         <a href="#none"><img src="../02.구현소스/images/quick_btn.svg" alt="상담하기 퀵버튼"></a>
     </div>
     <!--// 퀵메뉴 영역 end -->
-    <!-- 상담폼 영역 -->
+    <!-- 상담 신청폼 영역 -->
     <div class="contact-bg"></div>
     <div class="contact-area">
        <div class="close-btn"><a href="#none"><img src="./images/close_btn.svg" alt=""></a></div>
@@ -422,6 +424,7 @@
                 </li>
                 <li>
                     <span>4 상담 가능한 시간대를 선택해주세요. </span>
+                    <label>상담시간</label>
                     <input type="time" id="time1">
                     <input type="time" id="time2">
                 </li>
@@ -429,7 +432,7 @@
         </div>
        </form>
     </div>
-    <!--// 상담폼 영역 end -->
+    <!--// 상담 신청폼 영역 end -->
 </body>
 
 </html>
