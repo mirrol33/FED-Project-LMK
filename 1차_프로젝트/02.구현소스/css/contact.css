@@ -126,7 +126,7 @@
   border-radius: 8px;
   width: 100%;
 }
-.contact-box input[type=number] {
+.contact-box input[type=tel] {
   background-color: #f1f1f1;
   border: none;
   font-size: 1rem;
