@@ -93,7 +93,7 @@
   width: 24px;
   height: 24px;
   text-align: center;
-  line-height: 24px;
+  line-height: 22px;
   border-radius: 50%;
 }
 .contact-process ul li.active {
@@ -119,20 +119,27 @@
   display: none;
 }
 .contact-box input[type=text] {
-  background-color: #f1f1f1;
+  background-color: var(--color-bg-secondary);
   border: none;
   font-size: 1rem;
   padding: 10px;
   border-radius: 8px;
   width: 100%;
+  box-sizing: border-box;
 }
 .contact-box input[type=tel] {
-  background-color: #f1f1f1;
+  background-color: var(--color-bg-secondary);
   border: none;
   font-size: 1rem;
   padding: 10px;
   border-radius: 8px;
   width: 24%;  
+}
+.contact-box .tel-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width:1200px) {

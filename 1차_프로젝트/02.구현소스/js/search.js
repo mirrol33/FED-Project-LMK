@@ -22,10 +22,10 @@ $().ready(()=>{
 
         // 검색어로 필터링
         const filteredProducts = products.filter(product =>
-            product.name.toLowerCase().includes(query) ||
+            product.name.includes(query) ||
             product.name_en.toLowerCase().includes(query) ||
-            product.description.toLowerCase().includes(query) ||
-            product.keyword.toLowerCase().includes(query)
+            product.description.includes(query) ||
+            product.keyword.includes(query)
         );
 
         // 결과 출력
