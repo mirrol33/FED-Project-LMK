@@ -85,6 +85,7 @@
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
     .results {
+        position: relative;
         width: 90%;
         flex-direction: column;
     }
@@ -92,6 +93,8 @@
         padding: 24px 18px;
         margin: 14px;
         border-radius: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .product span {
         font-size: 0.6rem;
