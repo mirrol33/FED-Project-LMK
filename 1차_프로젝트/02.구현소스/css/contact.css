@@ -119,28 +119,35 @@
   display: none;
 }
 .contact-box input[type=text] {
-  background-color: var(--color-bg-secondary);
-  border: none;
-  font-size: 1rem;
-  padding: 10px;
-  border-radius: 8px;
-  width: 100%;
-  box-sizing: border-box;
+  width: 100%;  
 }
 .contact-box input[type=tel] {
-  background-color: var(--color-bg-secondary);
-  border: none;
-  font-size: 1rem;
-  padding: 10px;
-  border-radius: 8px;
   width: 24%;  
 }
-.contact-box .tel-box {
+.contact-box .time-box input {
+  width: 30%;  
+}
+
+/* 상담신청 입력폼 공통 flex정렬 스타일 */
+.contact-box .tel-box,
+.contact-box .time-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
 }
+
+/* 상담신청 입력폼 공통 스타일 */
+.contact-box input,
+.contact-box textarea {
+  background-color: var(--color-bg-secondary);
+  border: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width:1200px) {
     /* mo 상담하기 퀵메뉴 영역 */

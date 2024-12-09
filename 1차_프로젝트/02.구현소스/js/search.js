@@ -28,7 +28,13 @@ $().ready(()=>{
             product.keyword.includes(query)
         );
 
-        // 결과 출력
+        // 검색값 제외
+        if (query === '고혼진' || query === '피부') {
+            $searchResults.append('<p>검색어를 정확히 입력해주세요!</p>');
+            return;
+        }
+
+        // 검색 결과 출력
         if (filteredProducts.length > 0) {
             filteredProducts.forEach(product => {
                 const descriptionWithLineBreaks = product.description.replace(/\n/g, '<br>'); // 줄바꿈 태그 대체

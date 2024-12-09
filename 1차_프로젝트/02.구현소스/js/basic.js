@@ -80,7 +80,7 @@ const shouldRunHorizontalScroll = () =>
     window.innerWidth > 1200;
 
 // 가로스크롤 영역 함수
-function horizontalScroll() {    
+function horizontalScroll() {
     const horizontalBoxTop = document.querySelector(".section-03").offsetTop;
     const horizontalBoxHeight = document.querySelector(".horizontal-box").offsetHeight;
     const horizontalBoxLeft = document.querySelector(".product-title-box").offsetLeft;

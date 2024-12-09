@@ -428,11 +428,18 @@
                     </div>
                 </li>
                 <li>
-                    <h4>4 상담 가능한 시간대를 선택해주세요. </h4>
+                    <h4>4 상담 가능한 날짜와 시간대를 선택해주세요. </h4>
                     <label>상담시간</label>
-                    <input type="date" id="date">
-                    <input type="time" id="time-start">
-                    <input type="time" id="time-end">
+                    <div class="time-box">
+                        <input type="date" id="date" required>
+                        <input type="time" id="time-start"> ~
+                        <input type="time" id="time-end">
+                    </div>
+                </li>
+                <li>
+                    <h4>5 문의사항을 입력해주세요.</h4>
+                    <label>문의사항</label>
+                    <textarea placeholder="문의하실 내용을 입력하세요." required></textarea>
                 </li>
             </ul>
         </div>
