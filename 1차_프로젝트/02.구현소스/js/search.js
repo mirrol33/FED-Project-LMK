@@ -1,6 +1,5 @@
-$().ready(()=>{
-    // JSON 파일 경로
-    const jsonFile = './js/products.json';
+$(() => {
+    const jsonFile = './js/products.json'; // JSON 파일 경로
 
     // DOM 요소
     const $searchInput = $('#search-input');
@@ -9,41 +8,48 @@ $().ready(()=>{
 
     // 데이터 로드
     let products = [];
-    $.getJSON(jsonFile, function (data) {
+    $.getJSON(jsonFile, (data) => {
         products = data;
     });
 
+    // 검색어 제외 조건
+    const excludedKeywords = ['고혼진', '피부'];
+
     // 검색 기능
     function performSearch() {
-        const query = $searchInput.val().toLowerCase();
+        const query = $searchInput.val().toLowerCase().trim();
         $searchResults.empty(); // 기존 결과 초기화
 
-        if (query.length === 0) return;
-
-        // 검색어로 필터링
-        const filteredProducts = products.filter(product =>
-            product.name.includes(query) ||
-            product.name_en.toLowerCase().includes(query) ||
-            product.description.includes(query) ||
-            product.img.includes(query) ||
-            product.keyword.includes(query)
-        );
-
-        // 검색값 제외
-        if (query === '고혼진' || query === '피부') {
+        if (!query || excludedKeywords.includes(query)) {
             $searchResults.append('<p>검색어를 정확히 입력해주세요!</p>');
             return;
         }
 
-        // 검색 결과 출력
-        if (filteredProducts.length > 0) {
+        // 검색 결과 필터링
+        const filteredProducts = products.filter(product => {
+            const { name, name_en, description, img, keyword } = product;
+
+            // img 속성에 검색어 포함 여부 확인 및 제외
+            if (img.toLowerCase().includes(query)) return false;
+
+            // 검색어 포함 여부 확인
+            return (
+                name.includes(query) ||
+                name_en.toLowerCase().includes(query) ||
+                description.includes(query) ||
+                keyword.some(key => key.includes(query))
+            );
+        });
+
+        // 결과 출력
+        if (filteredProducts.length) {
             filteredProducts.forEach(product => {
-                const descriptionWithLineBreaks = product.description.replace(/\n/g, '<br>'); // 줄바꿈 태그 대체
+                const descriptionWithBreaks = product.description.replace(/\n/g, '<br>');
                 const resultHtml = `
                     <div class="product">
                         <span>${product.name_en}</span>
                         <h3>${product.name}</h3>
-                        <p>${descriptionWithLineBreaks}</p>
+                        <p>${descriptionWithBreaks}</p>
                         <figure><img src="${product.img}" alt=""></figure>
                     </div>
                 `;
@@ -54,13 +60,10 @@ $().ready(()=>{
         }
     }
 
-    // 입력창에서 Enter 키를 눌렀을 때 검색 실행
-    $searchInput.on('keypress', function (e) {
-        if (e.which === 13) { // Enter 키 코드
-            performSearch();
-        }
+    // 이벤트 바인딩
+    $searchInput.on('keypress', (e) => {
+        if (e.which === 13) performSearch(); // Enter 키로 검색
     });
 
-    // 검색 버튼 클릭 시 검색 실행
-    $searchButton.on('click', performSearch);
+    $searchButton.on('click', performSearch); // 버튼 클릭으로 검색
 });
