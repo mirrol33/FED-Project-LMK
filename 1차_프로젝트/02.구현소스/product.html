@@ -37,7 +37,7 @@
                         <li class="active"><a href="./">HOME</a></li>
                         <li><a href="about.html">ABOUT</a></li>
                         <li><a href="product.html">PRODUCTS</a></li>
-                        <li><a class="contact-top-menu" href="#none">CONTACT</a></li>
+                        <li><a class="contact-menu" href="#none">CONTACT</a></li>
                         <li>
                             <a class="search-icon" href="#none">
                                 <img src="./images/search_icon.svg" alt="search" />
@@ -58,10 +58,10 @@
                             </a>
                             <div class="sub-menu">
                                 <ul>
-                                    <li class="active"><a href="./">HOME</a></li>
+                                    <li><a href="./">HOME</a></li>
                                     <li><a href="about.html">ABOUT</a></li>
-                                    <li><a href="product.html">PRODUCTS</a></li>
-                                    <li><a href="#none">CONTACT</a></li>
+                                    <li class="active"><a href="product.html">PRODUCTS</a></li>
+                                    <li><a class="contact-menu" href="#none">CONTACT</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -146,38 +146,45 @@
                 <li class="step4">4</li>
             </ul>
        </div>
-       <form>
-        <div class="contact-box">
-            <ul>
-                <li>
-                    <span>1 성함을 입력해주세요.</span>
-                    <label for="name">이름</label>
-                    <input type="text" id="name" placeholder="성함" required>
-                </li>
-                <li>
-                    <span>2 나이대를 선택해주세요.</span>
-                    <label for="age">나이</label>
-                    <input type="radio" name="10대이하"> 10대 이하
-                    <input type="radio" name="20~30대"> 20~30대
-                    <input type="radio" name="40~50대"> 40~50대
-                    <input type="radio" name="60대이상"> 60대 이상
-                </li>
-                <li>
-                    <span>3 핸드폰 번호를 입력해주세요.</span>
-                    <label>연락처</label>
-                    <input type="text" id="phone1" placeholder="010" required>
-                    <input type="text" id="phone2" placeholder="1234" required>
-                    <input type="text" id="phone3" placeholder="5678" required>
-                </li>
-                <li>
-                    <span>4 상담 가능한 시간대를 선택해주세요. </span>
-                    <label>상담시간</label>
-                    <input type="time" id="time1">
-                    <input type="time" id="time2">
-                </li>
-            </ul>
+       <form class="contact-box">
+        <div>
+          <ul>
+            <li>
+              <h4>1 성함을 입력해주세요.</h4>
+              <label for="name">이름</label>
+              <input type="text" id="name" name="name" placeholder="성함" autocomplete="on" required />
+            </li>
+            <li>
+              <h4>2 나이대를 선택해주세요.</h4>
+              <label for="age">나이</label>
+              <input type="radio" id="age" name="age" value="Under-10s" /> 10대 이하 <input type="radio" name="age" value="20s-and-30s" /> 20~30대 <input type="radio" name="age" value="40s-and-50s" /> 40~50대 <input type="radio" name="age" value="60s-older" /> 60대 이상
+            </li>
+            <li>
+              <h4>3 핸드폰 번호를 입력해주세요.</h4>
+              <label for="phone">연락처</label>
+              <div class="tel-box">
+                <input type="tel" id="phone" placeholder="010" autocomplete="off" required /> - 
+                <input type="tel" id="phone1" placeholder="1234" required /> -
+                <input type="tel" id="phone2" placeholder="5678" required />
+              </div>
+            </li>
+            <li>
+              <h4>4 상담 가능한 날짜와 시간대를 선택해주세요.</h4>
+              <label for="datetime">상담시간</label>
+              <div class="time-box">
+                <input type="date" id="datetime" required />
+                <input type="time" id="time-start" /> ~
+                <input type="time" id="time-end" />
+              </div>
+            </li>
+            <li>
+              <h4>5 문의사항을 입력해주세요.</h4>
+              <label for="question">문의사항</label>
+              <textarea id="question" placeholder="문의하실 내용을 입력하세요." required></textarea>
+            </li>
+          </ul>
         </div>
-       </form>
+      </form>
     </div>
     <!--// 상담 신청폼 영역 end -->
 </body>

@@ -66,7 +66,7 @@ burger.click(() => {
     };
 
     // 이벤트 바인딩
-    $('.contact-top-menu, .quick-btn a, .close-btn, .contact-bg').click((e) => {
+    $('.contact-menu, .quick-btn a, .close-btn, .contact-bg').click((e) => {
         // 배경 클릭 시 내부 요소 클릭 방지
         if ($(e.target).hasClass('contact-bg') && !$contactBox.is(e.target)) {
             toggleContact();

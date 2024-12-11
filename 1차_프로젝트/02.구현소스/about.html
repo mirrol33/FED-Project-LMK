@@ -36,7 +36,7 @@
               <li><a href="./">HOME</a></li>
               <li class="active"><a href="about.html">ABOUT</a></li>
               <li><a href="product.html">PRODUCTS</a></li>
-              <li><a class="contact-top-menu" href="#none">CONTACT</a></li>
+              <li><a class="contact-menu" href="#none">CONTACT</a></li>
               <li>
                 <a class="search-icon" href="#none">
                   <img src="./images/search_icon.svg" alt="search" />
@@ -57,10 +57,10 @@
                 </a>
                 <div class="sub-menu">
                   <ul>
-                    <li class="active"><a href="./">HOME</a></li>
-                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="./">HOME</a></li>
+                    <li class="active"><a href="about.html">ABOUT</a></li>
                     <li><a href="product.html">PRODUCTS</a></li>
-                    <li><a href="#none">CONTACT</a></li>
+                    <li><a class="contact-menu" href="#none">CONTACT</a></li>
                   </ul>
                 </div>
               </li>
@@ -93,7 +93,7 @@
         <div class="container">
           <div class="about-top-bg"></div>
           <div class="about-top-ov"></div>
-          <div class="about-top">
+          <div class="about-top-title">
             <h2>시간을 넘어 지속되는 힘</h2>
           </div>
         </div>
@@ -108,7 +108,7 @@
           </div>
           <div class="about-container">
             <div class="about-img right">
-              <div class="img-01">
+              <div class="img-box img-01">
                 <img src="./images/about_img_01.png" alt="about_img_01" />
               </div>
             </div>
@@ -126,13 +126,13 @@
           </div>
           <div class="about-container">
             <div class="about-img left">
-              <div class="img-02"><img src="./images/about_img_02.png" alt="about_img_02" /></div>
-              <div class="img-03"><img src="./images/about_img_03.png" alt="about_img_03" /></div>
+              <div class="img-box img-02"><img src="./images/about_img_02.png" alt="about_img_02" /></div>
+              <div class="img-box img-03"><img src="./images/about_img_03.png" alt="about_img_03" /></div>
             </div>
           </div>
           <div class="about-container">
             <div class="about-img right">
-              <div class="img-04"><img src="./images/about_img_04.png" alt="about_img_04" /></div>
+              <div class="img-box img-04"><img src="./images/about_img_04.png" alt="about_img_04" /></div>
             </div>
             <div class="about-text">
               <h4>사회적 책임과 기여</h4>
@@ -215,31 +215,41 @@
           <li class="step4">4</li>
         </ul>
       </div>
-      <form>
-        <div class="contact-box">
+      <form class="contact-box">
+        <div>
           <ul>
             <li>
-              <span>1 성함을 입력해주세요.</span>
+              <h4>1 성함을 입력해주세요.</h4>
               <label for="name">이름</label>
-              <input type="text" id="name" placeholder="성함" required />
+              <input type="text" id="name" name="name" placeholder="성함" autocomplete="on" required />
             </li>
             <li>
-              <span>2 나이대를 선택해주세요.</span>
+              <h4>2 나이대를 선택해주세요.</h4>
               <label for="age">나이</label>
-              <input type="radio" name="10대이하" /> 10대 이하 <input type="radio" name="20~30대" /> 20~30대 <input type="radio" name="40~50대" /> 40~50대 <input type="radio" name="60대이상" /> 60대 이상
+              <input type="radio" id="age" name="age" value="Under-10s" /> 10대 이하 <input type="radio" name="age" value="20s-and-30s" /> 20~30대 <input type="radio" name="age" value="40s-and-50s" /> 40~50대 <input type="radio" name="age" value="60s-older" /> 60대 이상
             </li>
             <li>
-              <span>3 핸드폰 번호를 입력해주세요.</span>
-              <label>연락처</label>
-              <input type="text" id="phone1" placeholder="010" required />
-              <input type="text" id="phone2" placeholder="1234" required />
-              <input type="text" id="phone3" placeholder="5678" required />
+              <h4>3 핸드폰 번호를 입력해주세요.</h4>
+              <label for="phone">연락처</label>
+              <div class="tel-box">
+                <input type="tel" id="phone" placeholder="010" autocomplete="off" required /> - 
+                <input type="tel" id="phone1" placeholder="1234" required /> -
+                <input type="tel" id="phone2" placeholder="5678" required />
+              </div>
             </li>
             <li>
-              <span>4 상담 가능한 시간대를 선택해주세요. </span>
-              <label>상담시간</label>
-              <input type="time" id="time1" />
-              <input type="time" id="time2" />
+              <h4>4 상담 가능한 날짜와 시간대를 선택해주세요.</h4>
+              <label for="datetime">상담시간</label>
+              <div class="time-box">
+                <input type="date" id="datetime" required />
+                <input type="time" id="time-start" /> ~
+                <input type="time" id="time-end" />
+              </div>
+            </li>
+            <li>
+              <h4>5 문의사항을 입력해주세요.</h4>
+              <label for="question">문의사항</label>
+              <textarea id="question" placeholder="문의하실 내용을 입력하세요." required></textarea>
             </li>
           </ul>
         </div>
