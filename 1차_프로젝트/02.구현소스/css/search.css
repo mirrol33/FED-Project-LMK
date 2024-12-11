@@ -58,6 +58,7 @@
     text-align: center;
 }
 .results .product {
+    position: relative;
     background: var(--color-bg-basic);
     color: var(--font-color-normal);
     margin: 24px 14px;
@@ -83,6 +84,15 @@
     font-size: 1rem;
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
+}
+.results .product figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 180px;
+}
+.results .product figure img {
+    width: 180px;
 }
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {

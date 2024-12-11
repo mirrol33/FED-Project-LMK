@@ -25,6 +25,7 @@ $().ready(()=>{
             product.name.includes(query) ||
             product.name_en.toLowerCase().includes(query) ||
             product.description.includes(query) ||
+            product.img.includes(query) ||
             product.keyword.includes(query)
         );
 
@@ -43,6 +44,7 @@ $().ready(()=>{
                         <span>${product.name_en}</span>
                         <h3>${product.name}</h3>
                         <p>${descriptionWithLineBreaks}</p>
+                        <figure><img src="${product.img}" alt=""></figure>
                     </div>
                 `;
                 $searchResults.append(resultHtml);
