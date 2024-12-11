@@ -89,10 +89,10 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 180px;
+    height: 100%;
 }
 .results .product figure img {
-    width: 180px;
+    height: 100%;
 }
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
