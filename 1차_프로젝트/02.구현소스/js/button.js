@@ -1,7 +1,5 @@
 $(()=>{
-     quickBtn(); // 상담하기 퀵버튼 실행
-})
-
+    
 // 더보기 버튼 마우스 오버시 함수
 $( ".button_su_inner" ).mouseenter(function(e) {
     var parentOffset = $(this).offset();
@@ -75,3 +73,7 @@ burger.click(() => {
         }
     });
 }
+
+quickBtn(); // 상담하기 퀵버튼 실행
+
+})
