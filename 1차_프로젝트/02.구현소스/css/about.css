@@ -1,115 +1,117 @@
 @charset "utf-8";
 .section {
-    min-height: 100svh;
+  min-height: 100svh;
 }
 .about-01 .container {
-    position: fixed;
-    z-index: -1;
+  position: fixed;
+  z-index: -1;
 }
 .about-top-bg {
-    width: 100svw;
-    height: 100svh;
-    background: url(../images/about_top_img.png) no-repeat center/cover;
+  width: 100svw;
+  height: 100svh;
+  background: url(../images/about_top_img.png) no-repeat center/cover;
 }
 .about-top-ov {
-    position: absolute;
-    top: 0;
-    width: 100svw;
-    height: 100svh;
-    background-color:#000;
-    opacity: .5;
+  position: absolute;
+  top: 0;
+  width: 100svw;
+  height: 100svh;
+  background-color: #000;
+  opacity: 0.5;
 }
 .about-top-title {
-    position: absolute;
-    top: 0;
-    width: 100svw;
-    height: 100svh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100svw;
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .about-top-title h2 {
-    font-size: min(4rem, 8vw);
-    font-weight: var(--font-weight-bold);
-    color: #fff;
+  font-size: min(4rem, 8vw);
+  font-weight: var(--font-weight-bold);
+  color: #fff;
 }
 .about-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 180px;
-    letter-spacing: -0.01rem;
-    word-break: keep-all;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 180px;
+  letter-spacing: -0.01rem;
+  word-break: keep-all;
 }
-.about-container:last-child{
-    padding-bottom: 180px;
+.about-container:last-child {
+  padding-bottom: 180px;
 }
 .about-container h3 {
-    font-size: min(2rem, 5vw);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1.5;
-    text-align: center;
+  font-size: min(2rem, 5vw);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  text-align: center;
 }
 .about-img {
-    position: absolute;
+  position: absolute;
 }
 .about-img.left {
-    position: relative;
-    display: flex;
+  position: relative;
+  display: flex;
 }
 .about-img.right {
-    right: 0;
+  right: 0;
 }
 .about-img.right .img-box {
-    float: right;
+  float: right;
 }
 .about-text {
-    padding-bottom: 180px;
-    width: 588px;
+  padding-bottom: 180px;
+  width: 588px;
 }
 .about-text:last-child {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 .about-text h4 {
-    font-size: min(2rem, 5vw);
-    font-weight: var(--font-weight-semibold);
-    line-height: 1.5;
-    padding-bottom: 1.5rem;
+  font-size: min(2rem, 5vw);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.5;
+  padding-bottom: 1.5rem;
 }
 .about-text p {
-    font-size: min(1.5rem, 4.5vw);
-    line-height: 1.5;
-    font-weight: var(--font-weight-normal);
+  font-size: min(1.5rem, 4.5vw);
+  line-height: 1.5;
+  font-weight: var(--font-weight-normal);
 }
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
-    .about-container {
-        padding-top: 40px;
-        width: 96%;
-        margin: 0 auto;
-    }
-    .about-img {
-        position: relative;
-    }
-    .about-img.right .img-box {
-        float: none;
-    }
-    .img-box img {
-        width: 100%;
-    }
-    .about-text {
-        padding-top: 40px;
-        padding-bottom: 0px;
-        width: 100%;
-    }
-    .about-container:last-child {
-        padding-bottom: 100px;
-    }
-    .about-container h3 {
-        text-align: left;
-    }
-    .about-container h3 br {
-        display: none;
-    }
-
+  .about-container {
+    padding-top: 40px;
+    width: 96%;
+    margin: 0 auto;
+  }
+  .about-container:last-child {
+    padding-bottom: 100px;
+  }
+  .about-container h3 {
+    text-align: left;
+  }
+  .about-container h3 br {
+    display: none;
+  }
+  .about-img {
+    position: relative;
+  }
+  .about-img.right .img-box {
+    float: none;
+  }
+  .img-box img {
+    width: 100%;
+  }
+  .about-text {
+    padding-top: 40px;
+    padding-bottom: 0px;
+    width: 100%;
+  }
+  .about-text h4 {
+    padding-bottom: 8px;
+  }
 }
