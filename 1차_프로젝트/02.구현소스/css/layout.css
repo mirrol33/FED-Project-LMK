@@ -216,16 +216,16 @@ footer .inner {
         padding: 10% 0;
     }
     .call-area li img {
-        height: max(14vw, 20px);
+        height: min(60px, 14vw);
     }
     .call-area a {
-        font-size: max(8vw, 1rem);
+        font-size: min(3rem, 10vw);
     }
     .info-area {
         padding-top: 1.25rem;
     }
     .info-area p {
-        font-size: max(2vw, 0.8rem);
+        font-size: min(1.2rem, 2.9vw);
         line-height: normal;
     }
     .info-area p br {
