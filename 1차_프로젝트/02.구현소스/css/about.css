@@ -29,7 +29,7 @@
     align-items: center;
 }
 .about-top-title h2 {
-    font-size: 4rem;
+    font-size: min(4rem, 8vw);
     font-weight: var(--font-weight-bold);
     color: #fff;
 }
@@ -45,14 +45,11 @@
     padding-bottom: 180px;
 }
 .about-container h3 {
-    font-size: 2rem;
+    font-size: min(2rem, 5vw);
     font-weight: var(--font-weight-semibold);
     line-height: 1.5;
-}
-.text-center {
     text-align: center;
 }
-
 .about-img {
     position: absolute;
 }
@@ -74,13 +71,45 @@
     padding-bottom: 0;
 }
 .about-text h4 {
-    font-size:2rem;
+    font-size: min(2rem, 5vw);
     font-weight: var(--font-weight-semibold);
     line-height: 1.5;
     padding-bottom: 1.5rem;
 }
 .about-text p {
-    font-size: 1.5rem;
+    font-size: min(1.5rem, 3.5vw);
     line-height: 1.5;
     font-weight: var(--font-weight-normal);
+}
+/******************************* 미디어쿼리(1200px이하) *******************************/
+@media all and (max-width: 1200px) {
+    .about-container {
+        padding-top: 80px;
+        width: 96%;
+        margin: 0 auto;
+    }
+    .about-img {
+        position: relative;
+    }
+    .about-img.right .img-box {
+        float: none;
+    }
+    .img-box img {
+        width: 100%;
+    }
+    .about-text {
+        padding-top: 80px;
+        padding-bottom: 0px;
+        width: 100%;
+    }
+    .about-container:last-child {
+        padding-bottom: 100px;
+    }
+    .about-container h3 {
+        text-align: left;
+    }
+    .about-container h3 br {
+        display: none;
+    }
+
 }
