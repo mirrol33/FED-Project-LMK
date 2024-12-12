@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", initHorizontalScroll); // 로드시 실행
+window.addEventListener("load", initHorizontalScroll); // 로드시 실행
 window.addEventListener("resize", initHorizontalScroll); // 리사이즈시 실행
 
 // 모바일 기기 여부와 뷰포트 크기 확인

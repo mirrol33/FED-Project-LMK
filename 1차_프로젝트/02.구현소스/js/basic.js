@@ -1,5 +1,5 @@
-window.addEventListener('DOMContentLoaded', loadFn); // 로드시 실행
-window.addEventListener('resize', resizeFn); // 리사이즈시 실행
+window.addEventListener("load", loadFn); // 로드시 실행
+window.addEventListener("resize", resizeFn); // 리사이즈시 실행
 
 // 로드완료후 실행 함수
 function loadFn() {
