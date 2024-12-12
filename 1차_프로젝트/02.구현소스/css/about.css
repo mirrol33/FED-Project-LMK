@@ -52,10 +52,12 @@
 }
 .about-img {
   position: absolute;
+  width: 50%;
 }
 .about-img.left {
   position: relative;
   display: flex;
+  width: 100%;
 }
 .about-img.right {
   right: 0;
@@ -63,9 +65,12 @@
 .about-img.right .img-box {
   float: right;
 }
+.img-box img {
+  width: 100%;
+}
 .about-text {
   padding-bottom: 180px;
-  width: 588px;
+  width: 50%;
 }
 .about-text:last-child {
   padding-bottom: 0;
@@ -89,7 +94,7 @@
     margin: 0 auto;
   }
   .about-container:last-child {
-    padding-bottom: 100px;
+    padding-bottom: 80px;
   }
   .about-container h3 {
     text-align: left;
@@ -99,12 +104,10 @@
   }
   .about-img {
     position: relative;
+    width: 100%;
   }
   .about-img.right .img-box {
     float: none;
-  }
-  .img-box img {
-    width: 100%;
   }
   .about-text {
     padding-top: 40px;
