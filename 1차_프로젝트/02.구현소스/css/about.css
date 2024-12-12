@@ -84,7 +84,7 @@
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
     .about-container {
-        padding-top: 80px;
+        padding-top: 40px;
         width: 96%;
         margin: 0 auto;
     }
@@ -98,7 +98,7 @@
         width: 100%;
     }
     .about-text {
-        padding-top: 80px;
+        padding-top: 40px;
         padding-bottom: 0px;
         width: 100%;
     }
