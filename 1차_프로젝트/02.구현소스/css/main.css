@@ -653,8 +653,8 @@ main section .inner {
     }
 
     .more-btn a {
-        font-size: min(1.6rem, 3vw);
-        padding: 3vw 4.6vw;
+        font-size: min(2rem, 4vw);
+        padding: 3.5vw 5vw;
     }
     .more-btn a svg {
         padding-left: 2vw;
