@@ -101,6 +101,7 @@
     width: 70%;
     font-size: 1rem;
     font-weight: var(--font-weight-normal);
+    color: var(--font-color-secondary);
     line-height: 1.5;
     word-break: keep-all;
     overflow:hidden;
@@ -156,6 +157,9 @@
 }
 /******************************* 미디어쿼리(768px이하) *******************************/
 @media all and (max-width: 768px) {
+    .search-box {
+        margin-top: 60px;
+    }
     .results {
         flex-wrap: wrap;
         width: 90%;        
@@ -163,11 +167,16 @@
     .results .product {
         width: 100%;
     }
+    .results .product span {
+        font-size: min(0.8rem, 2vw);
+        letter-spacing: 1vw;
+    }
     .results .product h3 {
-        font-size: 1.2rem;
+        font-size: min(1.4rem, 5vw);
     }
     .results .product p {
         width: 70%;
+        font-size: min(1rem, 3.4vw);
     }
     .results .product figure {
         translate: 0 -50%;
