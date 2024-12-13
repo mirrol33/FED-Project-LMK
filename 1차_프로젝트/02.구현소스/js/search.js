@@ -43,6 +43,7 @@ $(() => {
 
         // 결과 출력
         if (filteredProducts.length) {
+            console.log(filteredProducts.length);
             filteredProducts.forEach(product => {
                 const descriptionWithBreaks = product.description.replace(/\n/g, '<br>');
                 const resultHtml = `
