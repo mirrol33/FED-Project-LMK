@@ -635,14 +635,14 @@ main section .inner {
     }
 
     .textbox h2 {
-        font-size: min(8rem, 12vw);
+        font-size: min(8rem, 14vw);
         letter-spacing: -0.4vw;
         margin-left: 0;
         margin-top: 2%;
     }
 
     .textbox p {
-        font-size: min(2.5rem, 7vw);
+        font-size: min(2.5rem, 8vw);
         letter-spacing: -0.2vw;
         margin-top: 4%;
     }
@@ -653,7 +653,7 @@ main section .inner {
     }
 
     .more-btn a {
-        font-size: min(2rem, 5vw);
+        font-size: min(2rem, 6vw);
         padding: 3.5vw 5vw;
     }
     .more-btn a svg {
