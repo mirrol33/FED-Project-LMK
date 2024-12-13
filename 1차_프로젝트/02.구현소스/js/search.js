@@ -13,14 +13,15 @@ $(() => {
     });
 
     // 검색어 제외 조건
-    const excludedKeywords = ['고혼진', '피부'];
+    const excludedKeywords = ['고혼진','고혼','혼진'];
 
     // 검색 기능
     function performSearch() {
         const query = $searchInput.val().toLowerCase().trim();
         $searchResults.empty(); // 기존 결과 초기화
 
-        if (!query || excludedKeywords.includes(query)) {
+        // 검색어 제외 조건: 빈 검색어, 제외된 키워드, 한 글자 검색어
+        if (!query || excludedKeywords.includes(query) || query.length === 1) {
             $searchResults.append('<p>검색어를 정확히 입력해주세요!</p>');
             return;
         }
@@ -43,21 +44,22 @@ $(() => {
 
         // 결과 출력
         if (filteredProducts.length) {
-            console.log(filteredProducts.length);
-            filteredProducts.forEach(product => {
-                const descriptionWithBreaks = product.description.replace(/\n/g, '<br>');
+            filteredProducts.forEach((product,idx) => {
+                // const descriptionWithBreaks = product.description.replace(/\n/g, '<br>');
                 const resultHtml = `
                     <div class="product">
-                        <span>${product.name_en}</span>
-                        <h3>${product.name}</h3>
-                        <p>${descriptionWithBreaks}</p>
-                        <figure><img src="${product.img}" alt=""></figure>
+                        <div class="txt">
+                            <span>${product.name_en}</span>
+                            <h3>${product.name}</h3>
+                            <p>${product.description}</p>
+                        </div>
+                        <figure><img src="${product.img}" alt="${product.name}"></figure>
                     </div>
-                `;
-                $searchResults.append(resultHtml);
+                `;                
+                idx>3?'':$searchResults.append(resultHtml);                
             });
         } else {
-            $searchResults.append('<p>검색 결과가 없습니다. 검색어를 다시 입력해주세요!</p>');
+            $searchResults.append('<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>');
         }
     }
 

@@ -228,7 +228,7 @@ main section .inner {
 .more-btn a {
     padding: 20px 28px;
     border: 1px solid #777;
-    display: inline-block;
+    display: flex;
     font-size: 16px;
     font-weight: var(--font-weight-light);
     color: #777;
@@ -236,6 +236,7 @@ main section .inner {
 
 .more-btn a svg {
     padding-left: 50px;
+    width: 12px;
 }
 .su_button {
     overflow: hidden;
@@ -629,20 +630,20 @@ main section .inner {
     }
 
     .textbox span {
-        font-size: max(2vw, 0.8rem);
-        letter-spacing: 0.3rem;
+        font-size: min(2rem, 3vw);
+        letter-spacing: 1vw;
     }
 
     .textbox h2 {
-        font-size: max(8vw, 2.5rem);
-        letter-spacing: -0.05rem;
+        font-size: min(8rem, 10vw);
+        letter-spacing: -0.4vw;
         margin-left: 0;
         margin-top: 2%;
     }
 
     .textbox p {
-        font-size: max(4vw, 1.25rem);
-        letter-spacing: -0.04rem;
+        font-size: min(2.5rem, 4.8vw);
+        letter-spacing: -0.2vw;
         margin-top: 4%;
     }
 
@@ -652,14 +653,14 @@ main section .inner {
     }
 
     .more-btn a {
-        font-size: max(2vw, 1rem);
-        padding: max(4vw, 2vw);
+        font-size: min(1.6rem, 3vw);
+        padding: 3vw 4.6vw;
     }
+    .more-btn a svg {
+        padding-left: 2vw;
+        width: 2vw;
 
-    .more-btn a img {
-        padding-left: max(6vw, 4vw);
-        height: 1.4vh;
-    }
+    }    
 
     /* mo 가로스크롤 상품 영역 */
     .product-boxs {
