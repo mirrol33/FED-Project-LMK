@@ -630,19 +630,19 @@ main section .inner {
     }
 
     .textbox span {
-        font-size: min(2rem, 4vw);
+        font-size: min(2rem, 3.6vw);
         letter-spacing: 1vw;
     }
 
     .textbox h2 {
-        font-size: min(8rem, 14vw);
+        font-size: min(8rem, 12vw);
         letter-spacing: -0.4vw;
         margin-left: 0;
         margin-top: 2%;
     }
 
     .textbox p {
-        font-size: min(2.5rem, 8vw);
+        font-size: min(2.5rem, 6vw);
         letter-spacing: -0.2vw;
         margin-top: 4%;
     }
@@ -653,8 +653,8 @@ main section .inner {
     }
 
     .more-btn a {
-        font-size: min(2rem, 6vw);
-        padding: 3.5vw 5vw;
+        font-size: min(2rem, 3vw);
+        padding: 3vw 4vw;
     }
     .more-btn a svg {
         padding-left: 2vw;
@@ -665,7 +665,7 @@ main section .inner {
     /* mo 가로스크롤 상품 영역 */
     .product-boxs {
       height: auto;
-      padding-top: 10svw;
+      padding-top: min(100px, 10vw);
     }
     .product-boxs hr {
         display: none;
@@ -679,8 +679,7 @@ main section .inner {
     }
 
     .horizontal-box {
-      margin-top: -60svw;
-      padding-top: 10svw;
+      margin-top: min(-200px, -50vw);      
     }
 
     .horizontal-section {
@@ -690,22 +689,22 @@ main section .inner {
     }
     /* mo 가로스크롤 상품이미지 */
     .product-img {
-        width: min(max(60svw), 50svw);
-        height: min(max(60svw), 50svw);
+        width: 60%;
+        height: 60%;
         margin: 0 auto;
     }
 
     /* mo 가로스크롤 상품명 */
     .product-name span {
-        font-size: max(2vw, 0.8rem);
-        letter-spacing: 0.3rem;
+        font-size: min(1rem, 4vw);
+        letter-spacing: 1vw;
         font-weight: var(--font-weight-normal);
     }
 
     .product-name h3 {
-        font-size: max(8vw, 2.5rem);
+        font-size: min(4.8rem, 10vw);
         letter-spacing: -0.02rem;
-        margin-top: 2svh;
+        margin-top: 1vh;
     }
 
     .product-name h3 br {

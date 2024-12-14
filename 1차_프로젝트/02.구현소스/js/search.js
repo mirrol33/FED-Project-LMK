@@ -58,6 +58,7 @@ $(() => {
                 `;                
                 idx>3?'':$searchResults.append(resultHtml);                
             });
+            $searchResults.append('<span class="search-more-btn"><a href="product.html">...</a></span>')
         } else {
             $searchResults.append('<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>');
         }

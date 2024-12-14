@@ -40,7 +40,7 @@
 }
 .contact-area {
     position: fixed;
-    top: 200%;
+    top: 50%;
     left: 50%;
     width: 100%;
     max-width: 1200px;
@@ -48,13 +48,13 @@
     min-height: 80svh;
     background: var(--color-bg-basic);
     border-radius: 20px;
-    translate: -50% -50%;
+    translate: -50% -200%;
     z-index: 99;
     transition: top .3s;
 }
 .contact-area.on {
-  top:50%;
-  transition: top .3s;
+  translate: -50% -50%;
+  transition: translate .3s;
 }
 .close-btn {
     position: absolute;
