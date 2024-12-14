@@ -10,18 +10,16 @@ async function loadProducts() {
 // 상품리스트 데이터 로드 및 출력
 loadProducts()
   .then((products) => {
-    console.log("Loaded products:", products);
-
-    // 예: 데이터를 HTML에 렌더링
+    // 상품 리스트 출력
     const proList = document.getElementById("product-list");
     products.forEach((product) => {
       const proBox = document.createElement("div");
       proBox.className = "product-box";
-      proBox.innerHTML = `           
+      proBox.innerHTML = `
               <span>${product.name_en}</span>
               <h3>${product.name}</h3>
               <p>${product.description}</p>
-              <figure><img src="${product.img}" alt="${product.name}"></figure>            
+              <figure><img src="${product.img}" alt="${product.name}"></figure>
             `;
       proList.appendChild(proBox);
     });

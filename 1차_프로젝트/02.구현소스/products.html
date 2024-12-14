@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, user-scalable=no">
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, user-scalable=no" />
     <title>LMK 개인프로젝트 - 고혼진</title>
     <!-- Favicon -->
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
     <!-- CSS Style -->
     <link rel="stylesheet" href="./css/common.css" />
     <link rel="stylesheet" href="./css/products.css" />
     <!-- Webfont -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
     <!-- jquery CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- lenis js -->
@@ -25,156 +30,197 @@
     <script src="./js/button.js"></script>
     <!-- products js -->
     <script type="module" src="./js/products.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- 상단 영역 -->
     <header>
-        <div class="header-wrap">
-            <div class="header-area">
-                <h1 class="logo">
-                    <a href="./"><img src="./images/logo.svg" /></a>
-                </h1>
-                <nav>
-                    <ul class="pc">
-                        <li><a href="./">HOME</a></li>
-                        <li><a href="about.html">ABOUT</a></li>
-                        <li class="active"><a href="products.html">PRODUCTS</a></li>
-                        <li><a class="contact-menu" href="#none">CONTACT</a></li>
-                        <li>
-                            <a class="search-icon" href="#none">
-                                <img src="./images/search_icon.svg" alt="search" />
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="mo">
-                        <li>
-                            <a class="search-icon" href="#none">
-                                <img src="./images/search_icon.svg" alt="search" />
-                            </a>
-                        </li>
-                        <li>
-                            <a class="menu-trigger" href="#none">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </a>
-                            <div class="sub-menu">
-                                <ul>
-                                    <li><a href="./">HOME</a></li>
-                                    <li><a href="about.html">ABOUT</a></li>
-                                    <li class="active"><a href="products.html">PRODUCTS</a></li>
-                                    <li><a class="contact-menu" href="#none">CONTACT</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <!-- 상품 검색창 영역 -->
-                    <div class="search-area">
-                        <div class="search-box">
-                            <input type="text" id="search-input" placeholder="찾으시는 상품을 입력해주세요." />
-                            <button type="button" id="search-button">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M13.9148 13.92L17 17M16.0254 8.5C16.0254 10.4891 15.2338 12.3968 13.8249 13.8033C12.416 15.2098 10.5052 16 8.51268 16C6.52019 16 4.60931 15.2098 3.20041 13.8033C1.79151 12.3968 1 10.4891 1 8.5C1 6.51088 1.79151 4.60322 3.20041 3.1967C4.60931 1.79018 6.52019 1 8.51268 1C10.5052 1 12.416 1.79018 13.8249 3.1967C15.2338 4.60322 16.0254 6.51088 16.0254 8.5Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            </button>
-                        </div>
-                        <!-- 상품 검색결과 영역 -->
-                        <div class="results" id="search-results"></div>
-                    </div>
-                </nav>
+      <div class="header-wrap">
+        <div class="header-area">
+          <h1 class="logo">
+            <a href="./"><img src="./images/logo.svg" /></a>
+          </h1>
+          <nav>
+            <ul class="pc">
+              <li><a href="./">HOME</a></li>
+              <li><a href="about.html">ABOUT</a></li>
+              <li class="active"><a href="products.html">PRODUCTS</a></li>
+              <li><a class="contact-menu" href="#none">CONTACT</a></li>
+              <li>
+                <a class="search-icon" href="#none">
+                  <img src="./images/search_icon.svg" alt="search" />
+                </a>
+              </li>
+            </ul>
+            <ul class="mo">
+              <li>
+                <a class="search-icon" href="#none">
+                  <img src="./images/search_icon.svg" alt="search" />
+                </a>
+              </li>
+              <li>
+                <a class="menu-trigger" href="#none">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </a>
+                <div class="sub-menu">
+                  <ul>
+                    <li><a href="./">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li class="active"><a href="products.html">PRODUCTS</a></li>
+                    <li><a class="contact-menu" href="#none">CONTACT</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+            <!-- 상품 검색창 영역 -->
+            <div class="search-area">
+              <div class="search-box">
+                <input
+                  type="text"
+                  id="search-input"
+                  placeholder="찾으시는 상품을 입력해주세요." />
+                <button type="button" id="search-button">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.9148 13.92L17 17M16.0254 8.5C16.0254 10.4891 15.2338 12.3968 13.8249 13.8033C12.416 15.2098 10.5052 16 8.51268 16C6.52019 16 4.60931 15.2098 3.20041 13.8033C1.79151 12.3968 1 10.4891 1 8.5C1 6.51088 1.79151 4.60322 3.20041 3.1967C4.60931 1.79018 6.52019 1 8.51268 1C10.5052 1 12.416 1.79018 13.8249 3.1967C15.2338 4.60322 16.0254 6.51088 16.0254 8.5Z"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+              <!-- 상품 검색결과 영역 -->
+              <div class="results" id="search-results"></div>
             </div>
+          </nav>
         </div>
+      </div>
     </header>
     <!--// 상단 영역 end -->
     <!-- 메인 컨텐츠 영역 -->
-    <main class="products-wrap">        
-        <section class="section">
-            <div class="products-container">
-                <div id="product-list" class="product-list"></div>
-            </div>
-        </section>
+    <main class="products-wrap">
+      <section class="section">
+        <div class="products-container">
+          <div id="product-list" class="product-list"></div>
+          <div class="nav-container">
+            <div class="left-arrow"><a href="#none">왼쪽</a></div>
+            <div class="right-arrow"><a href="#none">오른쪽</a></div>
+          </div>
+        </div>
+      </section>
     </main>
     <!--// 메인 영역 end -->
     <!-- 하단 영역 -->
     <footer class="footer">
-        <div class="inner">
-            <div class="call-area">
-                <ul>
-                    <li><img src="./images/phone_icon.svg" /></li>
-                    <li><a href="#none">1661-3429</a></li>
-                </ul>
-            </div>
-            <div class="info-area">
-                <p>
-                    CORP (주)고혼진리퍼블릭경영 COO OOO ADDRESS
-                    대전광역시 유성구 봉명로 43 고혼진리퍼블릭<br>
-                    MOS NUM 제 2016-대전서구-0089호PL MANAGER OOO<br>
-                    ⓒ2024. KOHONJIN, All Rights Reserved. Created by
-                    FREELIFE11
-                </p>
-            </div>
+      <div class="inner">
+        <div class="call-area">
+          <ul>
+            <li><img src="./images/phone_icon.svg" /></li>
+            <li><a href="#none">1661-3429</a></li>
+          </ul>
         </div>
+        <div class="info-area">
+          <p>
+            CORP (주)고혼진리퍼블릭경영 COO OOO ADDRESS 대전광역시 유성구 봉명로
+            43 고혼진리퍼블릭<br />
+            MOS NUM 제 2016-대전서구-0089호PL MANAGER OOO<br />
+            ⓒ2024. KOHONJIN, All Rights Reserved. Created by FREELIFE11
+          </p>
+        </div>
+      </div>
     </footer>
     <!--// 하단 영역 end -->
     <!-- 로딩 영역 -->
     <div class="loading-area">
-        <div class="loading-title">
-            <img src="./images/load_title.svg" alt="loading title" />
+      <div class="loading-title">
+        <img src="./images/load_title.svg" alt="loading title" />
+      </div>
+      <div class="process-bar">
+        <div class="process">
+          <div class="processing"></div>
         </div>
-        <div class="process-bar">
-            <div class="process">
-                <div class="processing"></div>
-            </div>
-        </div>
-        <div class="loading-on"></div>
+      </div>
+      <div class="loading-on"></div>
     </div>
     <!--// 로딩 영역 end -->
     <!-- 퀵메뉴 영역 -->
     <div class="quick-btn">
-        <a href="#none"><img src="../02.구현소스/images/quick_btn.svg" alt="상담하기 퀵버튼"></a>
+      <a href="#none"
+        ><img src="../02.구현소스/images/quick_btn.svg" alt="상담하기 퀵버튼"
+      /></a>
     </div>
     <!--// 퀵메뉴 영역 end -->
     <!-- 상담 신청폼 영역 -->
     <div class="contact-bg"></div>
     <div class="contact-area">
-        <div class="close-btn">
-          <a href="#none"><img src="./images/close_btn.svg" alt="" /></a>
-        </div>
-        <div class="contact-title">
-          <h3>CONTACT US</h3>
-          <p>잊고 있었던 젊음을 채워드립니다.</p>
-        </div>
-        <div class="contact-process">
-          <ul>
-            <svg width="500" height="1" viewBox="0 0 500 1" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line y1="0.5" x2="500" y2="0.5" stroke="#777777" stroke-dasharray="1 5" />
-            </svg>
-            <li class="step1 active">1</li>
-            <li class="step2">2</li>
-            <li class="step3">3</li>
-            <li class="step4">4</li>
-          </ul>
-        </div>
-       <form class="contact-box">
+      <div class="close-btn">
+        <a href="#none"><img src="./images/close_btn.svg" alt="" /></a>
+      </div>
+      <div class="contact-title">
+        <h3>CONTACT US</h3>
+        <p>잊고 있었던 젊음을 채워드립니다.</p>
+      </div>
+      <div class="contact-process">
+        <ul>
+          <svg
+            width="500"
+            height="1"
+            viewBox="0 0 500 1"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <line
+              y1="0.5"
+              x2="500"
+              y2="0.5"
+              stroke="#777777"
+              stroke-dasharray="1 5" />
+          </svg>
+          <li class="step1 active">1</li>
+          <li class="step2">2</li>
+          <li class="step3">3</li>
+          <li class="step4">4</li>
+        </ul>
+      </div>
+      <form class="contact-box">
         <div>
           <ul>
             <li>
               <h4>1 성함을 입력해주세요.</h4>
               <label for="name">이름</label>
-              <input type="text" id="name" name="name" placeholder="성함" autocomplete="on" required />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="성함"
+                autocomplete="on"
+                required />
             </li>
             <li>
               <h4>2 나이대를 선택해주세요.</h4>
               <label for="age">나이</label>
-              <input type="radio" id="age" name="age" value="Under-10s" /> 10대 이하 <input type="radio" name="age" value="20s-and-30s" /> 20~30대 <input type="radio" name="age" value="40s-and-50s" /> 40~50대 <input type="radio" name="age" value="60s-older" /> 60대 이상
+              <input type="radio" id="age" name="age" value="Under-10s" /> 10대
+              이하 <input type="radio" name="age" value="20s-and-30s" /> 20~30대
+              <input type="radio" name="age" value="40s-and-50s" /> 40~50대
+              <input type="radio" name="age" value="60s-older" /> 60대 이상
             </li>
             <li>
               <h4>3 핸드폰 번호를 입력해주세요.</h4>
               <label for="phone">연락처</label>
               <div class="tel-box">
-                <input type="tel" id="phone" placeholder="010" autocomplete="off" required /> - 
-                <input type="tel" id="phone1" placeholder="1234" required /> -
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="010"
+                  autocomplete="off"
+                  required />
+                - <input type="tel" id="phone1" placeholder="1234" required /> -
                 <input type="tel" id="phone2" placeholder="5678" required />
               </div>
             </li>
@@ -190,13 +236,15 @@
             <li>
               <h4>5 문의사항을 입력해주세요.</h4>
               <label for="question">문의사항</label>
-              <textarea id="question" placeholder="문의하실 내용을 입력하세요." required></textarea>
+              <textarea
+                id="question"
+                placeholder="문의하실 내용을 입력하세요."
+                required></textarea>
             </li>
           </ul>
         </div>
       </form>
     </div>
     <!--// 상담 신청폼 영역 end -->
-</body>
-
+  </body>
 </html>
