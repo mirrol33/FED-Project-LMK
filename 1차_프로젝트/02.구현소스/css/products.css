@@ -1,7 +1,31 @@
-.product-list {
+@charset "utf-8";
+.products-container {
     position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.product-list {      
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: left;
+    align-items: stretch;
 }
 .product-box {
-    
+    flex: 0 0 calc(33.3333% - 20px);
+    position: relative;
+    height: 900px;
+    margin: 100px 10px;
+    padding: 40px;
+    box-sizing: border-box;    
     background-color: var(--color-bg-pink);
+}
+.product-box figure {
+    width: 80%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.product-box figure img {
+    width: 100%;
 }

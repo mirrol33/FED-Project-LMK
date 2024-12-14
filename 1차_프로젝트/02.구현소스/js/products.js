@@ -17,11 +17,11 @@ loadProducts()
     products.forEach((product) => {
       const proBox = document.createElement("div");
       proBox.className = "product-box";
-      proBox.innerHTML = `
-            <span>${product.name_en}</span>
-            <h3>${product.name}</h3>
-            <p>${product.description}</p>
-            <img src="${product.img}" alt="${product.name}">
+      proBox.innerHTML = `           
+              <span>${product.name_en}</span>
+              <h3>${product.name}</h3>
+              <p>${product.description}</p>
+              <figure><img src="${product.img}" alt="${product.name}"></figure>            
             `;
       proList.appendChild(proBox);
     });
