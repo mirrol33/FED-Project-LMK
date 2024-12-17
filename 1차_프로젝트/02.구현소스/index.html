@@ -11,17 +11,17 @@
     <!-- Webfont -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css" />
-    <!-- jquery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- lenis js -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <!-- basic js -->
+    <!-- jquery JS -->
+    <script src="./js/jquery.min.js"></script>
+    <!-- lenis JS -->
+    <script src="./js/lenis.min.js"></script>
+    <!-- basic JS -->
     <script src="./js/basic.js"></script>
-    <!-- search js -->
+    <!-- search JS -->
     <script src="./js/search.js"></script>
-    <!-- button js -->
+    <!-- button JS -->
     <script src="./js/button.js"></script>
-    <!-- horizontal js -->
+    <!-- horizontal JS -->
     <script src="./js/horizontal.js"></script>
   </head>
 
@@ -315,8 +315,13 @@
       <section class="section-05">
         <div class="insta-boxs bgc-02">
           <div class="insta-imgboxs">
+            <h2 class="insta-title">
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24.6968 7.31579H24.6811M1 16C1 8.92947 1 5.39263 3.19632 3.19632C5.39263 1 8.92789 1 16 1C23.0705 1 26.6074 1 28.8037 3.19632C31 5.39263 31 8.92789 31 16C31 23.0705 31 26.6074 28.8037 28.8037C26.6074 31 23.0721 31 16 31C8.92947 31 5.39263 31 3.19632 28.8037C1 26.6074 1 23.0721 1 16ZM23.1053 16C23.1053 17.8844 22.3567 19.6917 21.0242 21.0242C19.6917 22.3567 17.8844 23.1053 16 23.1053C14.1156 23.1053 12.3083 22.3567 10.9758 21.0242C9.64333 19.6917 8.89474 17.8844 8.89474 16C8.89474 14.1156 9.64333 12.3083 10.9758 10.9758C12.3083 9.64333 14.1156 8.89474 16 8.89474C17.8844 8.89474 19.6917 9.64333 21.0242 10.9758C22.3567 12.3083 23.1053 14.1156 23.1053 16Z" stroke="#1C1C1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              Instagream
+            </h2>
             <ul>
-              <h2 class="insta-title"><img src="./images/insta_icon.svg" />Instagream</h2>
               <li>
                 <a href="#none"><img src="./images/insta_img.png" /></a>
               </li>
@@ -413,8 +418,6 @@
               <h4>1 성함을 입력해주세요.</h4>
               <label for="name">이름</label>
               <input type="text" id="name" name="name" placeholder="성함" autocomplete="on" required />
-            </li>
-            <li>
               <h4>2 나이대를 선택해주세요.</h4>
               <label for="age">나이</label>
               <input type="radio" id="age" name="age" value="Under-10s" /> 10대 이하 <input type="radio" name="age" value="20s-and-30s" /> 20~30대 <input type="radio" name="age" value="40s-and-50s" /> 40~50대 <input type="radio" name="age" value="60s-older" /> 60대 이상
@@ -426,8 +429,6 @@
                 <input type="tel" id="phone" placeholder="010" autocomplete="off" required /> - <input type="tel" id="phone1" placeholder="1234" required /> -
                 <input type="tel" id="phone2" placeholder="5678" required />
               </div>
-            </li>
-            <li>
               <h4>4 상담 가능한 날짜와 시간대를 선택해주세요.</h4>
               <label for="datetime">상담시간</label>
               <div class="time-box">
@@ -440,11 +441,9 @@
               <h4>5 문의사항을 입력해주세요.</h4>
               <label for="question">문의사항</label>
               <textarea id="question" placeholder="문의하실 내용을 입력하세요."></textarea>
-            </li>
-            <li>
               <h4>6 개인정보취급방침에 동의해주세요.</h4>
               <label for="privacy">개인정보취급방침</label>
-              <input type ="checkbox" id="privacy" name="privacy" /> 동의
+              <span class="right"><input type ="checkbox" id="privacy" name="privacy" required /> 동의</span>
               <div class="privacy-box">
                 <div class="privacy-box-inner">
                   <strong>개인정보처리방침</strong>

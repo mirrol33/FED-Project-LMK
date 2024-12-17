@@ -109,10 +109,14 @@
   max-width: 500px;
   margin: 80px auto;
 }
-.contact-box ul li+li {
-  padding-top: 40px;
+.contact-box ul li {
+  position: relative;
 }
+/* .contact-box ul li+li {
+  padding-top: 40px;
+} */
 .contact-box h4 {
+  padding-top: 40px;
   padding-bottom: 20px;
 }
 .contact-box label {
@@ -123,6 +127,10 @@
 }
 .contact-box input[type=tel] {
   width: 24%;  
+}
+.contact-box .right {
+  float: right;
+  margin-top: -35px; 
 }
 .contact-box .time-box input {
   width: 30%;  

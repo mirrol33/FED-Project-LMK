@@ -29,18 +29,13 @@ $(() => {
 
     // 검색 결과 필터링
     const filteredProducts = products.filter((product) => {
-      const { name, name_en, description, img, keyword } = product;
+      const {name, name_en, description, img, keyword} = product;
 
       // img 속성에 검색어 포함 여부 확인 및 제외
       if (img.toLowerCase().includes(query)) return false;
 
       // 검색어 포함 여부 확인
-      return (
-        name.includes(query) ||
-        name_en.toLowerCase().includes(query) ||
-        description.includes(query) ||
-        keyword.some((key) => key.includes(query))
-      );
+      return name.includes(query) || name_en.toLowerCase().includes(query) || description.includes(query) || keyword.some((key) => key.includes(query));
     });
 
     // 결과 출력
@@ -60,12 +55,18 @@ $(() => {
         idx > 3 ? "" : $searchResults.append(resultHtml);
       });
       $searchResults.append(
-        '<span class="search-more-btn"><a href="products.html">MORE</a></span>'
+        `<span class="search-more-btn">
+        <a href="products.html" title="더보기">
+        <svg viewBox="0 0 13 3" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="1.7016" cy="1.29904" r="0.909119" fill="white"/>
+        <circle cx="6.70184" cy="1.29907" r="0.909119" fill="white"/>
+        <circle cx="11.7018" cy="1.29907" r="0.909119" fill="white"/>
+        </svg>
+        </a>
+        </span>`
       );
     } else {
-      $searchResults.append(
-        "<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>"
-      );
+      $searchResults.append("<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>");
     }
   }
 

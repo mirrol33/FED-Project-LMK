@@ -495,22 +495,22 @@ main section .inner {
   font-size: 2.5rem;
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.1rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  translate: -50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.insta-title img {
-  margin-right: 8px;
-  vertical-align: bottom;
+.insta-title svg {
+    width: 32px;
+    height: 32px;
+    margin-right: 1svw;
 }
 
 .insta-imgboxs ul {
   position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 120px;
+  padding-top: 80px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -760,7 +760,7 @@ main section .inner {
 
   .insta-imgboxs ul {
     display: block;
-    padding-top: 20%;
+    padding-top: 10%;
   }
 
   .insta-imgboxs ul li {
@@ -777,11 +777,12 @@ main section .inner {
     font-size: min(2rem, 6vw);
     letter-spacing: -0.01rem;
   }
-
-  .insta-title img {
-    display: block;
-    margin: 0 auto;
+  .insta-title svg {
+    width: min(32px, 3.5vw);
+    height: auto;
   }
+
+
 }
 /******************************* 미디어쿼리(768px이하) *******************************/
 @media all and (max-width: 768px) {

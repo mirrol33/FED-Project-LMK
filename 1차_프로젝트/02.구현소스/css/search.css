@@ -130,12 +130,16 @@
 /* 검색 더보기 버튼 */
 .search-more-btn a {
   display: block;
-  border: 1px solid #fff;
+  border: 1px solid #ffffff50;
   box-sizing: border-box;
   padding: 10px;
   color: #fff;
-  font-size: 0.8rem;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
 }
+.search-more-btn a svg {width: 100%; height: auto;}
 
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {

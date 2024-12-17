@@ -1,29 +1,35 @@
-// JSON 파일 불러오기
-async function loadProducts() {
-  const response = await fetch("./js/products.json"); // JSON 파일 경로
-  if (!response.ok) {
-    throw new Error(`Failed to fetch products.json: ${response.status}`);
-  }
-  return await response.json();
-}
-
-// 상품리스트 데이터 로드 및 출력
-loadProducts()
-  .then((products) => {
-    // 상품 리스트 출력
-    const proList = document.getElementById("product-list");
+$(() => {
+  // 상품리스트 데이터 로드 및 출력
+  $.getJSON("./js/products.json", function (products) {
+    const $proList = $("#product-list");
     products.forEach((product) => {
-      const proBox = document.createElement("div");
-      proBox.className = "product-box";
-      proBox.innerHTML = `
-              <span>${product.name_en}</span>
-              <h3>${product.name}</h3>
-              <p>${product.description}</p>
-              <figure><img src="${product.img}" alt="${product.name}"></figure>
-            `;
-      proList.appendChild(proBox);
+      $proList.append(`
+              <div class="product-box swiper-slide">
+                  <span>${product.name_en}</span>
+                  <h3>${product.name}</h3>
+                  <p>${product.description}</p>
+                  <figure><img src="${product.img}" alt="${product.name}"></figure>
+              </div>
+          `);
     });
-  })
-  .catch((error) => {
-    console.error("Error loading products:", error);
+  }).fail((jqxhr, textStatus, error) => console.error("Error loading products:", textStatus, error));
+
+  // 상품 슬라이드 swiper JS
+  let swiper = new Swiper(".mySwiper", {
+    slidesPerView: "auto",
+    spaceBetween: 40,
+    loop: true,
+    loopedSlides: 2,
+    // centerInsufficientSlides: true,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
   });
+});
