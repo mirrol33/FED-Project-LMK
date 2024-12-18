@@ -56,7 +56,8 @@ $(() => {
             </div>
         `;
         idx > 3 ? "" : $searchResults.append(resultHtml);
-      });
+      }); /// forEach ///     
+
       // 3개 이상의 결과일 때 출력
       if(filteredProducts.length > 3){
       $searchResults.append(
@@ -69,7 +70,8 @@ $(() => {
         </svg>
         </a>
         </span>`
-      );}
+      );} /// if ///
+
     // filteredProducts.length 값이 false 일때 출력
     } else {
       $searchResults.append("<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>");
@@ -81,5 +83,6 @@ $(() => {
     if (e.which === 13) performSearch(); // Enter 키로 검색
   });
 
-  $searchButton.on("click", performSearch); // 버튼 클릭으로 검색
+  $searchButton.on("click", performSearch); // 버튼 클릭으로 검색 
+
 });

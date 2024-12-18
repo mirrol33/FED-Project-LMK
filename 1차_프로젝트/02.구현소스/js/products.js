@@ -9,7 +9,9 @@ $(() => {
             <span>${product.name_en}</span>
             <h3>${product.name}</h3>
             <p>${product.description}</p>
+            <p class="detail">${product.detail}</p>
             <a href="#" class="btn-view">자세히보기</a>
+            <a href="#" class="close-btn">이전</a>
             <figure><img src="${product.img}" alt="${product.name}"></figure>
           </div>
         `);
@@ -17,7 +19,7 @@ $(() => {
 
       // 상품 리스트를 모두 불러온 후 swiper 실행!
       if ($proList.children(".product-box").length > 0) {
-        const swiper = new Swiper(".mySwiper", {
+        let swiper = new Swiper(".mySwiper", {
           slidesPerView: 3,
           spaceBetween: 60,
           loop: true,
@@ -52,24 +54,30 @@ $(() => {
           },
         });
 
-        // .btn-view 자세히보기 클릭시 이벤트 추가
+        // .btn-view 자세히보기 클릭시 이벤트
         $(document).on("click", ".btn-view", function (e) {
-          let $targetSlide = $(this).closest(".product-box");
-          e.stopPropagation();
-          swiper.disable(); // 슬라이드 중지
+          e.stopPropagation(); // #링크 이동 막기
+          swiper.disable(); // 슬라이드 정지
           $(this).hide(); // .btn-view 숨김
-          $targetSlide.prepend(`<a href="#" class="close-btn">닫기</a>`); // .close-btn 요소 추가
-          $targetSlide.addClass("open"); // .view 추가
-        }); /// click ///
-        // .close-btn 닫기 클릭시 이벤트 추가
-        $(document).on("click", ".close-btn", function (e) {
+
           let $targetSlide = $(this).closest(".product-box");
-          e.stopPropagation();
-          swiper.enable(); // 슬라이드 재시작
-          $targetSlide.find(".btn-view").show(); // .btn-view 보이기
-          $(this).remove(); // 닫기 버튼 삭제
-          $targetSlide.removeClass("open"); // .view 삭제
+          $targetSlide.addClass("open"); // 클래스 추가
+          $targetSlide.find(".close-btn").show(); // .close-btn 보이기
+          $targetSlide.find(".detail").show();
         }); /// click ///
+        
+        // .close-btn 닫기 클릭시 이벤트
+        $(document).on("click", ".close-btn", function (e) {
+          e.stopPropagation(); // #링크 이동 막기
+          swiper.enable(); // 슬라이드 재시작
+
+          let $targetSlide = $(this).closest(".product-box");
+          $targetSlide.find(".btn-view").show(); // .btn-view 보이기
+          $targetSlide.removeClass("open"); // 클래스 삭제
+          $(this).hide(); // .close-btn 숨김
+          $targetSlide.find(".detail").hide();
+        }); /// click ///
+
       } /// if ///
     })
     // 상품 로드 실패시
