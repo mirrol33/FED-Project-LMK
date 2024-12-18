@@ -55,13 +55,13 @@ function mainVideo() {
 // 스크롤시 메뉴바 특정 위치에서 배경색 변경 함수
 function checkScrollPosition() {
     // 메뉴바 요소 선택
-    const headerWrap = document.querySelector(".header-wrap");
-    // window 높이값 변수 할당
-    const screenHeight = window.innerHeight;
+    const headerWrap = document.querySelector(".header-wrap");   
     // 스크롤 위치값 변수 할당
     const scrollPosition = window.scrollY || document.documentElement.scrollTop;
+    // 대상 섹션 높이값
+    let sectionHeight = document.querySelector(".target-section").offsetTop;
 
-    if (scrollPosition >= screenHeight) {
+    if (scrollPosition >= sectionHeight) {
         headerWrap.style.backgroundColor = "var(--color-bg-red)"; // 레드 색상
         // headerWrap.classList.add("scrolled"); // 클래스 추가
     } else {

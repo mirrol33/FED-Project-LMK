@@ -40,6 +40,7 @@ $(() => {
 
     // 결과 출력
     if (filteredProducts.length) {
+      // filteredProducts.length 값이 true 일때 출력
       filteredProducts.forEach((product, idx) => {
         // const descriptionWithBreaks = product.description.replace(/\n/g, '<br>');
         const resultHtml = `
@@ -48,7 +49,7 @@ $(() => {
                   <a href="./products.html#slide${product.id}">
                     <span>${product.name_en}</span>
                     <h3>${product.name}</h3>
-                    <p>${product.description}</p>                
+                    <p>${product.description}</p>
                   </a>
                 </div>
                 <figure><img src="${product.img}" alt="${product.name}"></figure>
@@ -56,6 +57,8 @@ $(() => {
         `;
         idx > 3 ? "" : $searchResults.append(resultHtml);
       });
+      // 3개 이상의 결과일 때 출력
+      if(filteredProducts.length > 3){
       $searchResults.append(
         `<span class="search-more-btn">
         <a href="products.html" title="더보기">
@@ -66,7 +69,8 @@ $(() => {
         </svg>
         </a>
         </span>`
-      );
+      );}
+    // filteredProducts.length 값이 false 일때 출력
     } else {
       $searchResults.append("<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>");
     }

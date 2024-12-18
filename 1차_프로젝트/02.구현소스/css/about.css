@@ -1,7 +1,12 @@
 @charset "utf-8";
-.section {
+main section:first-child {
   min-height: 100svh;
 }
+
+main section + section {
+  background-color: #fff;
+}
+
 .about-01 .container {
   position: fixed;
   z-index: -1;

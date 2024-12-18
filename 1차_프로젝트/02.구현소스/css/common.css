@@ -2,7 +2,6 @@
 
 @import url(./reset.css);
 @import url(./layout.css);
-@import url(./main.css);
 @import url(./contact.css);
 @import url(./search.css);
 
@@ -121,6 +120,96 @@ body {
   }
 }
 
+/* 더보기 공통 버튼 */
+.more-btn {
+  position: relative;
+  margin-top: 40px;
+}
+
+.more-btn a {
+  padding: 20px 28px;
+  border: 1px solid #777;
+  display: flex;
+  font-size: 16px;
+  font-weight: var(--font-weight-light);
+  color: #777;
+}
+
+.more-btn a svg {
+  padding-left: 50px;
+  width: 12px;
+}
+.su_button {
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+.su_button_circle {
+  background-color: var(--color-bg-red);
+  border-radius: 1000px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0px;
+  height: 0px;
+  margin-left: 0px;
+  margin-top: 0px;
+  pointer-events: none;
+  /*animation-timing-function: ease-in-out; */
+}
+
+.button_su_inner {
+  position: relative;
+  display: inline-block;
+  transition: 400ms;
+  z-index: 1;
+}
+.button_su_inner svg {
+  fill: #777;
+}
+
+.explode-circle {
+  animation: explode 0.5s forwards;
+}
+
+.desplode-circle {
+  animation: desplode 0.5s forwards;
+}
+
+@keyframes explode {
+  0% {
+    width: 0px;
+    height: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: var(--color-bg-dark-ov);
+  }
+  100% {
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    background-color: var(--color-bg-red);
+  }
+}
+
+@keyframes desplode {
+  0% {
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+    background-color: var(--color-bg-red);
+  }
+  100% {
+    width: 0px;
+    height: 0px;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-color: var(--color-bg-dark-ov);
+  }
+}
+
 /* 스크롤바 스타일변경 */
 body::-webkit-scrollbar {
   width: 8px;
@@ -143,5 +232,19 @@ body::-webkit-scrollbar-track {
   /* mo 로딩 화면 */
   .loading-title {
     width: 60%;
+  }
+
+  /* mo 더보기 공통 버튼 */
+  .more-btn {
+    margin-top: 6vw;
+  }
+
+  .more-btn a {
+    font-size: min(1.4rem, 4vw);
+    padding: min(1.4rem, 4vw);
+  }
+  .more-btn a svg {
+    padding-left: 2vw;
+    width: 2vw;
   }
 }
