@@ -16,8 +16,11 @@
   background-color: var(--color-bg-pink);
   filter: grayscale(1);
   opacity: 0.5;
-  transition: width .3s ease-out;  
+  /* transition: width .3s ease-out; */
 }
+/* .product-box.open {
+  width: 60% !important;
+} */
 .product-box span {
   font-size: min(40px, 6vw);
   font-weight: var(--font-weight-bold);
@@ -52,9 +55,6 @@
 }
 .product-box figure img {
   width: 100%;
-}
-.product-box.open {
-  width: 60% !important;
 }
 .product-box.open p {
   width: 80%;

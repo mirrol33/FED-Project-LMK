@@ -58,9 +58,30 @@ $(() => {
       },
     });
 
-    let swiperTarget; // swiper영역 위치 변수
-    let targetX; // 활성 slide 넓이 변수
+    let swiperTarget = swiper.getTranslate(); // swiper영역 위치값
     let ww = window.innerWidth; // 화면 넓이
+    let slideWidth = $('.swiper-slide').outerWidth(); // 슬라이드 넓이값
+
+    // 화면 리사이즈시 실행 함수
+    $(window).resize(function () {
+      ww = window.innerWidth;
+      swiperTarget = swiper.getTranslate();
+      swiperMove();
+    }); /// resize ///
+
+    // swiper영역 위치 이동 함수
+    function swiperMove(){
+      let position = swiperTarget;
+      $(".product-list").css("transform", "translate3d(" + position + "px, 0px, 0px)");
+      
+      // .open 요소
+      let $openSlide = $('.open');
+      $openSlide.css({
+        width: "100vw"
+      })
+      console.log($openSlide);
+    }; /// swiperMove ///
+
 
     // .btn-view 자세히보기 클릭시 이벤트
     $(document).on("click", ".btn-view", function (e) {
@@ -68,18 +89,12 @@ $(() => {
       swiper.disable(); // 슬라이드 정지
       $(this).hide(); // .btn-view 숨김
 
-      let $targetSlide = $(this).closest(".product-box");
-      $targetSlide.addClass("open"); // 클래스 추가
-      $targetSlide.find(".close-btn").show(); // .close-btn 보이기
-      $targetSlide.find(".detail").show(); // .detail 보이기
+      let $closestSlide = $(this).closest('.product-box'); // 상위 부모요소
+      $closestSlide.addClass("open"); // 클래스 추가
+      $closestSlide.children(".close-btn").show(); // .close-btn 보이기
+      $closestSlide.children(".detail").show(); // .detail 보이기
       
-      // swiper영역 위치 이동
-      swiperTarget = swiper.getTranslate(); // swiper영역 위치 측정
-      let targetSlideWidth = $targetSlide.width(); // 활성 슬라이드 넓이값
-      targetX = targetSlideWidth / 2; // 활성 슬라이드 위치계산
-      let translate = swiperTarget - targetX;
-      if (ww > 1200) $(".product-list").css("transform", "translate3d(" + translate + "px, 0px, 0px)");
-      console.log(translate);
+      swiperMove(); // swiper영역 위치 호출
     }); /// click ///
 
     // .close-btn 닫기 클릭시 이벤트
@@ -87,17 +102,13 @@ $(() => {
       e.stopPropagation(); // #링크 이동 막기
       swiper.enable(); // 슬라이드 재시작
       $(this).hide(); // .close-btn 숨김
+      
+      let $closestSlide = $(this).closest('.product-box'); // 상위 부모요소
+      $closestSlide.removeClass("open"); // 클래스 삭제
+      $closestSlide.children(".btn-view").show(); // .btn-view 보이기
+      $closestSlide.children(".detail").hide(); // .detail 숨김
 
-      let $targetSlide = $(this).closest(".product-box");
-      $targetSlide.removeClass("open"); // 클래스 삭제
-      $targetSlide.find(".btn-view").show(); // .btn-view 보이기
-      $targetSlide.find(".detail").hide(); // .detail 숨김
-
-      // swiper영역 위치 원복
-      targetX = $targetSlide.width() / 4;
-      swiperTarget = swiper.getTranslate() + targetX;
-      if (ww > 1200) $(".product-list").css("transform", "translate3d(" + swiperTarget + "px, 0px, 0px)");
-      console.log(swiperTarget);
+      swiperMove(); // swiper영역 위치 호출
     }); /// click ///
 
   } /// if ///
