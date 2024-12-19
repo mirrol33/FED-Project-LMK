@@ -1,4 +1,13 @@
 $(() => {
+  // JSON 파일 경로
+  let jsonFile = "./js/products.json";
+  // JSON 데이터 로드
+  let products = [];
+  $.getJSON(jsonFile, function (data) {
+    products = data;
+    console.log("JSon 완료!", products.length);
+  }); //// getJSON ////
+
   // DOM 요소
   const $searchInput = $("#search-input");
   const $searchButton = $("#search-button");
@@ -20,13 +29,19 @@ $(() => {
 
     // 검색 결과 필터링
     const filteredProducts = products.filter((product) => {
-      const {id, name, name_en, description, img, keyword} = product;
+      const { id, name, name_en, description, img, keyword } = product;
 
       // img 속성에 검색어 포함 여부 확인 및 제외
       if (img.toLowerCase().includes(query)) return false;
 
       // 검색어 포함 여부 확인
-      return id.includes(query) || name.includes(query) || name_en.toLowerCase().includes(query) || description.includes(query) || keyword.some((key) => key.includes(query));
+      return (
+        id.includes(query) ||
+        name.includes(query) ||
+        name_en.toLowerCase().includes(query) ||
+        description.includes(query) ||
+        keyword.some((key) => key.includes(query))
+      );
     });
 
     // 결과 출력
@@ -37,7 +52,7 @@ $(() => {
         const resultHtml = `
             <div class="product">
                 <div class="txt">
-                  <a href="./products.html#slide${product.id}">
+                  <a href="./products.html#slide${product.id}" target="_parent">
                     <span>${product.name_en}</span>
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
@@ -66,7 +81,9 @@ $(() => {
 
       // filteredProducts.length 값이 false 일때 출력
     } else {
-      $searchResults.append("<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>");
+      $searchResults.append(
+        "<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>"
+      );
     }
   }
 

@@ -69,12 +69,3 @@ function checkScrollPosition() {
     // headerWrap.classList.remove("scrolled"); // 클래스 제거
   }
 } //// checkScrollPosition ////
-
-// JSON 파일 경로
-const jsonFile = "./js/products.json";
-// JSON 데이터 로드
-let products = [];
-$.getJSON(jsonFile, function (data) {
-  products = data;
-  console.log("JSon 완료!", products.length);
-}); //// getJSON ////
