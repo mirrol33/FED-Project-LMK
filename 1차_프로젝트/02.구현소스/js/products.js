@@ -6,7 +6,7 @@ $(() => {
     // 상품 리스트 출력
     products.forEach(product => {
       $proList.append(`
-          <div class="product-box swiper-slide" data-hash="slide${product.id}">
+          <div class="product-box swiper-slide" data-hash="slide${product.id} target="_parent">
             <span>${product.name_en}</span>
             <h3>${product.name}</h3>
             <p>${product.description}</p>
@@ -25,7 +25,7 @@ $(() => {
       loopedSlides: 2,
       centeredSlides: true, //활성 슬라이드가 항상 왼쪽이 아닌 중앙에 배치
       centeredSlidesBounds: true, // 활성 슬라이드는 슬라이더의 시작과 끝에 틈을 추가하지 않고 중앙에 배치
-      hashNavigation: false,
+      hashNavigation: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
