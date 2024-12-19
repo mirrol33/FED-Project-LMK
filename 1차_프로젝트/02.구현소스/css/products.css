@@ -54,7 +54,7 @@
   width: 100%;
 }
 .product-box.open {
-  width: 60% !important;
+  width: 60% !important;  
 }
 .product-box.open p {
   width: 80%;

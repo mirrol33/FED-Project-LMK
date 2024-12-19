@@ -1,17 +1,17 @@
-$(() => {
-  // JSON 파일 경로
-  const jsonFile = "./js/products.json";
+// JSON 파일 경로
+const jsonFile = "./js/products.json";
 
+// 데이터 로드
+let products = [];
+$.getJSON(jsonFile, (data) => {
+  products = data;
+});
+
+$(() => {
   // DOM 요소
   const $searchInput = $("#search-input");
   const $searchButton = $("#search-button");
   const $searchResults = $("#search-results");
-
-  // 데이터 로드
-  let products = [];
-  $.getJSON(jsonFile, (data) => {
-    products = data;
-  });
 
   // 검색어 제외 조건
   const excludedKeywords = ["고혼진", "고혼", "혼진"];
@@ -56,12 +56,12 @@ $(() => {
             </div>
         `;
         idx > 3 ? "" : $searchResults.append(resultHtml);
-      }); /// forEach ///     
+      }); /// forEach ///
 
       // 3개 이상의 결과일 때 출력
-      if(filteredProducts.length > 3){
-      $searchResults.append(
-        `<span class="search-more-btn">
+      if (filteredProducts.length > 3) {
+        $searchResults.append(
+          `<span class="search-more-btn">
         <a href="products.html" title="더보기">
         <svg viewBox="0 0 13 3" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="1.7016" cy="1.29904" r="0.909119" fill="white"/>
@@ -70,9 +70,10 @@ $(() => {
         </svg>
         </a>
         </span>`
-      );} /// if ///
+        );
+      } /// if ///
 
-    // filteredProducts.length 값이 false 일때 출력
+      // filteredProducts.length 값이 false 일때 출력
     } else {
       $searchResults.append("<p>검색된 결과가 없습니다. 검색어를 다시 입력해주세요!</p>");
     }
@@ -83,6 +84,5 @@ $(() => {
     if (e.which === 13) performSearch(); // Enter 키로 검색
   });
 
-  $searchButton.on("click", performSearch); // 버튼 클릭으로 검색 
-
+  $searchButton.on("click", performSearch); // 버튼 클릭으로 검색
 });
