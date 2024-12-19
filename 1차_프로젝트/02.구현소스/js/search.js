@@ -37,7 +37,7 @@ $(() => {
         const resultHtml = `
             <div class="product">
                 <div class="txt">
-                  <a href="./products.html#slide${product.id}" target="_parent">
+                  <a href="./products.html#slide${product.id}">
                     <span>${product.name_en}</span>
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>

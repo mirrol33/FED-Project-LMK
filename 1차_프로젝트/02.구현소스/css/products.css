@@ -10,17 +10,17 @@
 .product-box {
   position: relative;
   /* aspect-ratio: 9 / 10; */
-  margin: 100px auto 0;
+  margin: 10vh auto 0;
   padding: 60px;
   box-sizing: border-box;
   background-color: var(--color-bg-pink);
   filter: grayscale(1);
   opacity: 0.5;
-  /* transition: width .3s ease-out; */
+  transition: width .3s ease;
 }
-/* .product-box.open {
-  width: 60% !important;
-} */
+.product-box.open {
+  width: 60vw !important;
+}
 .product-box span {
   font-size: min(40px, 6vw);
   font-weight: var(--font-weight-bold);
@@ -41,6 +41,9 @@
 }
 .product-box p.detail{
   display: none;
+}
+.product-box.open p.detail{
+  display: inline-block;
   margin-top: 3vh;
 }
 .product-box figure {
@@ -112,8 +115,6 @@
 @media all and (max-width: 1600px) {
   .product-box {
     padding: 40px;
-    aspect-ratio: 9 / 13;
-    margin: 10% auto;
   }
   .product-box figure {
     margin: 10% auto;
@@ -122,11 +123,7 @@
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
   .product-box {
-    aspect-ratio: 9 / 10;
-    margin: 20% auto 0;
-  }
-  .product-box.open {
-    width: 80% !important;
+    margin: 10% auto 0;
   }
 }
 /******************************* 미디어쿼리(768px이하) *******************************/
