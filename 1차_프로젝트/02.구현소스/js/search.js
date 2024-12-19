@@ -1,12 +1,3 @@
-// JSON 파일 경로
-const jsonFile = "./js/products.json";
-
-// 데이터 로드
-let products = [];
-$.getJSON(jsonFile, (data) => {
-  products = data;
-});
-
 $(() => {
   // DOM 요소
   const $searchInput = $("#search-input");
@@ -46,7 +37,7 @@ $(() => {
         const resultHtml = `
             <div class="product">
                 <div class="txt">
-                  <a href="./products.html#slide${product.id}">
+                  <a href="./products.html#slide${product.id}" target="_parent">
                     <span>${product.name_en}</span>
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>

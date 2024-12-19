@@ -1,5 +1,6 @@
 window.addEventListener("load", loadFn); // 로드시 실행
 window.addEventListener("resize", resizeFn); // 리사이즈시 실행
+window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
 
 // 로드완료후 실행 함수
 function loadFn() {
@@ -14,23 +15,23 @@ function loadFn() {
     this.setTimeout(() => {
         lenis.start(); // lenis 스크롤 애니메이션 실행
         document.body.style.overflowY = "auto"; // 스크롤바 보이기
-        document.querySelector('.loading-area').classList.add('off'); // 로드화면 opacity        
-    }, 2000); //// end setTimeout ////
-}
+        document.querySelector('.loading-area').classList.add('off'); // 로드화면 사라짐
+    }, 2000); /// setTimeout ///
+} //// loadFn ////
 
 // 리사이즈시 실행 함수
 function resizeFn() {
     checkScrollPosition(); // 스크롤 메뉴바 실행
     lenis.start(); // lenis 스크롤 애니메이션 실행
-}
+} //// resizeFn ////
 
-// Lenis 스크롤 애니메이션 초기화 start
+// Lenis 스크롤 애니메이션 초기화
 const lenis = new Lenis({
     duration: 1.8, // 부드러운 스크롤 지속 시간
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // 커스텀 이징 함수
 }); //// Lenis ////
 
-// Lenis 스크롤 애니메이션 루프 start
+// Lenis 스크롤 애니메이션 루프
 function raf(time) {
     lenis.raf(time);
     requestAnimationFrame(raf); // 재귀 호출
@@ -68,6 +69,14 @@ function checkScrollPosition() {
         headerWrap.style.backgroundColor = "var(--color-bg-dark-ov)"; // 검은 색상
         // headerWrap.classList.remove("scrolled"); // 클래스 제거
     }
-} //// 스크롤시 메뉴바 특정 위치에서 배경색 변경 함수 ////
+} //// checkScrollPosition ////
 
-window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
+// JSON 파일 경로
+const jsonFile = "./js/products.json";
+
+// JSON 데이터 로드
+let products = [];
+$.getJSON(jsonFile, (data) => {
+  products = data;
+}); //// getJSON ////
+console.log(products);

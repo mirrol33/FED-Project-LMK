@@ -1,5 +1,4 @@
 $(()=>{
-    
 // 더보기 버튼 마우스 오버시 함수
 $( ".button_su_inner" ).mouseenter(function(e) {
     var parentOffset = $(this).offset();
@@ -28,29 +27,28 @@ $( ".button_su_inner" ).mouseenter(function(e) {
       $(".more-btn a").css({borderColor:"#777"});
  });
 
-// 검색버튼, 햄버거메뉴 선택자 변수
-var searchBtn = $(".search-icon");
-var searchBox = $(".search-area");
-var burger = $('.menu-trigger');
-var submenu = $('.sub-menu');
+// DOM요소 (검색버튼, 햄버거메뉴)
+const $searchBtn = $(".search-icon");
+const $searchBox = $(".search-area");
+const $burger = $('.menu-trigger');
+const $submenu = $('.sub-menu');
 
 // "on" 클래스 제거 함수
 function removeOnClasses(...elements) {
     elements.forEach(element => element.removeClass('on'));
 }
 
-searchBtn.click(() => {
-    searchBtn.toggleClass("on");
-    searchBox.toggleClass("on");
-    removeOnClasses(burger, submenu); // burger와 submenu의 "on" 제거
+$searchBtn.click(() => {
+    $searchBtn.toggleClass("on");
+    $searchBox.toggleClass("on");
+    removeOnClasses($burger, $submenu); // burger와 submenu의 "on" 제거
 });
 
-burger.click(() => {
-    burger.toggleClass("on");
-    submenu.toggleClass("on");
-    removeOnClasses(searchBtn, searchBox); // searchBtn과 searchBox의 "on" 제거
+$burger.click(() => {
+    $burger.toggleClass("on");
+    $submenu.toggleClass("on");
+    removeOnClasses($searchBtn, $searchBox); // searchBtn과 searchBox의 "on" 제거
 });
-
 
  // 퀵메뉴 상담하기 팝업창
  function quickBtn() {
@@ -75,5 +73,4 @@ burger.click(() => {
 }
 
 quickBtn(); // 상담하기 퀵버튼 실행
-
-})
+});

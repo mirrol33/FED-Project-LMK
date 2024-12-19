@@ -19,7 +19,7 @@ $(() => {
   
 
   // 상품 리스트를 모두 불러온 후 swiper 실행!
-  if ($proList.children(".product-box").length > 0) {
+  if ($proList.children(".product-box").length) {
     let swiper = new Swiper(".mySwiper", {
       slidesPerView: 3,
       spaceBetween: 60,
@@ -30,6 +30,9 @@ $(() => {
       hashNavigation: {
         watchState: true,
       },
+      // history: {
+      //   replaceState: true, // replaceState 대신 pushState를 사용해 브라우저 히스토리에 추가
+      // },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -45,18 +48,19 @@ $(() => {
           // spaceBetween: 10,
         },
         768: {
-          slidesPerView: 1.5,
+          slidesPerView: 2,
           spaceBetween: 10,
         },
-        1000: {
+        1200: {
           slidesPerView: 3,
           spaceBetween: 20,
         },
       },
     });
 
-    let swiperTarget; // swiper영역 위치 변수선언
-    let targetX; // 활성 slide 넓이 변수선언
+    let swiperTarget; // swiper영역 위치 변수
+    let targetX; // 활성 slide 넓이 변수
+    let ww = window.innerWidth; // 화면 넓이
 
     // .btn-view 자세히보기 클릭시 이벤트
     $(document).on("click", ".btn-view", function (e) {
@@ -68,13 +72,14 @@ $(() => {
       $targetSlide.addClass("open"); // 클래스 추가
       $targetSlide.find(".close-btn").show(); // .close-btn 보이기
       $targetSlide.find(".detail").show(); // .detail 보이기
-
-      // swiper영역 위치 수정
-      swiperTarget = swiper.getTranslate();
-      console.log(swiperTarget);
-      targetX = $targetSlide.width() / 2;
+      
+      // swiper영역 위치 이동
+      swiperTarget = swiper.getTranslate(); // swiper영역 위치 측정
+      let targetSlideWidth = $targetSlide.width(); // 활성 슬라이드 넓이값
+      targetX = targetSlideWidth / 2; // 활성 슬라이드 위치계산
       let translate = swiperTarget - targetX;
-      $(".product-list").css("transform", "translate3d(" + translate + "px, 0px, 0px)");
+      if (ww > 1200) $(".product-list").css("transform", "translate3d(" + translate + "px, 0px, 0px)");
+      console.log(translate);
     }); /// click ///
 
     // .close-btn 닫기 클릭시 이벤트
@@ -91,8 +96,9 @@ $(() => {
       // swiper영역 위치 원복
       targetX = $targetSlide.width() / 4;
       swiperTarget = swiper.getTranslate() + targetX;
+      if (ww > 1200) $(".product-list").css("transform", "translate3d(" + swiperTarget + "px, 0px, 0px)");
       console.log(swiperTarget);
-      $(".product-list").css("transform", "translate3d(" + swiperTarget + "px, 0px, 0px)");
     }); /// click ///
+
   } /// if ///
 });
