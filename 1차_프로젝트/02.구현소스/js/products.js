@@ -58,20 +58,27 @@ $(() => {
       },
     });
 
-    let swiperTarget = swiper.getTranslate();
+    window.addEventListener("resize", swiperPosFn); // 리사이즈시 위치 호출 함수 실행
+    // swiper 위치 호출 함수
+    function swiperPosFn() {
+      let swiperTarget = swiper.getTranslate(); // swiper 슬라이드 위치 읽기
+      let ww = window.innerWidth; // 윈도우 넓이 읽기
+      console.log("슬라이드 위치값:", swiperTarget);
+      console.log("윈도우 넓이값:", ww);
+    }
 
+    // 자세히 버튼 클릭시
     $(document).on("click", ".btn-view", function (e) {
       e.stopPropagation(); // 버블링 막기
       $(this).hide(); // 자세히보기 버튼 숨기기
       // 해당 슬라이드 열기
       const $closestSlide = $(this).closest(".product-box");
       $closestSlide.addClass("open").children(".close-btn").show();
-
-      $closestSlide.animate({
-        width: "1200px",
-      },1000);
+      // 해당 슬라이드 사이즈 변경 애니메이션
+      $closestSlide.animate({width: "1200px"}, 200);
     });
 
+    // 이전 버튼 클릭시
     $(document).on("click", ".close-btn", function (e) {
       e.stopPropagation(); // 버블링 막기
       $(this).hide(); // 이전 버튼 숨기기
@@ -79,6 +86,5 @@ $(() => {
       const $closestSlide = $(this).closest(".product-box");
       $closestSlide.removeClass("open").children(".btn-view").show();
     });
-
   }); // getJSON
 });
