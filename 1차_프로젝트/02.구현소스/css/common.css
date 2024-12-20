@@ -226,6 +226,10 @@ body::-webkit-scrollbar-track {
   background-color: #fff;
 }
 
+/* 드래그 배경색 글자색 */
+::selection {  color: var(--color-bg-basic);  background-color: var(--font-color-secondary);}
+
+
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width:1200px) {
 

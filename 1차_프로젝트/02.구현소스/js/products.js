@@ -32,9 +32,7 @@ $(() => {
       loopedSlides: 2,
       centeredSlides: true,
       centeredSlidesBounds: true,
-      hashNavigation: {
-        replaceState: true,
-      },
+      hashNavigation: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -61,60 +59,21 @@ $(() => {
 
     let swiperTarget = swiper.getTranslate();
 
-    // 화면 리사이즈 이벤트
-    $(window).resize(function () {
-      swiperTarget = swiper.getTranslate();
-      let isOpen = $(".swiper-slide-active").is(".open");
-      if (isOpen) slideOpen();
-      else slideBack();
-    });
-
-    function slideOpen() {
-      let $slideOpen = $(".open");
-      let positionX = swiperTarget - $slideOpen.offset().left / 4 + 40;
-      $(".product-list").css(
-        "transform",
-        "translate3d(" + positionX + "px, 0px, 0px"
-      );
-    }
-
-    function slideBack() {
-      $(".product-list").css(
-        "transform",
-        "translate3d(" + swiperTarget + "px, 0px, 0px"
-      );
-      console.log("닫기위치:", swiperTarget);
-    }
-
     $(document).on("click", ".btn-view", function (e) {
-      e.stopPropagation();
-      swiper.disable();
-      $(this).hide();
-
+      e.stopPropagation(); // 버블링 막기
+      $(this).hide(); // 자세히보기 버튼 숨기기
+      // 해당 슬라이드 열기
       const $closestSlide = $(this).closest(".product-box");
       $closestSlide.addClass("open").children(".close-btn").show();
-
-      slideOpen();
     });
 
     $(document).on("click", ".close-btn", function (e) {
-      e.stopPropagation();
-      swiper.enable();
-      $(this).hide();
-
+      e.stopPropagation(); // 버블링 막기
+      $(this).hide(); // 이전 버튼 숨기기
+      // 해당 슬라이드 닫기
       const $closestSlide = $(this).closest(".product-box");
       $closestSlide.removeClass("open").children(".btn-view").show();
-
-      slideBack();
     });
 
-    function hashChange() {
-      const hash = window.location.hash.replace('#', '');
-      const slideIndex = parseInt(hash.replace('slide', ''), 10);
-      if (!isNaN(slideIndex) && slideIndex >= 0 && slideIndex < products.length) {
-        swiper.slideTo(slideIndex);
-      }
-    }
-    window.addEventListener('load', hashChange);
   }); // getJSON
 });
