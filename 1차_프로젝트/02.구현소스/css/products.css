@@ -19,7 +19,7 @@
   transition: width .3s ease;
 }
 .product-box.open {
-  width: 60vw !important;
+  /* width: 60vw !important; */
 }
 .product-box span {
   font-size: min(40px, 6vw);
@@ -129,7 +129,7 @@
 /******************************* 미디어쿼리(768px이하) *******************************/
 @media all and (max-width: 768px) {
   .product-box.open {
-    width: 100% !important;
+    /* width: 100% !important; */
   }
   .product-box.open p {
     width: 100%;

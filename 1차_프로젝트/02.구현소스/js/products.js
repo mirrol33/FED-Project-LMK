@@ -66,6 +66,10 @@ $(() => {
       // 해당 슬라이드 열기
       const $closestSlide = $(this).closest(".product-box");
       $closestSlide.addClass("open").children(".close-btn").show();
+
+      $closestSlide.animate({
+        width: "1200px",
+      },1000);
     });
 
     $(document).on("click", ".close-btn", function (e) {
