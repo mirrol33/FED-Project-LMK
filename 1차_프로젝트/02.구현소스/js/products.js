@@ -80,12 +80,12 @@ $(() => {
       // 해당 슬라이드 사이즈 변경 애니메이션
       $closestSlide.animate({width:"1200px"}, 200);
       // 해당 슬라이드 위치변경
-      const $proPosition = $('#product-list'); // 슬라이드 위치변경 대상
-      let positionX = swiperTranslate - (ww -1200)/2;
-      console.log('이동값:',positionX);
-      $proPosition.animate({
-        transform: `translate3d(-${positionX}px, 0px, 0px) !important`
-      },200);
+      // const $proPosition = $('#product-list'); // 슬라이드 위치변경 대상
+      // let positionX = swiperTranslate - (ww -1200)/2;
+      // console.log('이동값:',positionX);
+      // $proPosition.animate({
+      //   transform: `translate3d(-${positionX}px, 0px, 0px) !important`
+      // },200);
     });
 
     // 이전 버튼 클릭시
