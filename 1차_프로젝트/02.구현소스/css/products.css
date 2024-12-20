@@ -127,10 +127,7 @@
   }
 }
 /******************************* 미디어쿼리(768px이하) *******************************/
-@media all and (max-width: 768px) {
-  .product-box.open {
-    /* width: 100% !important; */
-  }
+@media all and (max-width: 768px) {  
   .product-box.open p {
     width: 100%;
   }

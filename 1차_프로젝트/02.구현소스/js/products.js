@@ -78,8 +78,9 @@ $(() => {
       $closestSlide.animate({width:"1200px"}, 200);
       // 해당 슬라이드 위치변경
       const $proPosition = $('.product-list'); // 슬라이드 위치변경 대상
+      let positionX = (ww - 1200) / 2;
       $proPosition.animate({
-        // transform: "translate3d("+ swiperTranslate +"px, 0px, 0px)"
+        // transform: `translate3d(${positionX}px, 0px, 0px)`
       });
     });
 
