@@ -79,7 +79,7 @@ $(() => {
       // 해당 슬라이드 위치변경
       const $proPosition = $('.product-list'); // 슬라이드 위치변경 대상
       $proPosition.animate({
-        transform: "translate3d("+swiperTranslate+"px, 0px, 0px)"
+        // transform: "translate3d("+ swiperTranslate +"px, 0px, 0px)"
       });
     });
 
@@ -96,9 +96,7 @@ $(() => {
     // .swiper-button-prev, .swiper-button-next, .swiper-pagination span
     $(document).on("click", ".swiper-button-prev,.swiper-button-next,.swiper-pagination span", function (e) {
       console.log('좌우버튼,페이지버튼클릭시!');
-
     });
-    
 
   }); // getJSON
 });
