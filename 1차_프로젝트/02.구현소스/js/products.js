@@ -7,8 +7,6 @@ $(() => {
 
   // JSON 데이터 로드
   $.getJSON(jsonFile, function (products) {
-    console.log("JSON 완료!", products.length);
-
     // 상품 리스트 출력
     products.forEach(function (product) {
       $proList.append(`
@@ -32,7 +30,10 @@ $(() => {
       loopedSlides: 2,
       centeredSlides: true,
       centeredSlidesBounds: true,
-      hashNavigation: true,
+      hashNavigation: {
+        replaceState: true,
+        watchState: true,
+      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,

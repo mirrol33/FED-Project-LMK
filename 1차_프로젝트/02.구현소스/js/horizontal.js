@@ -1,5 +1,31 @@
-window.addEventListener("load", initHorizontalScroll); // 로드시 실행
-window.addEventListener("resize", initHorizontalScroll); // 리사이즈시 실행
+window.addEventListener('load', horiProListFn); // 로드시 상품리스트 출력 함수
+window.addEventListener("load", initHorizontalScroll); // 로드시 가로스크롤 함수
+window.addEventListener("resize", initHorizontalScroll); // 리사이즈시 가로스크롤 함수
+
+// JSON 파일 로드
+import products from "./products.json" with {type: "json"};
+
+// 가로 스크롤 영역 상품 데이터 출력
+function horiProListFn() {
+  // JSON 데이터를 배열로 변환
+  const proList = Object.keys(products);
+
+  // DOM 요소 (변경 대상)
+  const horiProList = document.querySelector('.product-info-area');
+  
+  // 상품 리스트를 생성
+  proList.forEach((key) => {
+    const product = products[key]; // JSON 데이터에서 해당 제품 정보 가져오기
+    horiProList.innerHTML += `
+      <li class="product-info">
+        <span></span>
+        <h4><a href="#none">${product.name_en}</a></h4>
+        <h5><a href="#none">${product.name}</a></h5>
+        <p>${product.description}</p>
+      </li>
+    `;
+  }); //// forEach ////
+}
 
 // 모바일 기기 여부와 뷰포트 크기 확인
 const shouldRunHorizontalScroll = () => !/iphone|ipad|ipod|android|blackberry|webos|windows phone/i.test(navigator.userAgent.toLowerCase()) && window.innerWidth > 1200;
@@ -51,3 +77,10 @@ function initHorizontalScroll() {
     cleanupHorizontalScroll = null; // 필요 없을 경우 초기화
   }
 } //// 가로스크롤 영역 초기화 및 리사이즈 관리 ////
+
+
+
+
+
+
+
