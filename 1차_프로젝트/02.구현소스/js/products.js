@@ -25,11 +25,11 @@ $(() => {
     // Swiper 초기화 실행
     let swiper = new Swiper(".mySwiper", {
       slidesPerView: "auto",
-      spaceBetween: 60,
+      spaceBetween: 80,
       loop: true,
       loopedSlides: 2,
       centeredSlides: true,
-      centeredSlidesBounds: true,
+      // centeredSlidesBounds: true,
       hashNavigation: {
         replaceState: true,
         watchState: true,
@@ -65,9 +65,11 @@ $(() => {
       },
     });
 
+    
     // 공통 함수: 슬라이드 열기/닫기
     function toggleSlide(el, isOpen) {
       const $closestSlide = el.closest(".product-box");
+      const originSize = $closestSlide.width();
 
       if (isOpen) {
         // 슬라이드 열기
