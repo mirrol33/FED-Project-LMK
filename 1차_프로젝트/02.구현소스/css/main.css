@@ -393,7 +393,7 @@ main section .inner {
 /* 메인 인스타그램 컨텐츠 영역 */
 .insta-boxs {
   padding-top: 250px;
-  padding-bottom: 180px;
+  padding-bottom: 120px;
 }
 
 .insta-imgboxs {
@@ -409,39 +409,36 @@ main section .inner {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5%;
 }
 
 .insta-title svg {
-    width: 32px;
-    height: 32px;
-    margin-right: 1svw;
+  width: 32px;
+  height: 32px;
+  margin-right: 1svw;
 }
 
-.insta-imgboxs ul {
+.instagram-feed {
   position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding-top: 80px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-bg-dark);
+  padding-bottom: 10px;
+  padding-left: 10px;
 }
-
-.insta-imgboxs ul li {
-  position: relative;
-  width: 23.5%;
+.instagram-feed a {
+  width: 25%;
+  height: auto;
+  padding:10px 10px 0 0;
+  box-sizing: border-box;
 }
-
-.insta-imgboxs ul li a {
+.instagram-feed a img {
   position: relative;
   width: 100%;
   height: auto;
-}
-
-.insta-imgboxs ul li img {
-  width: 100%;
-  height: auto;
+  object-fit: cover;
 }
 
 /******************************* 미디어쿼리(1200px이하) *******************************/
@@ -556,8 +553,6 @@ main section .inner {
     margin-top: 4%;
   }
 
-  
-
   /* mo 가로스크롤 상품 영역 */
   .product-boxs {
     height: auto;
@@ -655,21 +650,7 @@ main section .inner {
 
   .insta-imgboxs {
     margin-top: -40%;
-  }
-
-  .insta-imgboxs ul {
-    display: block;
-    padding-top: 10%;
-  }
-
-  .insta-imgboxs ul li {
-    flex: 1;
-    width: 70%;
-    padding: 0 15%;
-  }
-
-  .insta-imgboxs ul li + li {
-    display: none;
+    width: 96%;
   }
 
   .insta-title {
@@ -681,8 +662,17 @@ main section .inner {
     height: auto;
   }
 
-
+  .instagram-feed a {
+    width: 50%;
+  }
 }
 /******************************* 미디어쿼리(768px이하) *******************************/
 @media all and (max-width: 768px) {
+  .instagram-feed {
+    
+  }
+  .instagram-feed a {
+    width: 50%;
+  
+  }
 }

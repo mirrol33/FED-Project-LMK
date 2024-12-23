@@ -99,7 +99,10 @@
 .swiper-pagination-bullet-active {
   background: var(--color-bg-red);
 }
-
+/* swiper 좌우버튼 style */
+.swiper-button-next, .swiper-button-prev {
+ color: var(--color-bg-dark);
+}
 /******************************* 미디어쿼리(1600px이하) *******************************/
 @media all and (max-width: 1600px) {
   .product-box {
@@ -122,5 +125,9 @@
   }
   .product-box.open figure {
     position: relative;
+  }
+  /* mo swiper 좌우버튼 숨김 */
+  .swiper-button-next, .swiper-button-prev {
+    display: none;
   }
 }
