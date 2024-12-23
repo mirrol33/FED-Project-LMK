@@ -61,13 +61,26 @@ $(() => {
       $contactBox.toggleClass("on");
     };
 
-    // 상담하기 버튼 클릭시
+    // 상담하기 버튼 클릭함수
     $(".contact-menu, .quick-btn a, .contact-close-btn a, .contact-bg").click((e) => {
       toggleContact();
       e.stopPropagation();
-      console.log("클릭됨!!");
     });
   }
 
   quickBtn(); // 상담하기 퀵버튼 실행
+
+  // 상담하기폼 가로 슬라이드
+  // DOM 요소 대상선정
+  const $formBtns = $(".form-btns span");
+  const $formSlideBox = $(".contact-box ul");
+  $formBtns[0].style.display = "none"; // 첫번째 이전 버튼 숨김
+  
+  $formBtns.each((e)=>{
+    e.stopPropagation();
+    $(this).on("click", goSlide());
+  });
+  function goSlide() {
+    console.log("goSlide");
+  };
 });

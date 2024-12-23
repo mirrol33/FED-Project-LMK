@@ -2,8 +2,6 @@ window.addEventListener("load", loadFn); // 로드시 실행
 window.addEventListener("resize", resizeFn); // 리사이즈시 실행
 window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴바 위치확인
 
-
-
 // 로드완료후 실행 함수
 function loadFn() {
   window.scrollTo(0, 0); // 스크롤 맨위로 이동
@@ -15,7 +13,6 @@ function loadFn() {
 
   // setTimeout start
   this.setTimeout(() => {
-    $("#contact-box").load("./contact.html"); // contact.html 불러오기
     lenis.start(); // lenis 스크롤 애니메이션 실행
     document.body.style.overflowY = "auto"; // 스크롤바 보이기
     document.querySelector(".loading-area").classList.add("off"); // 로드화면 사라짐
@@ -72,3 +69,4 @@ function checkScrollPosition() {
     // headerWrap.classList.remove("scrolled"); // 클래스 제거
   }
 } //// checkScrollPosition ////
+

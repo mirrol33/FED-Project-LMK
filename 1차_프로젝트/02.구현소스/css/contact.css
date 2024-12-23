@@ -83,8 +83,9 @@
   align-items: center;
   gap: 0 50px;
   position: relative;
-  max-width: 500px;
   margin: 0 auto;
+  max-width: 500px;
+  width: 90%;
 }
 .contact-process ul li {
   background: var(--color-bg-secondary);
