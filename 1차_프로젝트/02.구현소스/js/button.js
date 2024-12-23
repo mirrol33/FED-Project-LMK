@@ -5,12 +5,12 @@ $(() => {
 
     var relX = e.pageX - parentOffset.left;
     var relY = e.pageY - parentOffset.top;
-    $(this).prev(".su_button_circle").css({left: relX, top: relY});
+    $(this).prev(".su_button_circle").css({ left: relX, top: relY });
     $(this).prev(".su_button_circle").removeClass("desplode-circle");
     $(this).prev(".su_button_circle").addClass("explode-circle");
-    $(this).css({color: "#fff"});
-    $(this).children("svg").css({fill: "#fff"});
-    $(".more-btn a").css({borderColor: "#fff"});
+    $(this).css({ color: "#fff" });
+    $(this).children("svg").css({ fill: "#fff" });
+    $(".more-btn a").css({ borderColor: "#fff" });
   });
 
   // 더보기 버튼 마우스 아웃시 함수
@@ -19,12 +19,12 @@ $(() => {
 
     var relX = e.pageX - parentOffset.left;
     var relY = e.pageY - parentOffset.top;
-    $(this).prev(".su_button_circle").css({left: relX, top: relY});
+    $(this).prev(".su_button_circle").css({ left: relX, top: relY });
     $(this).prev(".su_button_circle").removeClass("explode-circle");
     $(this).prev(".su_button_circle").addClass("desplode-circle");
-    $(this).css({color: "#777"});
-    $(this).children("svg").css({fill: "#777"});
-    $(".more-btn a").css({borderColor: "#777"});
+    $(this).css({ color: "#777" });
+    $(this).children("svg").css({ fill: "#777" });
+    $(".more-btn a").css({ borderColor: "#777" });
   });
 
   // DOM요소 (검색버튼, 햄버거메뉴)
@@ -62,25 +62,53 @@ $(() => {
     };
 
     // 상담하기 버튼 클릭함수
-    $(".contact-menu, .quick-btn a, .contact-close-btn a, .contact-bg").click((e) => {
-      toggleContact();
-      e.stopPropagation();
-    });
+    $(".contact-menu, .quick-btn a, .contact-close-btn a, .contact-bg").click(
+      function(e){
+        toggleContact();
+        e.stopPropagation();
+      }
+    );
   }
 
-  quickBtn(); // 상담하기 퀵버튼 실행
+  quickBtn(); // 상담하기 퀵버튼 함수 호출!
 
   // 상담하기폼 가로 슬라이드
-  // DOM 요소 대상선정
+  // DOM 요소 대상 선정
   const $formBtns = $(".form-btns span");
-  const $formSlideBox = $(".contact-box ul");
-  $formBtns[0].style.display = "none"; // 첫번째 이전 버튼 숨김
-  
-  $formBtns.each((e)=>{
-    e.stopPropagation();
-    $(this).on("click", goSlide());
+  const $formSlideBox = $(".box-inner>ul");
+  const $formStep = $(".contact-process li");
+  const total = 3; // 총 슬라이드 개수
+  let Num = 0;  
+
+  updateButtonState();
+
+  // 각 버튼에 이벤트 리스너 추가
+  $formBtns.on("click", function (e) {
+    e.preventDefault(); // 기본 이벤트 방지
+    goSlide($(this).hasClass("next"));
   });
-  function goSlide() {
-    console.log("goSlide");
-  };
+
+  // 슬라이드 함수
+  function goSlide(isNext) {
+    if (isNext && Num < total) {
+      Num++;
+      $formStep.removeClass("active").eq(Num).addClass("active");
+    } else if (!isNext && Num > 0) {
+      Num--;
+      $formStep.removeClass("active").eq(Num).addClass("active");
+    }
+
+    $formSlideBox.css({
+      transform: `translateX(-${Num * 100}%)`,
+      transition: "transform 0.5s ease",
+    });
+
+    updateButtonState();
+  }
+
+  // 이전,다음 노출 함수
+  function updateButtonState() {
+    $formBtns.eq(0).css("display", Num === 0 ? "none" : "inline-block"); // 이전 버튼
+    $formBtns.eq(1).css("display", Num === total-1 ? "none" : "inline-block"); // 다음 버튼
+  }
 });

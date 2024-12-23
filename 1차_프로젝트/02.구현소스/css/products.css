@@ -48,8 +48,9 @@
   height: auto;
   background-color: #fff;
   border-radius: 100%; 
-  box-shadow: 0px 0px 20px 0px #fff;
+  box-shadow: 0px 0px 20px 0px #fff; 
 }
+
 .product-box figure img {
   width: 100%;
   border-radius: 100%;
@@ -64,7 +65,7 @@
     translate: 0;
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.1);
     translate: 0 -20px;
   }
   100% {
