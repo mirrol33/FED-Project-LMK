@@ -10,14 +10,16 @@ $(() => {
     // 상품 리스트 출력
     products.forEach(function (product) {
       $proList.append(`
-        <div class="product-box swiper-slide" data-hash="slide${product.id}">          
+        <div class="product-box swiper-slide" data-hash="slide${product.id}">
           <span>${product.name_en}</span>
           <h3>${product.name}</h3>
           <p>${product.description}</p>
           <p class="detail">${product.detail}</p>
           <a href="#" class="btn-view">자세히보기</a>
-          <a href="#" class="close-btn">이전</a>
-          <figure><img src="${product.img}" alt="${product.name}"></figure>          
+          <a href="#" class="close-btn"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1.34686 24L0 22.6531L10.6531 12L0 1.34686L1.34686 0L12 10.6531L22.6531 0L24 1.34686L13.3469 12L24 22.6531L22.6531 24L12 13.3469L1.34686 24Z" fill="#fff"/>
+          </svg></a>
+          <figure><img src="${product.img}" alt="${product.name}"></figure>
         </div>
       `);
     });

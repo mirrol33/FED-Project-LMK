@@ -44,7 +44,7 @@
 .product-box figure {
   position: relative;
   margin: 80px auto 50px;
-  width: min(220px, 50vw);
+  width: min(320px, 60vw);
   height: auto;
   background-color: #fff;
   border-radius: 100%; 
@@ -61,16 +61,13 @@
 }
 @keyframes pro-img-ani {
   0% {
-    transform: scale(1);
-    translate: 0;
+    translate: 0 10px;
   }
   50% {
-    transform: scale(1.1);
-    translate: 0 -20px;
+    translate: -10px -20px;
   }
   100% {
-    transform: scale(1);
-    translate: 0;
+    translate: 0 10px;
   }
 }
 .product-box.open figure {
@@ -93,6 +90,22 @@
   background-color: var(--color-bg-red);
   color: var(--color-bg-basic);
   transition: .3s ease-out;
+}
+.close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  border: 1px solid;
+  border-color: var(--color-bg-dark);
+  font-size: min(1rem, 2vw);
+  color: var(--color-bg-basic);
+  padding: 10px;  
+  background-color: var(--color-bg-dark);  
+}
+.close-btn svg {
+  width: 15px;
+  height: 15px;
 }
 .nav-container {
   width: 100%;

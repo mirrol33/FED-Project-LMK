@@ -273,6 +273,18 @@ main section .inner {
 .product-img a img {
   width: 100%;
   height: 100%;
+  animation: hori-pro-img-ani 2s linear infinite;
+}
+@keyframes hori-pro-img-ani {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 /* 가로스크롤 영역 상품명 */
@@ -423,24 +435,47 @@ main section .inner {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  background-color: var(--color-bg-dark);
-  padding-bottom: 10px;
-  padding-left: 10px;
+  align-items: stretch;
 }
 .instagram-feed a {
-  width: 25%;
+  position: relative;
+  width: calc(25% - 20px);
   height: auto;
-  padding:10px 10px 0 0;
   box-sizing: border-box;
+  background-color: var(--color-bg-dark);
+  margin: 10px;
 }
 .instagram-feed a img {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+  vertical-align: top;
 }
+.instagram-feed a:hover img {
+  opacity: 0.2;
+}
+.instagram-feed a .insta-ov-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  opacity: 0;  
+}
+.instagram-feed a:hover .insta-ov-icon {
+  opacity: 1;  
+}
+.instagram-feed .insta-ov-icon img {
+  width: 30px;
+  height: 30px;
+}
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
   /* mo 메인 컨텐츠 영역 */
@@ -663,16 +698,11 @@ main section .inner {
   }
 
   .instagram-feed a {
-    width: 50%;
+    width: calc(50% - 10px);
+    margin: 5px;
   }
 }
 /******************************* 미디어쿼리(768px이하) *******************************/
 @media all and (max-width: 768px) {
-  .instagram-feed {
-    
-  }
-  .instagram-feed a {
-    width: 50%;
   
-  }
 }
