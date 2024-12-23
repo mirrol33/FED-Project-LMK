@@ -24,7 +24,7 @@ $(() => {
 
     // Swiper 초기화 실행
     let swiper = new Swiper(".mySwiper", {
-      slidesPerView: 'auto',
+      slidesPerView: "auto",
       spaceBetween: 60,
       loop: true,
       loopedSlides: 2,
@@ -42,9 +42,10 @@ $(() => {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
-      on: { // 초기화 실행함수
+      on: {
+        // 초기화 실행함수
         init: function () {
-          $('.close-btn').hide(); // 이전 버튼 숨김
+          $(".close-btn").hide(); // 이전 버튼 숨김
           $(".detail").hide();
         },
       },
@@ -64,34 +65,41 @@ $(() => {
       },
     });
 
-    // 자세히 버튼 클릭시
+    // 공통 함수: 슬라이드 열기/닫기
+    function toggleSlide(el, isOpen) {
+      const $closestSlide = el.closest(".product-box");
+
+      if (isOpen) {
+        // 슬라이드 열기
+        el.fadeOut(); // 현재 버튼 숨기기
+        $closestSlide.addClass("open").children(".close-btn").fadeIn(); // .open 추가 및 닫기 버튼 표시
+        el.siblings(".detail").fadeIn("slow"); // 상세 내용 표시
+      } else {
+        // 슬라이드 닫기
+        el.fadeOut(); // 현재 버튼 숨기기
+        $closestSlide.removeClass("open").children(".btn-view").fadeIn(); // .open 제거 및 자세히 버튼 표시
+        el.siblings(".detail").hide(); // 상세 내용 숨김
+      }
+    }
+
+    // 자세히 버튼 클릭 시
     $(document).on("click", ".swiper-slide-active .btn-view", function (e) {
-      e.stopPropagation(); // 버블링 막기
-      $(this).fadeOut(); // 자세히보기 버튼 숨기기
-      // 해당 요소 열기
-      const $closestSlide = $(this).closest(".product-box"); // 부모요소 대상
-      $closestSlide.addClass("open").children(".close-btn").fadeIn(); // .open 추가, 이전 버튼 표시
-      $(this).siblings(".detail").fadeIn('slow');
+      e.stopPropagation(); // 버블링 방지
+      toggleSlide($(this), true); // 슬라이드 열기
     });
 
-    // 이전 버튼 클릭시
+    // 닫기 버튼 클릭 시
     $(document).on("click", ".swiper-slide-active .close-btn", function (e) {
-      e.stopPropagation(); // 버블링 막기
-      $(this).fadeOut(); // 이전 버튼 숨기기
-      // 해당 요소 닫기
-      const $closestSlide = $(this).closest(".product-box");
-      $closestSlide.removeClass("open").children(".btn-view").fadeIn(); // .open 삭제, 자세히 버튼 표시
-      $(this).siblings(".detail").hide();
+      e.stopPropagation(); // 버블링 방지
+      toggleSlide($(this), false); // 슬라이드 닫기
     });
 
-    // 이동시 실행함수
-    swiper.on('realIndexChange', function () {
-      $('.swiper-slide-prev.open').removeClass('open');
-      $('.swiper-slide-next.open').removeClass('open');
-      $('.close-btn').hide();
-      $('.swiper-slide-active .btn-view').show();
-      $('.detail').hide();
+    // 슬라이드 이동 시 초기화
+    swiper.on("realIndexChange", function () {
+      $(".swiper-slide-prev.open, .swiper-slide-next.open").removeClass("open");
+      $(".close-btn").hide();
+      $(".swiper-slide-active .btn-view").show();
+      $(".detail").hide();
     });
-
   }); // getJSON
 });
