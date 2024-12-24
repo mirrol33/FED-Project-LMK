@@ -57,6 +57,11 @@ function mainVideo() {
 function checkScrollPosition() {
   // 메뉴바 요소 선택
   const headerWrap = document.querySelector(".header-wrap");
+  // headerWrap 높이값 읽기
+  const headerHeight = headerWrap.offsetHeight;
+  // .products-container 상단 여백 변경
+  $(".products-container").css({paddingTop: headerHeight + "px"});
+  
   // 스크롤 위치값 변수 할당
   const scrollPosition = window.scrollY || document.documentElement.scrollTop;
   // 대상 섹션 높이값

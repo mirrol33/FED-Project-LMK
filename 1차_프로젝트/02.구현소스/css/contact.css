@@ -191,7 +191,7 @@
   margin-top: 20px;
 }
 .form-btns span {
-  display: inline-block;
+  display: none;
   background: var(--color-bg-dark);
   color: var(--color-bg-basic);
   border-radius: 8px;
@@ -208,10 +208,11 @@
 .form-btns span.submit {
   background: var(--color-bg-red);
   float: right;
-  display: none;
-}
-.form-btns span.submit a {
   font-weight: var(--font-weight-semibold);
+}
+.complete {
+  margin: 0 auto;
+  text-align: center;
 }
 
 /******************************* 미디어쿼리(1200px이하) *******************************/
