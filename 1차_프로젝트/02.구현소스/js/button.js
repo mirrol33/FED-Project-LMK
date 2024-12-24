@@ -71,62 +71,98 @@ $(() => {
   quickBtn(); // 상담하기 퀵버튼 함수 호출!
 
   // 상담하기폼 가로 슬라이드
-  // DOM 요소 대상 선정
-  const $formBtns = $(".form-btns>span");
-  const $formSlideBox = $(".box-inner>ul");
-  const $formStep = $(".contact-process>ul>li");
-  const $submitBtn = $("#submit")
-  const total = 4; // 총 슬라이드 개수
-  let Num = 0;
+// DOM 요소 대상 선정
+const $formBtns = $(".form-btns>span");
+const $formSlideBox = $(".box-inner>ul");
+const $formStep = $(".contact-process>ul>li");
+const $firstBtn = $(".first");
+const $requiredInputs = $formSlideBox.find("input[required]");
+const $privacyCheckbox = $("#privacy");
 
+const total = 4; // 총 슬라이드 개수
+let Num = 0;
+
+// 초기화
+$firstBtn.on("click", resetForm);
+
+// 버튼 이벤트 리스너
+$formBtns.on("click", function (e) {
+  e.preventDefault();
+  if ($(this).hasClass("submit")) {
+    submitCheck();
+  } else {
+    goSlide($(this).hasClass("next"));
+  }
+});
+
+// 슬라이드 업데이트
+function updateSlide() {
+  $formStep.removeClass("active").eq(Num).addClass("active");
+  $formSlideBox.css({
+    transform: `translateX(-${Num * 100}%)`,
+    transition: "transform 0.5s ease",
+  });
   updateButtonState();
+}
 
-  // 각 버튼에 이벤트 리스너 추가
-  $formBtns.on("click", function (e) {
-    e.preventDefault(); // 기본 이벤트 방지
-    if($(this).hasClass("submit")) {
-      submitCheck();
+// 초기화 함수
+function resetForm() {
+  Num = 0;
+  $formSlideBox.css({
+    transform: "translateX(0%)",
+    transition: "transform 0.5s ease",
+  });
+  $formStep.removeClass("active").eq(Num).addClass("active");
+  $requiredInputs.val("").css("border", "0");
+  $privacyCheckbox.prop("checked", false);
+  updateButtonState();
+}
+
+// 필수 입력 확인
+function submitCheck() {
+  let allValid = true;
+
+  $requiredInputs.each(function () {
+    if (!$(this).val()) {
+      $(this).css("border", "2px solid var(--color-bg-red)");
+      allValid = false;
     } else {
-      goSlide($(this).hasClass("next"));
+      $(this).css("border", "0");
     }
   });
-  
-  function submitCheck() {    
-    let inputVal = $formSlideBox.find("input[required]");
-    console.log(inputVal.val());
-    if(inputVal.val()) {
-      Num++;
-      $formStep.removeClass("active").eq(Num).addClass("active");
-      $formSlideBox.css({
-        transform: `translateX(-${Num * 100}%)`,
-        transition: "transform 0.5s ease",
-      });
-      updateButtonState();
-    } else {
-      alert("필수 항목을 입력해주세요!");
-    }
+
+  if (!$privacyCheckbox.is(":checked")) {
+    alert("개인정보 처리방침에 동의해주세요!");
+    return;
   }
 
-  // 슬라이드 함수
-  function goSlide(isNext) {
-    if (isNext && Num < total) {
-      Num++;
-      $formStep.removeClass("active").eq(Num).addClass("active");
-    } else if (!isNext && Num > 0) {
-      Num--;
-      $formStep.removeClass("active").eq(Num).addClass("active");
-    }
-    $formSlideBox.css({
-      transform: `translateX(-${Num * 100}%)`,
-      transition: "transform 0.5s ease",
-    });
-    updateButtonState();
+  if (allValid) {
+    Num++;
+    updateSlide();
+  } else {
+    alert("필수 항목을 입력해주세요!");
   }
+}
 
-  // 이전,다음 노출 함수
-  function updateButtonState() {
-    $formBtns.eq(0).css("display", Num == 0 || Num == 3 ? "none" : "inline-block"); // 이전 버튼
-    $formBtns.eq(1).css("display", Num >= 0 && Num < 2 ? "inline-block" : "none"); // 다음 버튼
-    $formBtns.eq(2).css("display", Num == 2 ? "inline-block" : "none"); // 상담신청하기 버튼
+// 슬라이드 이동
+function goSlide(isNext) {
+  if (isNext && Num < total) {
+    Num++;
+  } else if (!isNext && Num > 0) {
+    Num--;
   }
+  updateSlide();
+}
+
+// 버튼 상태 업데이트
+function updateButtonState() {
+  $formBtns.eq(0).css("display", Num === 0 || Num === 3 ? "none" : "inline-block"); // 이전 버튼
+  $formBtns.eq(1).css("display", Num >= 0 && Num < 2 ? "inline-block" : "none"); // 다음 버튼
+  $formBtns.eq(2).css("display", Num === 2 ? "inline-block" : "none"); // 상담신청하기 버튼
+}
+
+// 초기 상태 설정
+updateButtonState();
+
+
 });

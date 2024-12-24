@@ -66,14 +66,14 @@
   margin-bottom: 40px;
 }
 .contact-title h3 {
-  font-size: 2.5rem;
+  font-size: min(2.5rem, 6vw);
   font-weight: 500;
   letter-spacing: -0.02rem;
   margin-top: 100px;
   padding-bottom: 8px;
 }
 .contact-title p {
-  font-size: 1.25rem;
+  font-size: min(1.25rem, 4vw);
   font-weight: var(--font-weight-light);
   color: var(--font-color-secondary);
 }
@@ -81,7 +81,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0 50px;
+  gap: 0 10%;
   position: relative;
   margin: 0 auto;
   max-width: 500px;
@@ -124,6 +124,9 @@
 .contact-box h4 {
   padding-top: 40px;
   padding-bottom: 20px;
+}
+.contact-box h4 span {
+  color: var(--color-primary);
 }
 .contact-box label {
   display: none;
@@ -213,6 +216,12 @@
 .complete {
   margin: 0 auto;
   text-align: center;
+}
+.complete img {
+  width: min(100px, 20vw);
+}
+.complete p {
+  font-size: min(1rem, 3vw);
 }
 
 /******************************* 미디어쿼리(1200px이하) *******************************/
