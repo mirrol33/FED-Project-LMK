@@ -14,14 +14,16 @@ function horiProListFn() {
   const horiProList = document.querySelector('.product-info-area');
   
   // 상품 리스트를 생성
-  proList.forEach((key) => {
-    const product = products[key]; // JSON 데이터에서 해당 제품 정보 가져오기
+  proList.forEach((idx) => {
+    const product = products[idx]; // JSON 데이터에서 해당 제품 정보 가져오기
     horiProList.innerHTML += `
       <li class="product-info">
         <span></span>
-        <h4><a href="#none">${product.name_en}</a></h4>
-        <h5><a href="#none">${product.name}</a></h5>
-        <p>${product.description}</p>
+        <a href="./products.html#slide${product.id}">
+          <h4>${product.name_en}</h4>
+          <h5>${product.name}</h5>
+          <p>${product.description}</p>
+        </a>
       </li>
     `;
   }); //// forEach ////

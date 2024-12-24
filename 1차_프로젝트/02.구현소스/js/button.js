@@ -37,17 +37,17 @@ $(() => {
   function removeOnClasses(...elements) {
     elements.forEach((element) => element.removeClass("on"));
   }
-
+// burger와 submenu의 "on" 클릭 토글
   $searchBtn.click(() => {
     $searchBtn.toggleClass("on");
     $searchBox.toggleClass("on");
-    removeOnClasses($burger, $submenu); // burger와 submenu의 "on" 제거
+    removeOnClasses($burger, $submenu); 
   });
-
+// searchBtn과 searchBox의 "on" 클릭 토글
   $burger.click(() => {
     $burger.toggleClass("on");
     $submenu.toggleClass("on");
-    removeOnClasses($searchBtn, $searchBox); // searchBtn과 searchBox의 "on" 제거
+    removeOnClasses($searchBtn, $searchBox); 
   });
 
   // 퀵메뉴 상담하기 팝업창
@@ -74,9 +74,9 @@ $(() => {
 
   // 상담하기폼 가로 슬라이드
   // DOM 요소 대상 선정
-  const $formBtns = $(".form-btns span");
+  const $formBtns = $(".form-btns>span");
   const $formSlideBox = $(".box-inner>ul");
-  const $formStep = $(".contact-process li");
+  const $formStep = $(".contact-process>ul>li");
   const total = 3; // 총 슬라이드 개수
   let Num = 0;  
 

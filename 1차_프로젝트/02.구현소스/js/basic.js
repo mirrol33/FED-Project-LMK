@@ -6,10 +6,11 @@ window.addEventListener("scroll", checkScrollPosition); // 스크롤시 메뉴�
 function loadFn() {
   window.scrollTo(0, 0); // 스크롤 맨위로 이동
   document.body.style.overflow = "hidden"; // 로드시 스크롤바 숨김
-
+  
   lenis.stop(); // lenis 스크롤 애니메이션 일시멈춤
   mainVideo(); // 동영상 자동재생 실행
   checkScrollPosition(); // 스크롤 메뉴바 실행
+  $('#form-list').load('./contact.html'); // contact.html 불러오기
 
   // setTimeout start
   this.setTimeout(() => {
