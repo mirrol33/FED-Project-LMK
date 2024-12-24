@@ -1,11 +1,11 @@
 $(() => {
   // JSON 파일 경로
   let jsonFile = "./js/products.json";
-  // JSON 데이터 로드
+
+  // JSON 데이터를 자바스크립트 배열로 할당
   let products = [];
   $.getJSON(jsonFile, function (data) {
     products = data;
-    console.log("JSon 완료!", products.length);
   }); //// getJSON ////
 
   // DOM 요소

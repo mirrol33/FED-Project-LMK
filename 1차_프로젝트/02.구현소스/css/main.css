@@ -263,11 +263,10 @@ main section .inner {
 .product-img {
   position: relative;
   margin-right: 35px;
-  width: 360px;
-  height: 360px;
+  width: 380px;
+  height: 380px;
   border-radius: 100%;
   background-color: var(--color-bg-pink);
-  overflow: hidden;
 }
 
 .product-img a img {
