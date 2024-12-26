@@ -70,7 +70,7 @@ $(() => {
 
   quickBtn(); // 상담하기 퀵버튼 함수 호출!
 
-  // 상담하기폼 가로 슬라이드
+// 상담하기폼 가로 슬라이드 영역
 // DOM 요소 대상 선정
 const $formBtns = $(".form-btns>span");
 const $formSlideBox = $(".box-inner>ul");
@@ -84,6 +84,12 @@ let Num = 0;
 
 // 초기화
 $firstBtn.on("click", resetForm);
+
+// 첫번째 이름 입력폼에 입력시 이전,다음버튼 활성화 함수
+$("#name").on("input", function(){
+  if($(this).val())
+    if($formBtns.hasClass("off")) $formBtns.removeClass("off");
+});
 
 // 버튼 이벤트 리스너
 $formBtns.on("click", function (e) {

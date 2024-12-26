@@ -199,6 +199,9 @@
   color: var(--color-bg-basic);
   border-radius: 8px;
 }
+.form-btns span.off {
+  background: var(--font-color-secondary);
+}
 .form-btns span a {
   display: inline-block;
   padding: 12px 24px;
@@ -233,5 +236,11 @@
   }
   .quick-btn a {
     width: 60px;
+  }
+}
+/******************************* 미디어쿼리(768px이하) *******************************/
+@media all and (max-width: 768px) {
+  .contact-box { 
+    margin: 5vh auto;
   }
 }

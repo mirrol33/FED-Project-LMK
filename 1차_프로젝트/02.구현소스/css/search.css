@@ -140,6 +140,19 @@
   border-radius: 100%;
 }
 .search-more-btn a svg {width: 100%; height: auto;}
+.search-icon img {
+  width: 18px;
+  height: 18px;
+}
+.search-icon img:last-child {
+  display: none;
+}
+.search-icon.on img:last-child {
+  display: block;
+}
+.search-icon.on img:first-child {
+  display: none;
+}
 
 /******************************* 미디어쿼리(1200px이하) *******************************/
 @media all and (max-width: 1200px) {
