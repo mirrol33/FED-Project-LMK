@@ -210,6 +210,18 @@ body {
   }
 }
 
+/* 스크롤액션 */
+.scroll-act {
+  opacity: 0;
+  translate: 0 40%;
+  transition: all .5s ease;
+}
+.scroll-act.on {
+  opacity: 1;
+  translate: 0;
+  transition: all .5s ease;
+}
+
 /* 스크롤바 스타일변경 */
 body::-webkit-scrollbar {
   width: 8px;

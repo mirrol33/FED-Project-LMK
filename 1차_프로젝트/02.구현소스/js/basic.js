@@ -73,4 +73,3 @@ function checkScrollPosition() {
     // headerWrap.classList.remove("scrolled"); // 클래스 제거
   }
 } //// checkScrollPosition ////
-

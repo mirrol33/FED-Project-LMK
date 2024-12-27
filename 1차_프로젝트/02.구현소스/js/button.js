@@ -81,15 +81,18 @@ const $privacyCheckbox = $("#privacy");
 
 const total = 4; // 총 슬라이드 개수
 let Num = 0;
+let go = true;
 
-// 초기화
+function goFn(){
+  if(go){
+    go = false;
+  } else {
+    go = true;
+  }
+}
+
+// Close 초기화
 $firstBtn.on("click", resetForm);
-
-// 첫번째 이름 입력폼에 입력시 이전,다음버튼 활성화 함수
-$("#name").on("input", function(){
-  if($(this).val())
-    if($formBtns.hasClass("off")) $formBtns.removeClass("off");
-});
 
 // 버튼 이벤트 리스너
 $formBtns.on("click", function (e) {
@@ -98,10 +101,10 @@ $formBtns.on("click", function (e) {
     submitCheck();
   } else {
     goSlide($(this).hasClass("next"));
-  }
+  }  
 });
 
-// 슬라이드 업데이트
+// 슬라이드 단계 업데이트
 function updateSlide() {
   $formStep.removeClass("active").eq(Num).addClass("active");
   $formSlideBox.css({
@@ -113,6 +116,8 @@ function updateSlide() {
 
 // 초기화 함수
 function resetForm() {
+  active = false;
+  $formBtns.addClass("off");
   Num = 0;
   $formSlideBox.css({
     transform: "translateX(0%)",
@@ -120,7 +125,6 @@ function resetForm() {
   });
   $formStep.removeClass("active").eq(Num).addClass("active");
   $requiredInputs.val("").css("border", "0");
-  $privacyCheckbox.prop("checked", false);
   updateButtonState();
 }
 
@@ -162,13 +166,11 @@ function goSlide(isNext) {
 
 // 버튼 상태 업데이트
 function updateButtonState() {
-  $formBtns.eq(0).css("display", Num === 0 || Num === 3 ? "none" : "inline-block"); // 이전 버튼
+  $formBtns.eq(0).css("display", Num == 0 || Num == 3 ? "none" : "inline-block"); // 이전 버튼
   $formBtns.eq(1).css("display", Num >= 0 && Num < 2 ? "inline-block" : "none"); // 다음 버튼
-  $formBtns.eq(2).css("display", Num === 2 ? "inline-block" : "none"); // 상담신청하기 버튼
+  $formBtns.eq(2).css("display", Num == 2 ? "inline-block" : "none"); // 상담신청하기 버튼
 }
 
 // 초기 상태 설정
 updateButtonState();
-
-
 });

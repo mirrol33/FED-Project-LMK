@@ -200,7 +200,7 @@
   border-radius: 8px;
 }
 .form-btns span.off {
-  background: var(--font-color-secondary);
+  background: var(--font-color-gray);
 }
 .form-btns span a {
   display: inline-block;

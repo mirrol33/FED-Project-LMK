@@ -42,9 +42,10 @@ main section + section {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 180px;
+  margin-top: 140px;
   letter-spacing: -0.01rem;
   word-break: keep-all;
+  padding-top: 140px;
 }
 .about-container:last-child {
   padding-bottom: 180px;
@@ -66,9 +67,12 @@ main section + section {
 }
 .about-img.right {
   right: 0;
+  height: 100%;
 }
 .about-img.right .img-box {
   float: right;
+  position: sticky;
+  top:80px;
 }
 .img-box img {
   width: 100%;
