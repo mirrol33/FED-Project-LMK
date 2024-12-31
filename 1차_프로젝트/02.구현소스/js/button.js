@@ -70,41 +70,33 @@ $(() => {
 
   quickBtn(); // 상담하기 퀵버튼 함수 호출!
 
-// 상담하기폼 가로 슬라이드 영역
-// DOM 요소 대상 선정
-const $formBtns = $(".form-btns>span");
-const $formSlideBox = $(".box-inner>ul");
-const $formStep = $(".contact-process>ul>li");
+// 상담하기 폼 슬라이드 영역
+const $formBtns = $(".form-btns > span");
+const $formSlideBox = $(".box-inner > ul");
+const $formStep = $(".contact-process > ul > li");
 const $firstBtn = $(".first");
 const $requiredInputs = $formSlideBox.find("input[required]");
 const $privacyCheckbox = $("#privacy");
 
 const total = 4; // 총 슬라이드 개수
 let Num = 0;
-let go = true;
 
-function goFn(){
-  if(go){
-    go = false;
-  } else {
-    go = true;
-  }
-}
-
-// Close 초기화
+// 초기화
 $firstBtn.on("click", resetForm);
+$formBtns.on("click", handleButtonClick);
 
-// 버튼 이벤트 리스너
-$formBtns.on("click", function (e) {
+// 버튼 클릭 핸들러
+function handleButtonClick(e) {
   e.preventDefault();
+
   if ($(this).hasClass("submit")) {
     submitCheck();
   } else {
     goSlide($(this).hasClass("next"));
-  }  
-});
+  }
+}
 
-// 슬라이드 단계 업데이트
+// 슬라이드 업데이트
 function updateSlide() {
   $formStep.removeClass("active").eq(Num).addClass("active");
   $formSlideBox.css({
@@ -116,9 +108,8 @@ function updateSlide() {
 
 // 초기화 함수
 function resetForm() {
-  active = false;
-  $formBtns.addClass("off");
   Num = 0;
+  $formBtns.addClass("off");
   $formSlideBox.css({
     transform: "translateX(0%)",
     transition: "transform 0.5s ease",
@@ -133,12 +124,9 @@ function submitCheck() {
   let allValid = true;
 
   $requiredInputs.each(function () {
-    if (!$(this).val()) {
-      $(this).css("border", "2px solid var(--color-bg-red)");
-      allValid = false;
-    } else {
-      $(this).css("border", "0");
-    }
+    const isValid = $(this).val().trim() !== "";
+    $(this).css("border", isValid ? "0" : "2px solid var(--color-bg-red)");
+    allValid = allValid && isValid;
   });
 
   if (!$privacyCheckbox.is(":checked")) {
@@ -151,6 +139,8 @@ function submitCheck() {
     updateSlide();
   } else {
     alert("필수 항목을 입력해주세요!");
+    Num = 0; // 첫 번째 슬라이드로 이동
+    updateSlide();
   }
 }
 
@@ -166,11 +156,13 @@ function goSlide(isNext) {
 
 // 버튼 상태 업데이트
 function updateButtonState() {
-  $formBtns.eq(0).css("display", Num == 0 || Num == 3 ? "none" : "inline-block"); // 이전 버튼
-  $formBtns.eq(1).css("display", Num >= 0 && Num < 2 ? "inline-block" : "none"); // 다음 버튼
-  $formBtns.eq(2).css("display", Num == 2 ? "inline-block" : "none"); // 상담신청하기 버튼
+  $formBtns.eq(0).toggle(Num > 0 && Num < 3); // 이전 버튼
+  $formBtns.eq(1).toggle(Num >= 0 && Num < 2); // 다음 버튼
+  $formBtns.eq(2).toggle(Num === 2); // 상담신청하기 버튼
 }
 
 // 초기 상태 설정
 updateButtonState();
+
+
 });
