@@ -94,7 +94,7 @@ $(() => {
 
   const total = 4; // 총 슬라이드 개수
   let Num = 0;
-  let goOk = false; // 광클금지 변수
+  let goOk = true; // 광클금지 변수
 
   // 초기화
   $firstBtn.on("click", resetForm);
