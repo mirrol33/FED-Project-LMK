@@ -134,7 +134,7 @@
 /* 상담신청 입력폼 공통 스타일 */
 .contact-box input,
 .contact-box textarea {
-  background-color: var(--color-bg-secondary);
+  background-color: var(--color-bg-secondary) !important;
   border: none;
   font-size: 1rem;
   padding: 10px;
@@ -224,7 +224,21 @@
   width: min(100px, 20vw);
 }
 .complete p {
-  font-size: min(1rem, 3vw);
+  font-size: min(2.5rem, 4vw);
+  line-height: normal;
+}
+.complete p b {
+  font-weight: var(--font-weight-bold);
+}
+.first {
+  margin-top: 1rem;
+  color: var(--font-color-secondary);
+  font-size: 1rem;
+}
+.first img {
+  vertical-align: middle;
+  width: 20px;
+  margin-right: 4px;
 }
 
 /******************************* 미디어쿼리(1200px이하) *******************************/

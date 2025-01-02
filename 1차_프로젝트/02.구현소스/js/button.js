@@ -80,6 +80,7 @@ const $privacyCheckbox = $("#privacy");
 
 const total = 4; // 총 슬라이드 개수
 let Num = 0;
+let goOk = false; // 광클금지 변수
 
 // 초기화
 $firstBtn.on("click", resetForm);
@@ -88,11 +89,16 @@ $formBtns.on("click", handleButtonClick);
 // 버튼 클릭 핸들러
 function handleButtonClick(e) {
   e.preventDefault();
-
+  setTimeout(() => {
+    goOk = true;
+  },400);
+  if(!goOk) return;
   if ($(this).hasClass("submit")) {
     submitCheck();
+    goOk = false;
   } else {
     goSlide($(this).hasClass("next"));
+    goOk = false;
   }
 }
 
